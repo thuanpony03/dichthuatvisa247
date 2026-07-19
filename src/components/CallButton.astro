@@ -1,0 +1,19 @@
+---
+import { contact } from '../config/site';
+
+interface Props {
+  label?: string;
+  variant?: 'outline' | 'block';
+  class?: string;
+}
+
+const { label = `Gọi ${contact.phoneDisplay}`, variant = 'outline', class: className = '' } = Astro.props;
+
+const classes = ['btn', 'btn--call', variant === 'block' ? 'btn--block' : '', className]
+  .filter(Boolean)
+  .join(' ');
+---
+
+<a href={`tel:${contact.phoneTel}`} class={classes}>
+  {label}
+</a>

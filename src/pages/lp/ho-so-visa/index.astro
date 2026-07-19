@@ -1,0 +1,217 @@
+---
+import LandingLayout from '../../../layouts/LandingLayout.astro';
+import ZaloButton from '../../../components/ZaloButton.astro';
+import CallButton from '../../../components/CallButton.astro';
+import StickyBar from '../../../components/StickyBar.astro';
+import PriceTable from '../../../components/PriceTable.astro';
+import ThreeCommitments from '../../../components/ThreeCommitments.astro';
+import Lightbox from '../../../components/Lightbox.astro';
+import DocChips from '../../../components/DocChips.astro';
+import Faq from '../../../components/Faq.astro';
+import NumberedSteps from '../../../components/NumberedSteps.astro';
+import { contact, utmContent, bundlePricing, formatVnd } from '../../../config/site';
+
+const standardBundle = bundlePricing.find((b) => b.id === 'bundle-standard')!;
+
+const faqItems = [
+  {
+    question: 'Sao biết được 30 trang là đủ hay thiếu?',
+    answer: `Không cần tự đếm — gửi ảnh toàn bộ giấy tờ định nộp, bên mình đếm và báo đúng số trang, đúng số tiền trước khi bắt tay dịch. Trong hạn mức thì trọn ${formatVnd(standardBundle.price)}, dư ra mới tính thêm theo trang.`,
+  },
+  {
+    question: 'Lỡ thiếu giấy tờ, bổ sung sau có bị tính lại từ đầu không?',
+    answer: 'Không. Phần bổ sung tính riêng theo số trang thực tế, phần đã báo giá ban đầu giữ nguyên.',
+  },
+  {
+    question: 'Mộc công ty với công chứng tư pháp khác nhau chỗ nào?',
+    answer: 'Mộc công ty + xác nhận dịch là hình thức phổ biến cho hồ sơ visa du lịch, hầu hết lãnh sự chấp nhận. Công chứng tư pháp chỉ cần khi hồ sơ hoặc yêu cầu riêng của một số trường hợp đòi hỏi.',
+  },
+  {
+    question: 'Có phải trả trước rồi mới biết chất lượng không?',
+    answer: 'Không. Trang đầu tiên dịch miễn phí để đọc thử trước, ưng thì làm tiếp phần còn lại của bộ hồ sơ.',
+  },
+  {
+    question: 'Chọn gói tiêu chuẩn hay gấp 24h thì khác gì về giá?',
+    answer: 'Cả hai đều là giá trọn hồ sơ, biết trước tổng tiền như nhau — chỉ khác thời gian giao (3–5 ngày hoặc trong 24h) và mức phí tương ứng.',
+  },
+];
+
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqItems.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: { '@type': 'Answer', text: item.answer },
+    })),
+  },
+];
+---
+
+<LandingLayout
+  title="Dịch Trọn Hồ Sơ Visa — Biết Trước Tổng Tiền | Dịch Thuật Visa 247"
+  description="Dịch trọn bộ hồ sơ visa du lịch, biết trước tổng chi phí, không phát sinh. Có mộc công ty. Báo giá qua Zalo trong 5 phút."
+  path="/lp/ho-so-visa/"
+  ogImage="/img/og/lp.webp"
+  schema={schema}
+>
+  <!-- Khối 1: Hero — vừa trọn màn hình 375x667, không cần cuộn -->
+  <section class="hero">
+    <div class="container hero__inner">
+      <h1 class="hero__h1">Dịch Trọn Hồ Sơ Visa — Biết Trước Tổng Tiền</h1>
+      <p class="hero__sub">
+        Từ {formatVnd(standardBundle.price)}/hồ sơ, không phát sinh. Có mộc công ty. Báo giá trong 5 phút.
+      </p>
+
+      <img
+        src="/img/moc-do.webp"
+        alt="Bản dịch giấy tờ visa thật, đúng thể thức hồ sơ nộp lãnh sự"
+        width={280}
+        height={182}
+        class="hero__img"
+      />
+
+      <ZaloButton utmContent={utmContent.hero} variant="block" />
+      <CallButton variant="block" class="hero__call" />
+
+      <p class="hero__meta">{contact.personName} · {contact.responseTime} · {contact.hours}</p>
+    </div>
+    <div id="sticky-trigger" class="hero__sticky-trigger" aria-hidden="true"></div>
+  </section>
+
+  <!-- Khối 2: Xoá rào cản -->
+  <section class="section section--navy barrier">
+    <div class="container barrier__grid">
+      <p class="barrier__lead">
+        <strong>Đếm trang xong mới báo giá — không đoán, không chốt trước khi biết chắc.</strong><br />
+        Gửi hết một lượt giấy tờ định nộp, nhận lại một con số duy nhất cho cả bộ hồ sơ.
+      </p>
+      <NumberedSteps
+        steps={[
+          'Chụp toàn bộ giấy tờ, gửi Zalo',
+          'Nhận báo giá trọn hồ sơ + giờ giao trong 5 phút',
+          'Nhận bản dịch có mộc — file mềm hoặc giao tận nơi',
+        ]}
+      />
+    </div>
+  </section>
+
+  <!-- Khối 3: Giá -->
+  <section class="section">
+    <div class="container">
+      <h2>Bảng giá</h2>
+      <PriceTable />
+    </div>
+  </section>
+
+  <!-- Khối 4: Ba cam kết -->
+  <section class="section">
+    <div class="container">
+      <h2>Ba cam kết</h2>
+      <ThreeCommitments />
+    </div>
+  </section>
+
+  <!-- Khối 5: Bằng chứng -->
+  <section class="section">
+    <div class="container">
+      <h2>Bằng chứng — bản dịch thật</h2>
+      <Lightbox
+        columns={3}
+        images={[
+          { src: '/img/ban-dich-1.webp', alt: 'Ảnh bản dịch thật đã che thông tin cá nhân 1', width: 300, height: 390 },
+          { src: '/img/ban-dich-2.webp', alt: 'Ảnh bản dịch thật đã che thông tin cá nhân 2', width: 300, height: 390 },
+          { src: '/img/ban-dich-3.webp', alt: 'Ảnh bản dịch thật đã che thông tin cá nhân 3', width: 300, height: 390 },
+        ]}
+      />
+      <p class="evidence__caption">Đã xử lý hồ sơ visa Mỹ · Schengen · Canada · Úc · Anh · New Zealand</p>
+      <DocChips />
+    </div>
+  </section>
+
+  <!-- Khối 6: FAQ + CTA -->
+  <section class="section">
+    <div class="container">
+      <h2>Câu hỏi thường gặp</h2>
+      <Faq items={faqItems} />
+      <div class="final-cta">
+        <ZaloButton utmContent={utmContent.cuoi} variant="block" />
+      </div>
+    </div>
+  </section>
+
+  <StickyBar utmContent={utmContent.sticky} />
+</LandingLayout>
+
+<style>
+  .hero {
+    padding: var(--space-4) 0 var(--space-3);
+    position: relative;
+  }
+
+  .hero__inner {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    text-align: center;
+  }
+
+  .hero__h1 {
+    font-size: clamp(1.375rem, 6vw, 1.75rem);
+    margin-bottom: 0;
+  }
+
+  .hero__sub {
+    color: var(--navy-700);
+    margin-bottom: 0;
+    font-size: 0.9375rem;
+  }
+
+  .hero__img {
+    width: 220px;
+    height: 143px;
+    object-fit: cover;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--line);
+    margin: var(--space-1) auto;
+  }
+
+  .hero__call {
+    margin-top: var(--space-1);
+  }
+
+  .hero__meta {
+    font-size: 0.8125rem;
+    color: var(--navy-700);
+    margin: var(--space-1) 0 0;
+  }
+
+  .hero__sticky-trigger {
+    position: absolute;
+    top: 60%;
+    height: 1px;
+    width: 1px;
+  }
+
+  .barrier__grid {
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .barrier__lead {
+    font-size: 1.0625rem;
+    margin-bottom: var(--space-5);
+  }
+
+  .evidence__caption {
+    text-align: center;
+    color: var(--navy-700);
+    font-size: 0.9375rem;
+    margin-top: var(--space-4);
+  }
+
+  .final-cta {
+    margin-top: var(--space-6);
+  }
+</style>

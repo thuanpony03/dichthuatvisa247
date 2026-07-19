@@ -1,0 +1,96 @@
+---
+import { getCollection, render, type CollectionEntry } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import LastUpdated from '../../components/LastUpdated.astro';
+import ZaloButton from '../../components/ZaloButton.astro';
+import { utmContent, site } from '../../config/site';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('blog');
+  return entries.map((entry) => ({ params: { slug: entry.data.slug }, props: { entry } }));
+}
+
+interface Props {
+  entry: CollectionEntry<'blog'>;
+}
+
+const { entry } = Astro.props;
+const { data } = entry;
+const { Content } = await render(entry);
+
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: data.title,
+    datePublished: data.updated.toISOString(),
+    dateModified: data.updated.toISOString(),
+    author: { '@type': 'Organization', name: site.name },
+    publisher: { '@type': 'Organization', name: site.name },
+  },
+];
+---
+
+<BaseLayout
+  title={`${data.title} | Dịch Thuật Visa 247`}
+  description={data.description}
+  path={`/blog/${data.slug}/`}
+  schema={schema}
+>
+  <div class="container blog-post">
+    <Breadcrumb items={[{ label: 'Blog', href: '/blog/' }, { label: data.title, href: `/blog/${data.slug}/` }]} />
+    <h1>{data.title}</h1>
+    <LastUpdated date={data.updated} />
+
+    <div class="blog-post__content">
+      <Content />
+    </div>
+
+    <section class="blog-post__cta">
+      <ZaloButton utmContent={utmContent.cuoi} variant="block" />
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .blog-post {
+    padding: var(--space-6) 0 var(--space-8);
+    max-width: 720px;
+  }
+
+  .blog-post > h1 {
+    margin-top: var(--space-4);
+  }
+
+  .blog-post__content {
+    color: var(--ink);
+  }
+
+  .blog-post__content h2 {
+    margin-top: var(--space-7);
+  }
+
+  .blog-post__content h3 {
+    margin-top: var(--space-5);
+  }
+
+  .blog-post__content p {
+    line-height: 1.7;
+  }
+
+  .blog-post__content ul,
+  .blog-post__content ol {
+    padding-left: 1.25em;
+    line-height: 1.7;
+  }
+
+  .blog-post__content li {
+    margin-bottom: var(--space-2);
+  }
+
+  .blog-post__cta {
+    margin-top: var(--space-7);
+    max-width: 420px;
+  }
+</style>

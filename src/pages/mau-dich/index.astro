@@ -1,0 +1,106 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+
+const docs = (await getCollection('giay-to')).sort((a, b) => a.data.docName.localeCompare(b.data.docName, 'vi'));
+
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: 'Thư viện bản dịch mẫu',
+  },
+];
+---
+
+<BaseLayout
+  title="Thư viện Mẫu Dịch Giấy Tờ Sang Tiếng Anh | Dịch Thuật Visa 247"
+  description="Mẫu dịch giấy tờ visa sang tiếng Anh: giấy khai sinh, đăng ký kết hôn, sổ tiết kiệm, CT07... Có ảnh mẫu thật, bảng thuật ngữ, lỗi thường gặp."
+  path="/mau-dich/"
+  ogImage="/img/og/mau-dich.webp"
+  schema={schema}
+>
+  <div class="container mau-dich-index">
+    <Breadcrumb items={[{ label: 'Mẫu dịch', href: '/mau-dich/' }]} />
+    <h1>Thư viện Mẫu Dịch Giấy Tờ Visa</h1>
+    <p class="text-muted">
+      {docs.length} loại giấy tờ thường gặp trong hồ sơ visa du lịch, dịch sang tiếng Anh theo đúng thể thức
+      lãnh sự. Mỗi trang có ảnh mẫu thật, bảng thuật ngữ Việt–Anh và lỗi thường gặp.
+    </p>
+
+    <div class="doc-grid">
+      {
+        docs.map((doc) => (
+          <a class="doc-card fade-in" href={`/mau-dich/${doc.data.slug}/`}>
+            <img
+              src={doc.data.sampleImage}
+              alt={`Ảnh mẫu dịch ${doc.data.docName}`}
+              width={300}
+              height={390}
+              loading="lazy"
+            />
+            <span class="doc-card__label">{doc.data.docName}</span>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .mau-dich-index {
+    padding: var(--space-6) 0 var(--space-8);
+  }
+
+  .mau-dich-index h1 {
+    margin-top: var(--space-4);
+  }
+
+  .doc-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+    margin-top: var(--space-6);
+  }
+
+  @media (min-width: 640px) {
+    .doc-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  @media (min-width: 960px) {
+    .doc-grid {
+      grid-template-columns: repeat(5, 1fr);
+    }
+  }
+
+  .doc-card {
+    display: block;
+    text-decoration: none;
+    color: var(--ink);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: var(--white);
+  }
+
+  .doc-card img {
+    width: 100%;
+    aspect-ratio: 700 / 910;
+    object-fit: cover;
+  }
+
+  .doc-card__label {
+    display: block;
+    padding: var(--space-2) var(--space-3);
+    font-weight: 600;
+    font-size: 0.875rem;
+  }
+
+  .doc-card:hover .doc-card__label {
+    color: var(--navy-900);
+    text-decoration: underline;
+  }
+</style>

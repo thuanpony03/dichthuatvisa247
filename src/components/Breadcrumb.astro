@@ -1,0 +1,77 @@
+---
+import { site } from '../config/site';
+
+interface Crumb {
+  label: string;
+  href: string;
+}
+
+interface Props {
+  items: Crumb[]; // không cần bao gồm "Trang chủ", component tự thêm
+}
+
+const { items } = Astro.props;
+const allItems: Crumb[] = [{ label: 'Trang chủ', href: '/' }, ...items];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: allItems.map((item, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: item.label,
+    item: new URL(item.href, site.domain).toString(),
+  })),
+};
+---
+
+<nav aria-label="Breadcrumb" class="breadcrumb">
+  <ol>
+    {
+      allItems.map((item, index) => (
+        <li>
+          {index === allItems.length - 1 ? (
+            <span aria-current="page">{item.label}</span>
+          ) : (
+            <a href={item.href}>{item.label}</a>
+          )}
+        </li>
+      ))
+    }
+  </ol>
+</nav>
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} is:inline />
+
+<style>
+  .breadcrumb ol {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: var(--space-1);
+    font-size: 0.8125rem;
+    color: var(--navy-700);
+  }
+
+  .breadcrumb li:not(:last-child)::after {
+    content: '/';
+    margin-left: var(--space-1);
+    color: var(--line);
+  }
+
+  .breadcrumb a {
+    color: var(--navy-700);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    text-decoration: underline;
+  }
+
+  .breadcrumb [aria-current='page'] {
+    color: var(--ink);
+    font-weight: 600;
+  }
+</style>

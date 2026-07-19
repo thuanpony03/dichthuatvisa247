@@ -1,0 +1,64 @@
+---
+const items = [
+  {
+    icon: '/img/icons/commit-1-thethuc.webp',
+    title: 'Đúng thể thức lãnh sự',
+    desc: 'Dịch giả có chứng chỉ, đúng chuẩn hồ sơ nộp lãnh sự quán.',
+  },
+  {
+    icon: '/img/icons/commit-2-kiemtra.webp',
+    title: 'Sai sót do dịch: dịch lại miễn phí',
+    desc: 'Kiểm tra chéo trước khi đóng mộc.',
+  },
+  {
+    icon: '/img/icons/commit-3-dunggio.webp',
+    title: 'Cam kết đúng giờ giao',
+    desc: 'Trễ hẹn hoàn 100% phí gấp.',
+  },
+];
+---
+
+<div class="commitments">
+  {
+    items.map((item) => (
+      <div class="commitments__row fade-in">
+        <img src={item.icon} alt="" width={64} height={58} class="commitments__icon" loading="lazy" />
+        <div class="commitments__text">
+          <h3>{item.title}</h3>
+          <p>{item.desc}</p>
+        </div>
+      </div>
+    ))
+  }
+</div>
+
+<style>
+  .commitments {
+    border-top: 1px solid var(--line);
+  }
+
+  .commitments__row {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-5);
+    padding: var(--space-5) 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .commitments__icon {
+    flex-shrink: 0;
+    width: 64px;
+    height: 58px;
+    object-fit: contain;
+  }
+
+  .commitments__text h3 {
+    margin-bottom: var(--space-1);
+  }
+
+  .commitments__text p {
+    margin: 0;
+    color: var(--navy-700);
+    font-size: 0.9375rem;
+  }
+</style>

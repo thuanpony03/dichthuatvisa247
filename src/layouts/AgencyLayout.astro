@@ -1,0 +1,103 @@
+---
+// Layout riêng cho /agency/ — trang gửi link sau cuộc gọi, không phải trang khách lẻ tự tìm thấy.
+// Tông nghiêm túc, dùng --accent thay --seal. Có bản in được để xuất PDF one-pager.
+import '../styles/global.css';
+import Seo from '../components/Seo.astro';
+import Tracking from '../components/Tracking.astro';
+import { contact, site } from '../config/site';
+
+interface Props {
+  title: string;
+  description: string;
+  path: string;
+  schema?: Record<string, unknown>[];
+}
+
+const { title, description, path, schema = [] } = Astro.props;
+const year = new Date().getFullYear();
+---
+
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="theme-color" content="#013790" />
+    <script is:inline>document.documentElement.classList.add('js');</script>
+    <Seo title={title} description={description} path={path} noindex={true} />
+    {schema.map((s) => <script type="application/ld+json" set:html={JSON.stringify(s)} is:inline />)}
+    <Tracking />
+  </head>
+  <body class="agency-body">
+    <header class="agency-header no-print">
+      <div class="container agency-header__inner">
+        <span class="agency-header__logo">{site.name} <span class="agency-header__tag">Đối tác</span></span>
+        <a href={`tel:${contact.phoneTel}`} class="agency-header__phone">{contact.phoneDisplay}</a>
+      </div>
+    </header>
+    <main id="main">
+      <slot />
+    </main>
+    <footer class="agency-footer">
+      <div class="container">
+        <p>
+          © {year} {site.name} · {contact.personName} · {contact.phoneDisplay} ·{' '}
+          <a href={contact.zaloUrl} target="_blank" rel="noopener">Zalo</a>
+        </p>
+      </div>
+    </footer>
+    <script src="../scripts/fade-in.js"></script>
+    <style>
+      .agency-header {
+        background: var(--navy-900);
+        color: var(--white);
+        border-bottom: 3px solid var(--accent);
+      }
+
+      .agency-header__inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: var(--space-3) 0;
+      }
+
+      .agency-header__logo {
+        font-weight: 800;
+        letter-spacing: -0.02em;
+      }
+
+      .agency-header__tag {
+        color: var(--accent);
+        font-weight: 600;
+        font-size: 0.8125rem;
+        margin-left: var(--space-2);
+      }
+
+      .agency-header__phone {
+        color: var(--white);
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      .agency-footer {
+        background: var(--navy-900);
+        color: #b7c0d4;
+        font-size: 0.8125rem;
+        padding: var(--space-5) 0;
+      }
+
+      .agency-footer a {
+        color: var(--accent);
+      }
+
+      @media print {
+        .no-print {
+          display: none !important;
+        }
+      }
+    </style>
+  </body>
+</html>

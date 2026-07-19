@@ -1,0 +1,170 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import ZaloButton from '../../components/ZaloButton.astro';
+import Faq from '../../components/Faq.astro';
+import { extraServices, site } from '../../config/site';
+
+const faqItems = [
+  {
+    question: 'Dịch vụ này có đảm bảo đậu visa không?',
+    answer:
+      'Không. Việc xét duyệt visa hoàn toàn thuộc thẩm quyền của lãnh sự quán/cơ quan di trú. Chúng tôi hỗ trợ hồ sơ đúng thể thức, đầy đủ giấy tờ theo yêu cầu — không cam kết, không đảm bảo kết quả xét duyệt dưới bất kỳ hình thức nào.',
+  },
+  {
+    question: 'Đã tự dịch giấy tờ ở chỗ khác rồi thì dùng Final Check được không?',
+    answer:
+      'Được — Final Check dành đúng cho trường hợp này. Gửi toàn bộ hồ sơ (kể cả bản dịch đã có) qua Zalo, chúng tôi rà soát thể thức và đối chiếu thông tin trước khi anh/chị nộp lãnh sự.',
+  },
+  {
+    question: 'Khác gì so với gói dịch thuật thông thường ở trang chủ?',
+    answer:
+      'Dịch thuật thông thường là dịch từng giấy tờ theo yêu cầu. Ba dịch vụ ở đây đi xa hơn: tư vấn hướng đi hồ sơ, xử lý trọn gói toàn bộ quy trình, hoặc kiểm tra lại hồ sơ đã chuẩn bị sẵn — phù hợp khi cần hỗ trợ nhiều hơn một bản dịch đơn lẻ.',
+  },
+];
+
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    serviceType: 'Tư vấn và xử lý hồ sơ visa du lịch',
+    provider: { '@type': 'Organization', name: site.business.legalName },
+    areaServed: 'VN',
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: 'Dịch vụ visa',
+      itemListElement: extraServices.map((s) => ({
+        '@type': 'Offer',
+        itemOffered: { '@type': 'Service', name: s.title, description: s.desc },
+      })),
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqItems.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: { '@type': 'Answer', text: item.answer },
+    })),
+  },
+];
+---
+
+<BaseLayout
+  title="Dịch Vụ Visa: Tư Vấn, Trọn Gói & Kiểm Tra Hồ Sơ | Dịch Thuật Visa 247"
+  description="Ngoài dịch thuật giấy tờ, hỗ trợ thêm tư vấn visa, xử lý trọn gói hồ sơ, và kiểm tra hồ sơ trước khi nộp (Final Check) cho khách tự chuẩn bị."
+  path="/dich-vu-visa/"
+  schema={schema}
+>
+  <div class="container dv-page">
+    <Breadcrumb items={[{ label: 'Dịch vụ visa', href: '/dich-vu-visa/' }]} />
+    <img
+      src="/img/banner-dich-vu-visa.webp"
+      alt="Dịch vụ visa: tư vấn, trọn gói, kiểm tra hồ sơ trước khi nộp"
+      width={2241}
+      height={702}
+      class="dv-page__banner"
+      loading="eager"
+    />
+    <h1>Dịch Vụ Visa: Tư Vấn, Trọn Gói &amp; Kiểm Tra Hồ Sơ</h1>
+    <p class="dv-page__intro">
+      Dịch thuật giấy tờ vẫn là dịch vụ chính của {site.name}. Với những trường hợp cần hỗ trợ nhiều hơn một bản
+      dịch — chưa biết bắt đầu từ đâu, không có thời gian tự làm, hoặc đã tự chuẩn bị và muốn kiểm tra lại cho
+      chắc — dưới đây là 3 dịch vụ hỗ trợ thêm.
+    </p>
+
+    <div class="dv-grid">
+      {
+        extraServices.map((s) => (
+          <div class="dv-card fade-in" id={s.id}>
+            <span class="badge">{s.tag}</span>
+            <h2>{s.title}</h2>
+            <p class="dv-card__desc">{s.desc}</p>
+            <ul class="dv-card__bullets">
+              {s.bullets.map((b) => (
+                <li>{b}</li>
+              ))}
+            </ul>
+            <ZaloButton utmContent={s.utm} label="Nhắn Zalo hỏi thêm" />
+          </div>
+        ))
+      }
+    </div>
+
+    <section class="fade-in">
+      <h2>Câu hỏi thường gặp</h2>
+      <Faq items={faqItems} />
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .dv-page {
+    padding: var(--space-6) 0 var(--space-8);
+    max-width: 900px;
+  }
+
+  .dv-page > h1 {
+    margin-top: var(--space-4);
+  }
+
+  .dv-page__banner {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: var(--space-4) 0;
+    border-radius: var(--radius);
+  }
+
+  .dv-page__intro {
+    color: var(--navy-700);
+    font-size: 1.0625rem;
+    max-width: 640px;
+  }
+
+  .dv-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+    margin: var(--space-6) 0 var(--space-8);
+  }
+
+  @media (min-width: 860px) {
+    .dv-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .dv-card {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: var(--space-5);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    scroll-margin-top: var(--space-6);
+  }
+
+  .dv-card h2 {
+    margin: 0;
+    font-size: 1.125rem;
+  }
+
+  .dv-card__desc {
+    margin: 0;
+    color: var(--navy-700);
+    font-size: 0.9375rem;
+  }
+
+  .dv-card__bullets {
+    margin: 0;
+    padding-left: 1.1em;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    font-size: 0.875rem;
+    flex-grow: 1;
+  }
+</style>

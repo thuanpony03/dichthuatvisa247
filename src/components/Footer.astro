@@ -1,0 +1,100 @@
+---
+import { contact, contact2, site } from '../config/site';
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container site-footer__inner">
+    <div>
+      <p class="site-footer__brand">{site.name}</p>
+      <p class="text-muted">
+        {contact.personName} · <a href={`tel:${contact.phoneTel}`}>{contact.phoneDisplay}</a> ·{' '}
+        <a href={contact.zaloUrl} target="_blank" rel="noopener">Zalo</a>
+      </p>
+      <p class="text-muted">
+        {contact2.personName} · <a href={`tel:${contact2.phoneTel}`}>{contact2.phoneDisplay}</a> ·{' '}
+        <a href={contact2.zaloUrl} target="_blank" rel="noopener">Zalo</a>
+      </p>
+      <p class="text-muted">
+        <a href={contact.fanpageUrl} target="_blank" rel="noopener">Fanpage Facebook</a>
+      </p>
+      <p class="text-muted site-footer__address">
+        {site.business.streetAddress}, {site.business.addressLocality}, {site.business.addressRegion}
+      </p>
+      <p class="site-footer__operator">Vận hành bởi {site.business.operatedBy}</p>
+    </div>
+
+    <nav aria-label="Chính sách">
+      <ul class="site-footer__links">
+        <li><a href="/bang-gia/">Bảng giá</a></li>
+        <li><a href="/mau-dich/">Mẫu dịch</a></li>
+        <li><a href="/dich-vu-visa/">Dịch vụ visa</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/lien-he/">Liên hệ</a></li>
+        <li><a href="/chinh-sach-bao-mat/">Chính sách bảo mật</a></li>
+        <li><a href="/dieu-khoan/">Điều khoản</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="container">
+    <p class="site-footer__copyright">© {year} {site.name}. Bản dịch có mộc công ty + xác nhận dịch.</p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--navy-900);
+    color: var(--white);
+    padding: var(--space-7) 0 var(--space-5);
+  }
+
+  .site-footer a {
+    color: var(--white);
+  }
+
+  .site-footer__inner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-6);
+    justify-content: space-between;
+    margin-bottom: var(--space-6);
+  }
+
+  .site-footer__brand {
+    font-weight: 800;
+    font-size: 1.0625rem;
+    margin-bottom: var(--space-2);
+  }
+
+  .site-footer .text-muted {
+    color: #b7c0d4;
+    margin-bottom: var(--space-1);
+  }
+
+  .site-footer__address {
+    margin-top: var(--space-3);
+  }
+
+  .site-footer__operator {
+    color: #6b7690;
+    font-size: 0.8125rem;
+    margin: 0;
+  }
+
+  .site-footer__links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .site-footer__copyright {
+    color: #8b95ab;
+    font-size: 0.8125rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    padding-top: var(--space-4);
+    margin: 0;
+  }
+</style>

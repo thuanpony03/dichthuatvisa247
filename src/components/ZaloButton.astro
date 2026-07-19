@@ -1,0 +1,22 @@
+---
+import { contact } from '../config/site';
+
+interface Props {
+  utmContent: string;
+  label?: string;
+  variant?: 'primary' | 'block';
+  class?: string;
+}
+
+const { utmContent, label = 'NHẮN ZALO — BÁO GIÁ NGAY', variant = 'primary', class: className = '' } =
+  Astro.props;
+
+const href = `${contact.zaloUrl}?utm_source=web&utm_content=${utmContent}`;
+const classes = ['btn', 'btn--zalo', variant === 'block' ? 'btn--block' : '', className]
+  .filter(Boolean)
+  .join(' ');
+---
+
+<a href={href} class={classes} target="_blank" rel="noopener">
+  {label}
+</a>

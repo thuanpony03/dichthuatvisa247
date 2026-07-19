@@ -1,0 +1,101 @@
+---
+// Dải USP cạnh tranh — khác kiểu trình bày với ThreeCommitments (clause-list) để tránh lặp mô-típ.
+// 3 điểm bán hàng chính: tốc độ, giá sỉ cho đại lý, độ phủ giấy tờ/ngôn ngữ.
+// Icon do chủ site thiết kế riêng (không phải icon rập khuôn tự vẽ bằng code như bản trước).
+const items = [
+  {
+    icon: '/img/icons/usp-dunghen.webp',
+    stat: 'Đúng hẹn',
+    label: 'Giao nhanh, đúng giờ cam kết',
+    desc: 'Có mốc 48h, 24h, siêu gấp trong ngày. Trễ hẹn hoàn 100% phí gấp — không phải đợi "sắp xong".',
+  },
+  {
+    icon: '/img/icons/usp-regia.webp',
+    stat: 'Rẻ hơn 3–4 lần',
+    label: 'Giá sỉ cho đại lý & CTV',
+    desc: 'Quy trình tự động hoá giúp giá thấp hơn mặt bằng chung. Nhận số lượng lớn ổn định hàng tháng cho đại lý, cộng tác viên.',
+  },
+  {
+    icon: '/img/icons/usp-giaytoo.webp',
+    stat: '17+ loại giấy tờ',
+    label: 'Kể cả giấy tờ ít gặp, đa ngôn ngữ',
+    desc: 'Ngoài các giấy tờ phổ biến, vẫn nhận dịch giấy tờ hiếm gặp và nhiều ngôn ngữ khác ngoài Anh–Việt — cứ gửi Zalo hỏi trước khi tìm chỗ khác.',
+  },
+];
+---
+
+<div class="usp-strip">
+  {
+    items.map((item) => (
+      <div class="usp-strip__item fade-in">
+        <img src={item.icon} alt="" width={56} height={44} class="usp-strip__icon" loading="lazy" />
+        <p class="usp-strip__stat">{item.stat}</p>
+        <p class="usp-strip__label">{item.label}</p>
+        <p class="usp-strip__desc">{item.desc}</p>
+      </div>
+    ))
+  }
+</div>
+
+<style>
+  .usp-strip {
+    display: grid;
+    grid-template-columns: 1fr;
+    border: 1px solid var(--line);
+    background: var(--white);
+  }
+
+  @media (min-width: 768px) {
+    .usp-strip {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .usp-strip__item {
+    padding: var(--space-6) var(--space-5);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .usp-strip__item:last-child {
+    border-bottom: none;
+  }
+
+  @media (min-width: 768px) {
+    .usp-strip__item {
+      border-bottom: none;
+      border-right: 1px solid var(--line);
+    }
+
+    .usp-strip__item:last-child {
+      border-right: none;
+    }
+  }
+
+  .usp-strip__icon {
+    display: block;
+    width: 56px;
+    height: 44px;
+    object-fit: contain;
+    margin-bottom: var(--space-3);
+  }
+
+  .usp-strip__stat {
+    font-size: 1.75rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--seal);
+    margin: 0 0 var(--space-2);
+  }
+
+  .usp-strip__label {
+    font-weight: 700;
+    color: var(--navy-900);
+    margin: 0 0 var(--space-2);
+  }
+
+  .usp-strip__desc {
+    font-size: 0.9375rem;
+    color: var(--navy-700);
+    margin: 0;
+  }
+</style>

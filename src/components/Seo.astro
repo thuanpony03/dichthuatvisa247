@@ -1,0 +1,34 @@
+---
+import { site } from '../config/site';
+
+interface Props {
+  title: string;
+  description: string;
+  path: string; // ví dụ: "/mau-dich/giay-khai-sinh/"
+  noindex?: boolean;
+  ogImage?: string; // đường dẫn tuyệt đối, ví dụ "/img/og/default.webp"
+}
+
+const { title, description, path, noindex = false, ogImage = '/img/og/default.webp' } = Astro.props;
+
+const canonicalUrl = new URL(path, site.domain).toString();
+const ogImageUrl = new URL(ogImage, site.domain).toString();
+---
+
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonicalUrl} />
+<meta name="robots" content={noindex ? 'noindex, follow' : 'index, follow'} />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonicalUrl} />
+<meta property="og:image" content={ogImageUrl} />
+<meta property="og:locale" content="vi_VN" />
+<meta property="og:site_name" content={site.name} />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImageUrl} />

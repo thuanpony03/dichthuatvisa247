@@ -1,0 +1,83 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import { contact, site } from '../../config/site';
+---
+
+<BaseLayout
+  title="Điều Khoản Sử Dụng Dịch Vụ | Dịch Thuật Visa 247"
+  description="Điều khoản dịch vụ dịch thuật hồ sơ visa của Dịch Thuật Visa 247: phạm vi dịch vụ, thanh toán, cam kết đúng giờ giao, chính sách dịch lại."
+  path="/dieu-khoan/"
+>
+  <div class="container legal-page">
+    <Breadcrumb items={[{ label: 'Điều khoản', href: '/dieu-khoan/' }]} />
+    <h1>Điều Khoản Sử Dụng Dịch Vụ</h1>
+    <p class="text-muted">Cập nhật: 18/07/2026</p>
+
+    <h2>1. Phạm vi dịch vụ</h2>
+    <p>
+      Dịch vụ chính của {site.name} là dịch thuật giấy tờ từ tiếng Việt sang tiếng Anh phục vụ hồ sơ xin visa du
+      lịch, kèm mộc công ty và xác nhận dịch. Ngoài ra, chúng tôi có hỗ trợ thêm dịch vụ tư vấn visa, xử lý hồ sơ
+      visa trọn gói, và kiểm tra hồ sơ trước khi nộp (Final Check) — xem chi tiết tại{' '}
+      <a href="/dich-vu-visa/">/dich-vu-visa/</a>. Các dịch vụ này hỗ trợ khách hàng chuẩn bị hồ sơ đúng, đủ theo
+      yêu cầu của lãnh sự quán/cơ quan di trú; chúng tôi không đại diện pháp lý và không thay mặt khách hàng chịu
+      trách nhiệm trước cơ quan xét duyệt.
+    </p>
+
+    <h2>2. Không cam kết kết quả visa</h2>
+    <p>
+      Việc xét duyệt visa hoàn toàn thuộc thẩm quyền của lãnh sự quán/cơ quan di trú liên quan. Dù sử dụng dịch vụ
+      dịch thuật, tư vấn, trọn gói, hay kiểm tra hồ sơ, {site.name} không cam kết, không đảm bảo và không chịu
+      trách nhiệm về kết quả xét duyệt hồ sơ visa của khách hàng dưới bất kỳ hình thức nào.
+    </p>
+
+    <h2>3. Báo giá &amp; thanh toán</h2>
+    <p>
+      Báo giá được gửi qua Zalo dựa trên ảnh giấy tờ khách hàng cung cấp, trong vòng 5 phút. Khách hàng lẻ thanh
+      toán khi nhận bản dịch, trừ trường hợp có thoả thuận riêng. Giá áp dụng theo bảng giá công bố tại{' '}
+      <a href="/bang-gia/">/bang-gia/</a> tại thời điểm đặt dịch, trừ đại lý/đối tác khối lượng lớn áp dụng chính
+      sách công nợ riêng theo hợp đồng hợp tác.
+    </p>
+
+    <h2>4. Cam kết đúng giờ giao</h2>
+    <p>
+      Với các gói dịch gấp (48h, 24h, siêu gấp trong ngày), nếu giao trễ hẹn do lỗi từ phía chúng tôi, khách hàng
+      được hoàn 100% phần phí gấp đã trả cho hồ sơ đó.
+    </p>
+
+    <h2>5. Chính sách dịch lại khi có sai sót</h2>
+    <p>
+      Nếu bản dịch có sai sót do lỗi dịch thuật (không bao gồm sai sót do thông tin trên bản gốc không rõ hoặc
+      khách hàng cung cấp thiếu), chúng tôi dịch lại miễn phí phần bị lỗi.
+    </p>
+
+    <h2>6. Bảo mật &amp; bản quyền ảnh mẫu</h2>
+    <p>
+      Ảnh mẫu bản dịch hiển thị trên website đã được che thông tin cá nhân và đóng watermark, chỉ dùng cho mục
+      đích tham khảo thể thức trình bày. Nghiêm cấm sao chép, sử dụng lại các ảnh mẫu này cho mục đích thương mại
+      khác mà không có sự đồng ý bằng văn bản.
+    </p>
+
+    <h2>7. Liên hệ</h2>
+    <p>
+      Mọi thắc mắc về điều khoản dịch vụ, vui lòng liên hệ {contact.personName} qua Zalo{' '}
+      <a href={contact.zaloUrl} target="_blank" rel="noopener">{contact.zaloUrl}</a> hoặc hotline{' '}
+      {contact.phoneDisplay}.
+    </p>
+  </div>
+</BaseLayout>
+
+<style>
+  .legal-page {
+    padding: var(--space-6) 0 var(--space-8);
+    max-width: 700px;
+  }
+
+  .legal-page > h1 {
+    margin-top: var(--space-4);
+  }
+
+  .legal-page h2 {
+    margin-top: var(--space-6);
+  }
+</style>

@@ -1,0 +1,58 @@
+---
+import { tracking } from '../config/site';
+---
+
+<!-- Google tag (gtag.js) — Google Ads + GA4. Mục 7a/7e. -->
+<script async src={`https://www.googletagmanager.com/gtag/js?id=${tracking.googleAdsId}`} is:inline></script>
+<script define:vars={{ googleAdsId: tracking.googleAdsId, ga4Id: tracking.ga4Id }} is:inline>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  window.gtag = gtag;
+  gtag('js', new Date());
+  gtag('config', googleAdsId);
+  gtag('config', ga4Id);
+</script>
+
+<!-- Facebook Pixel — gắn từ ngày đầu để tích tệp retarget (Mục 7e) -->
+<script define:vars={{ fbPixelId: tracking.fbPixelId }} is:inline>
+  !(function (f, b, e, v, n, t, s) {
+    if (f.fbq) return;
+    n = f.fbq = function () {
+      n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+    };
+    if (!f._fbq) f._fbq = n;
+    n.push = n;
+    n.loaded = !0;
+    n.version = '2.0';
+    n.queue = [];
+    t = b.createElement(e);
+    t.async = !0;
+    t.src = v;
+    s = b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t, s);
+  })(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+  window.fbq('init', fbPixelId);
+  window.fbq('track', 'PageView');
+</script>
+<noscript>
+  <img
+    height="1"
+    width="1"
+    style="display:none"
+    src={`https://www.facebook.com/tr?id=${tracking.fbPixelId}&ev=PageView&noscript=1`}
+  />
+</noscript>
+
+<!-- Event delegation: zalo_click / call_click + nối UTM/gclid vào link Zalo (Mục 7b/7d) -->
+<script
+  define:vars={{
+    googleAdsConversionZalo: tracking.googleAdsConversionZalo,
+    googleAdsConversionCall: tracking.googleAdsConversionCall,
+  }}
+  is:inline
+>
+  window.__TRACKING__ = { googleAdsConversionZalo, googleAdsConversionCall };
+</script>
+<script src="../scripts/tracking.js"></script>

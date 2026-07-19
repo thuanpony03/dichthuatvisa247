@@ -1,0 +1,223 @@
+---
+import {
+  bundlePricing,
+  bundleOverageFeePerPage,
+  bundleExplainer,
+  perPagePricing,
+  formatVnd,
+} from '../config/site';
+
+interface Props {
+  compact?: boolean;
+}
+
+const { compact = false } = Astro.props;
+
+const speedIcons: Record<string, string> = {
+  thuong: '/img/icons/speed-thuong.webp',
+  gap48: '/img/icons/speed-48h.webp',
+  gap24: '/img/icons/speed-24h.webp',
+  sieugap: '/img/icons/speed-sieugap.webp',
+};
+---
+
+<div class="price-table">
+  <h3 class="price-table__heading">Gói trọn hồ sơ visa du lịch</h3>
+  <div class="bundle-grid">
+    {
+      bundlePricing.map((plan) => (
+        <div class={`bundle-card ${plan.popular ? 'bundle-card--popular' : ''}`}>
+          {plan.popular && <span class="bundle-card__badge">Phổ biến nhất</span>}
+          <p class="bundle-card__label">{plan.label}</p>
+          <p class="bundle-card__price">{formatVnd(plan.price)}</p>
+          <p class="bundle-card__meta">Tới {plan.pageLimit} trang · {plan.turnaround}</p>
+        </div>
+      ))
+    }
+  </div>
+  <p class="price-table__note">
+    Vượt {bundlePricing[0].pageLimit} trang: +{formatVnd(bundleOverageFeePerPage)}/trang.
+  </p>
+  <p class="price-table__explainer">{bundleExplainer}</p>
+
+  {
+    !compact && (
+      <>
+        <h3 class="price-table__heading">Giá theo trang</h3>
+        <div class="table-scroll">
+          <table class="responsive-table">
+            <thead>
+              <tr>
+                <th>Gói</th>
+                <th>Giá/trang</th>
+                <th>Thời gian</th>
+              </tr>
+            </thead>
+            <tbody>
+              {perPagePricing.map((row) => (
+                <tr>
+                  <td data-label="Gói">
+                    <span class="speed-row">
+                      {speedIcons[row.id] && <img src={speedIcons[row.id]} alt="" width={22} height={22} class="speed-icon" loading="lazy" />}
+                      <span>
+                        {row.label}
+                        {row.note && <span class="text-muted"> · {row.note}</span>}
+                      </span>
+                    </span>
+                  </td>
+                  <td data-label="Giá/trang">{formatVnd(row.pricePerPage)}</td>
+                  <td data-label="Thời gian">{row.turnaround}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p class="price-table__note">Đã bao gồm mộc công ty + xác nhận dịch.</p>
+      </>
+    )
+  }
+</div>
+
+<style>
+  .price-table__heading {
+    margin-top: var(--space-6);
+  }
+
+  .price-table__heading:first-child {
+    margin-top: 0;
+  }
+
+  .bundle-grid {
+    display: grid;
+    gap: var(--space-4);
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 560px) {
+    .bundle-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .bundle-card {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-left: 4px double var(--navy-700);
+    padding: var(--space-5);
+    position: relative;
+    overflow: visible;
+  }
+
+  .bundle-card--popular {
+    border-left-color: var(--seal);
+  }
+
+  .bundle-card__badge {
+    position: absolute;
+    top: -12px;
+    right: var(--space-4);
+    background: var(--accent);
+    color: var(--white);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    padding: 4px 12px;
+    border-radius: 999px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .bundle-card__label {
+    font-weight: 700;
+    margin-bottom: var(--space-2);
+    color: var(--navy-900);
+  }
+
+  .bundle-card__price {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: var(--navy-900);
+    margin-bottom: var(--space-1);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.01em;
+  }
+
+  .bundle-card__meta {
+    color: var(--navy-700);
+    margin: 0;
+    font-size: 0.9375rem;
+  }
+
+  .price-table__note {
+    font-size: 0.875rem;
+    color: var(--navy-700);
+    margin-top: var(--space-3);
+  }
+
+  .price-table__explainer {
+    font-size: 0.9375rem;
+    background: var(--paper);
+    border-left: 3px solid var(--accent);
+    padding: var(--space-3) var(--space-4);
+    margin-top: var(--space-3);
+  }
+
+  .speed-row {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+  }
+
+  .speed-icon {
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+  }
+
+  .responsive-table th,
+  .responsive-table td {
+    text-align: left;
+    padding: var(--space-3);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .responsive-table thead {
+    background: var(--navy-900);
+    color: var(--white);
+  }
+
+  /* Mobile: chuyển bảng thành thẻ xếp dọc, cấm scroll ngang */
+  @media (max-width: 640px) {
+    .responsive-table thead {
+      display: none;
+    }
+
+    .responsive-table,
+    .responsive-table tbody,
+    .responsive-table tr,
+    .responsive-table td {
+      display: block;
+      width: 100%;
+    }
+
+    .responsive-table tr {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      margin-bottom: var(--space-3);
+      background: var(--white);
+    }
+
+    .responsive-table td {
+      border-bottom: none;
+      display: flex;
+      justify-content: space-between;
+      gap: var(--space-3);
+    }
+
+    .responsive-table td::before {
+      content: attr(data-label);
+      font-weight: 700;
+      color: var(--navy-700);
+    }
+  }
+</style>

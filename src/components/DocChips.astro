@@ -1,0 +1,15 @@
+---
+import { docTypeChips } from '../config/site';
+---
+
+<ul class="chip-list">
+  {
+    docTypeChips.map((chip) => (
+      <li>
+        <a class="chip" href={`/mau-dich/${chip.slug}/`}>
+          {chip.label}
+        </a>
+      </li>
+    ))
+  }
+</ul>

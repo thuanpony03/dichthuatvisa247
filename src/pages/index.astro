@@ -1,0 +1,590 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ZaloButton from '../components/ZaloButton.astro';
+import CallButton from '../components/CallButton.astro';
+import PriceTable from '../components/PriceTable.astro';
+import ThreeCommitments from '../components/ThreeCommitments.astro';
+import UspStats from '../components/UspStats.astro';
+import Lightbox from '../components/Lightbox.astro';
+import TravelBand from '../components/TravelBand.astro';
+import Faq from '../components/Faq.astro';
+import { contact, utmContent, site, extraServices } from '../config/site';
+
+const docs = (await getCollection('giay-to')).sort((a, b) => a.data.docName.localeCompare(b.data.docName, 'vi'));
+
+const visaMarkets = [
+  { slug: 'visa-my', label: 'Mỹ', icon: '/img/icons/flag-my.webp' },
+  { slug: 'visa-schengen', label: 'Schengen', icon: '/img/icons/flag-schengen.webp' },
+  { slug: 'visa-canada', label: 'Canada', icon: '/img/icons/flag-canada.webp' },
+  { slug: 'visa-uc', label: 'Úc', icon: '/img/icons/flag-uc.webp' },
+  { slug: 'visa-anh', label: 'Anh', icon: '/img/icons/flag-anh.webp' },
+  { slug: 'visa-new-zealand', label: 'New Zealand', icon: '/img/icons/flag-nz.webp' },
+];
+
+const opsEvidencePreview = [1, 5, 9].map((i) => ({
+  src: `/img/agency/zalo-${String(i).padStart(2, '0')}.webp`,
+  alt: `Ảnh minh hoạ quy trình làm việc thực tế qua Zalo với CTV/đại lý #${i}`,
+  width: 435,
+  height: 943,
+}));
+
+const faqItems = [
+  {
+    question: 'Vì sao giá ở đây thấp hơn hẳn chỗ khác?',
+    answer: 'Vì phần lớn quy trình dịch được tự động hoá — bảng thuật ngữ, bố cục, đối chiếu đều có sẵn khuôn mẫu cho từng loại giấy tờ, người dịch chỉ tập trung vào phần cần kiểm tra kỹ. Bớt thời gian thao tác thủ công, không phải bớt bước kiểm tra trước khi đóng mộc.',
+  },
+  {
+    question: 'Mộc công ty có nộp lãnh sự được không hay phải công chứng?',
+    answer: 'Nộp được — mộc công ty + xác nhận dịch là hình thức phổ biến nhất cho hồ sơ visa du lịch. Công chứng tư pháp chỉ cần cho một số trường hợp riêng, không phải mặc định cho mọi hồ sơ.',
+  },
+  {
+    question: 'Bao lâu thì xong một bộ hồ sơ?',
+    answer: '3–5 ngày làm việc nếu không gấp. Cần nhanh hơn thì có mốc 48h, 24h, hoặc trong ngày nếu gửi trước 17h.',
+  },
+  {
+    question: 'Tổng tiền tính sao, có phát sinh giữa chừng không?',
+    answer: 'Chọn gói trọn hồ sơ thì biết số cuối cùng ngay từ đầu, không có khoản phát sinh. Nếu chỉ cần dịch một, hai giấy tờ lẻ thì tính theo trang cũng được.',
+  },
+  {
+    question: 'Công ty du lịch, đại lý visa gửi hồ sơ đều đặn thì làm việc thế nào?',
+    answer: 'Có mức giá và cách làm việc riêng cho khối lượng lớn — xem ở trang dành cho đại lý, hoặc nhắn Zalo để trao đổi trực tiếp trước khi hợp tác.',
+  },
+];
+
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    name: site.business.legalName,
+    telephone: contact.phoneTel,
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: site.business.streetAddress || undefined,
+      addressLocality: site.business.addressLocality,
+      addressRegion: site.business.addressRegion,
+      postalCode: site.business.postalCode || undefined,
+      addressCountry: site.business.addressCountry,
+    },
+    url: site.domain,
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqItems.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: { '@type': 'Answer', text: item.answer },
+    })),
+  },
+];
+---
+
+<BaseLayout
+  title="Dịch Thuật Hồ Sơ Visa — Mộc Công Ty, Giao Trong 24h | Dịch Thuật Visa 247"
+  description="Dịch hồ sơ visa du lịch Mỹ, Schengen, Canada, Úc, Anh, New Zealand. Có mộc công ty + xác nhận dịch, giao trong 24h, giá trọn gói biết trước tổng tiền."
+  path="/"
+  schema={schema}
+>
+  <!-- Banner quảng cáo (do chủ site tự thiết kế/cung cấp) -->
+  <div class="home-banner">
+    <img
+      src="/img/hero-banner.webp"
+      alt="Dịch thuật hồ sơ visa — chuyên dịch cho đối tác visa du lịch, Agency, HDV"
+      width={1600}
+      height={666}
+      loading="eager"
+    />
+  </div>
+
+  <!-- Hero -->
+  <section class="section home-hero">
+    <div class="container home-hero__inner">
+      <div>
+        <h1>Dịch Thuật Hồ Sơ Visa — Mộc Công Ty, Giao Trong 24h</h1>
+        <p class="home-hero__sub">
+          Giấy khai sinh, sổ tiết kiệm, xác nhận thu nhập... dịch sang tiếng Anh có mộc công ty, đủ nộp lãnh sự.
+          Báo trọn gói cho cả bộ hồ sơ trước khi bắt tay dịch, nên anh/chị biết chính xác tốn bao nhiêu — không
+          phải cộng dồn từng tờ giấy rồi mới ngã ngửa.
+        </p>
+        <div class="home-hero__cta">
+          <ZaloButton utmContent={utmContent.hero} />
+          <CallButton />
+        </div>
+        <ul class="home-hero__trust">
+          {
+            ['Có mộc công ty + xác nhận dịch', 'Trễ hẹn hoàn 100% phí gấp', 'Trang đầu dịch miễn phí'].map((t) => (
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+                  <circle cx="12" cy="12" r="12" fill="var(--seal)" />
+                  <path
+                    d="M6.5 12.5l3.5 3.5 7.5-8"
+                    fill="none"
+                    stroke="#fff"
+                    stroke-width="2.4"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+                {t}
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <img
+        src="/img/moc-do.webp"
+        alt="Bản dịch giấy tờ visa thật, đúng thể thức hồ sơ nộp lãnh sự"
+        width={340}
+        height={442}
+        class="home-hero__img"
+      />
+    </div>
+  </section>
+
+  <!-- USP cạnh tranh -->
+  <section class="section usp-section">
+    <div class="container">
+      <UspStats />
+    </div>
+  </section>
+
+  <!-- Trước - Sau bản dịch -->
+  <section class="section before-after">
+    <div class="container">
+      <h2>Dịch xong trông như thế nào?</h2>
+      <img
+        src="/img/before-after-dich.webp"
+        alt="Minh hoạ giấy tờ gốc tiếng Việt được dịch sang tiếng Anh, có mộc công ty đóng ở góc dưới bản dịch"
+        width={1681}
+        height={935}
+        class="before-after__img"
+        loading="lazy"
+      />
+      <p class="text-muted before-after__caption">
+        Bản gốc bên trái, bản dịch có mộc công ty bên phải — xem thêm ảnh mẫu thật ở{' '}
+        <a href="/mau-dich/">thư viện mẫu dịch</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- Dải minh hoạ -->
+  <TravelBand
+    title="Hồ sơ đang gấp? Gửi ảnh giấy tờ, nhận báo giá trong 5 phút."
+    sub="Không cần hẹn trước, không cần đến văn phòng — nhắn Zalo là có giờ giao cụ thể ngay."
+  >
+    <ZaloButton utmContent={utmContent.hero} />
+  </TravelBand>
+
+  <!-- Quy trình làm việc -->
+  <section class="section">
+    <div class="container">
+      <h2>Quy trình làm việc</h2>
+      <p class="text-muted">Nhìn sơ đồ là biết ngay các bước, không cần đọc hết chữ bên dưới.</p>
+      <img
+        src="/img/quy-trinh-khach-le.webp"
+        alt="Quy trình dịch thuật hồ sơ visa: gửi ảnh giấy tờ qua Zalo, nhận báo giá trong 5 phút, xác nhận và tiến hành dịch, nhận bản dịch đúng hẹn"
+        width={1983}
+        height={793}
+        class="process-image"
+        loading="lazy"
+      />
+      <ol class="process-flow">
+        <li>Gửi ảnh giấy tờ cần dịch qua Zalo</li>
+        <li>Nhận báo giá và giờ giao cụ thể trong 5 phút</li>
+        <li>Xác nhận, tiến hành dịch — kiểm tra chéo trước khi đóng mộc</li>
+        <li>Nhận bản dịch đúng hẹn, sẵn sàng nộp lãnh sự</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Gói trọn hồ sơ -->
+  <section class="section">
+    <div class="container">
+      <h2>Bảng giá</h2>
+      <PriceTable />
+    </div>
+  </section>
+
+  <!-- Thư viện bản dịch mẫu -->
+  <section class="section">
+    <div class="container">
+      <h2>Thư viện bản dịch mẫu</h2>
+      <p class="text-muted">{docs.length} loại giấy tờ thường gặp trong hồ sơ visa du lịch, có ảnh mẫu thật.</p>
+      <div class="doc-grid">
+        {
+          docs.map((doc) => (
+            <a class="doc-card fade-in" href={`/mau-dich/${doc.data.slug}/`}>
+              <img
+                src={doc.data.sampleImage}
+                alt={`Ảnh mẫu dịch ${doc.data.docName}`}
+                width={300}
+                height={390}
+                loading="lazy"
+              />
+              <span class="doc-card__label">{doc.data.docName}</span>
+            </a>
+          ))
+        }
+      </div>
+      <a href="/mau-dich/" class="see-all">Xem toàn bộ thư viện mẫu dịch →</a>
+    </div>
+  </section>
+
+  <!-- 6 thị trường visa -->
+  <section class="section" id="thi-truong-visa">
+    <div class="container">
+      <h2>Thị trường visa</h2>
+      <div class="market-grid">
+        {
+          visaMarkets.map((m) => (
+            <a class="market-card fade-in" href={`/visa/${m.slug}/`}>
+              <img src={m.icon} alt="" width={48} height={48} class="market-card__flag" loading="lazy" />
+              Visa {m.label}
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Ba cam kết -->
+  <section class="section">
+    <div class="container">
+      <h2>Ba cam kết</h2>
+      <ThreeCommitments />
+    </div>
+  </section>
+
+  <!-- Vận hành thực tế -->
+  <section class="section ops-evidence">
+    <div class="container">
+      <h2>Vận hành thực tế</h2>
+      <p class="text-muted">
+        Ảnh chụp màn hình thật từ các nhóm Zalo làm việc với CTV và đại lý — đã che tên nhóm và tên khách hàng
+        trong hồ sơ. Không phải ảnh minh hoạ dàn dựng.
+      </p>
+      <Lightbox columns={3} images={opsEvidencePreview} />
+      <a href="/agency/#ops-evidence" class="see-all">Xem thêm ảnh thực tế ở trang đại lý →</a>
+    </div>
+  </section>
+
+  <!-- Năng lực thật -->
+  <section class="section">
+    <div class="container">
+      <img
+        src="/img/nang-luc-that.webp"
+        alt="71 bộ hồ sơ xử lý trong 1 đợt cho 1 đại lý đối tác, 17+ loại giấy tờ thường gặp, 6 thị trường visa"
+        width={1691}
+        height={770}
+        class="capacity-image"
+        loading="lazy"
+      />
+    </div>
+  </section>
+
+  <!-- Dải riêng cho đại lý -->
+  <section class="section section--navy agency-strip">
+    <div class="container agency-strip__inner">
+      <p>Chủ công ty tour, đại lý visa? Nhận giá gốc xưởng dịch và cam kết SLA bằng văn bản.</p>
+      <a href="/agency/" class="btn btn--accent">Xem trang đại lý</a>
+    </div>
+  </section>
+
+  <!-- Dịch vụ visa khác (upsell, phụ — dịch thuật vẫn là dịch vụ chính) -->
+  <section class="section">
+    <div class="container">
+      <h2>Cần hỗ trợ hơn một bản dịch?</h2>
+      <p class="text-muted">
+        Ngoài dịch thuật từng giấy tờ, chúng tôi còn hỗ trợ tư vấn, xử lý trọn gói, và kiểm tra hồ sơ tự chuẩn bị
+        trước khi nộp lãnh sự.
+      </p>
+      <div class="dv-teaser-grid">
+        {
+          extraServices.map((s) => (
+            <a class="dv-teaser-card fade-in" href={`/dich-vu-visa/#${s.id}`}>
+              <span class="badge">{s.tag}</span>
+              <span class="dv-teaser-card__title">{s.title}</span>
+            </a>
+          ))
+        }
+      </div>
+      <a href="/dich-vu-visa/" class="see-all">Xem chi tiết 3 dịch vụ →</a>
+    </div>
+  </section>
+
+  <!-- FAQ + CTA -->
+  <section class="section">
+    <div class="container">
+      <h2>Câu hỏi thường gặp</h2>
+      <Faq items={faqItems} />
+      <div class="final-cta">
+        <ZaloButton utmContent={utmContent.cuoi} variant="block" />
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .home-banner {
+    width: 100%;
+    max-width: 100vw;
+    overflow: hidden;
+    line-height: 0;
+  }
+
+  .home-banner img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .before-after__img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-top: var(--space-5);
+    border-radius: var(--radius);
+  }
+
+  .before-after__caption {
+    margin-top: var(--space-4);
+  }
+
+  .capacity-image {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .home-hero {
+    padding-top: var(--space-6);
+  }
+
+  .home-hero__inner {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: var(--space-6);
+    align-items: center;
+  }
+
+  .home-hero__sub {
+    color: var(--navy-700);
+    font-size: 1.125rem;
+    margin-top: var(--space-4);
+  }
+
+  .home-hero__cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+  }
+
+  .home-hero__trust {
+    list-style: none;
+    margin: var(--space-4) 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .home-hero__trust li {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: 0.875rem;
+    color: var(--navy-700);
+    font-weight: 600;
+  }
+
+  .home-hero__trust svg {
+    flex-shrink: 0;
+  }
+
+  .home-hero__img {
+    width: 100%;
+    max-width: 340px;
+    height: auto;
+    aspect-ratio: 340/442;
+    object-fit: cover;
+    border-radius: var(--radius);
+    border: 1px solid var(--line);
+  }
+
+  @media (min-width: 768px) {
+    .home-hero__inner {
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+
+  .doc-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+    margin-top: var(--space-5);
+  }
+
+  @media (min-width: 640px) {
+    .doc-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  @media (min-width: 960px) {
+    .doc-grid {
+      grid-template-columns: repeat(5, 1fr);
+    }
+  }
+
+  .process-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: var(--space-4) 0 var(--space-6);
+    border-radius: var(--radius);
+  }
+
+  .process-flow {
+    list-style: decimal;
+    padding-left: 1.25em;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .process-flow li {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    padding: var(--space-3) var(--space-4);
+  }
+
+  .doc-card {
+    display: block;
+    text-decoration: none;
+    color: var(--ink);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: var(--white);
+  }
+
+  .doc-card img {
+    width: 100%;
+    aspect-ratio: 700/910;
+    object-fit: cover;
+  }
+
+  .doc-card__label {
+    display: block;
+    padding: var(--space-2) var(--space-3);
+    font-weight: 600;
+    font-size: 0.875rem;
+  }
+
+  .see-all {
+    display: inline-block;
+    margin-top: var(--space-5);
+    font-weight: 700;
+    color: var(--navy-900);
+    text-decoration: none;
+  }
+
+  .see-all:hover {
+    text-decoration: underline;
+  }
+
+  .market-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-3);
+  }
+
+  @media (min-width: 640px) {
+    .market-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .market-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2);
+    text-align: center;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: var(--space-6) var(--space-5);
+    font-weight: 700;
+    color: var(--navy-900);
+    text-decoration: none;
+    transition: transform var(--transition-fast), border-color var(--transition-fast);
+  }
+
+  .market-card__flag {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+  }
+
+  .market-card:hover {
+    border-color: var(--navy-700);
+    transform: translateY(-2px);
+  }
+
+  .agency-strip__inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+  }
+
+  .agency-strip__inner p {
+    margin: 0;
+    font-size: 1.0625rem;
+  }
+
+  .dv-teaser-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+    margin: var(--space-5) 0;
+  }
+
+  @media (min-width: 640px) {
+    .dv-teaser-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .dv-teaser-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-2);
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: var(--space-4);
+    text-decoration: none;
+  }
+
+  .dv-teaser-card:hover {
+    border-color: var(--navy-700);
+  }
+
+  .dv-teaser-card__title {
+    font-weight: 700;
+    color: var(--ink);
+    font-size: 0.9375rem;
+  }
+
+  .final-cta {
+    margin-top: var(--space-6);
+    max-width: 420px;
+  }
+</style>

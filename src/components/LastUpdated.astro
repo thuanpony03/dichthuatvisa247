@@ -1,0 +1,26 @@
+---
+interface Props {
+  date: Date | string;
+}
+
+const { date } = Astro.props;
+const d = typeof date === 'string' ? new Date(date) : date;
+const formatted = d.toLocaleDateString('vi-VN', { year: 'numeric', month: '2-digit', day: '2-digit' });
+---
+
+<p class="last-updated">
+  <strong>Cập nhật:</strong> <time datetime={d.toISOString().slice(0, 10)}>{formatted}</time>
+</p>
+
+<style>
+  .last-updated {
+    display: inline-block;
+    font-size: 0.875rem;
+    color: var(--navy-700);
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 4px 14px;
+    margin: 0 0 var(--space-5);
+  }
+</style>

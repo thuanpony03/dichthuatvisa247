@@ -1,0 +1,66 @@
+---
+// Layout riêng cho /lp/*. Không header điều hướng, không menu, không footer đầy đủ —
+// mỗi thứ thêm vào là thêm một lối thoát khỏi trang (Mục 6, T1).
+import '../styles/global.css';
+import Seo from '../components/Seo.astro';
+import Tracking from '../components/Tracking.astro';
+import { contact, site } from '../config/site';
+
+interface Props {
+  title: string;
+  description: string;
+  path: string;
+  ogImage?: string;
+  schema?: Record<string, unknown>[];
+}
+
+const { title, description, path, ogImage, schema = [] } = Astro.props;
+const year = new Date().getFullYear();
+---
+
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="theme-color" content="#013790" />
+    <script is:inline>document.documentElement.classList.add('js');</script>
+    <Seo title={title} description={description} path={path} noindex={true} ogImage={ogImage} />
+    {schema.map((s) => <script type="application/ld+json" set:html={JSON.stringify(s)} is:inline />)}
+    <Tracking />
+  </head>
+  <body class="landing-body">
+    <main id="main">
+      <slot />
+    </main>
+    <footer class="landing-footer">
+      <p>
+        © {year} {site.name} · {contact.personName} · {contact.phoneDisplay} ·{' '}
+        <a href="/chinh-sach-bao-mat/">Chính sách bảo mật</a> · <a href="/dieu-khoan/">Điều khoản</a>
+      </p>
+    </footer>
+    <script src="../scripts/fade-in.js"></script>
+    <style>
+      .landing-footer {
+        padding: var(--space-5) var(--space-4);
+        text-align: center;
+        font-size: 0.75rem;
+        color: var(--navy-700);
+      }
+
+      .landing-footer a {
+        color: var(--navy-700);
+      }
+
+      /* Chừa chỗ cho sticky bar mobile để không che nội dung cuối trang */
+      @media (max-width: 767px) {
+        .landing-body {
+          padding-bottom: calc(56px + env(safe-area-inset-bottom));
+        }
+      }
+    </style>
+  </body>
+</html>

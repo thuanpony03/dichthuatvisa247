@@ -1,0 +1,46 @@
+---
+import '../styles/global.css';
+import Seo from '../components/Seo.astro';
+import Tracking from '../components/Tracking.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import StickyBar from '../components/StickyBar.astro';
+import { utmContent } from '../config/site';
+
+interface Props {
+  title: string;
+  description: string;
+  path: string;
+  noindex?: boolean;
+  ogImage?: string;
+  schema?: Record<string, unknown>[];
+}
+
+const { title, description, path, noindex = false, ogImage, schema = [] } = Astro.props;
+---
+
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="theme-color" content="#013790" />
+    <script is:inline>document.documentElement.classList.add('js');</script>
+    <Seo title={title} description={description} path={path} noindex={noindex} ogImage={ogImage} />
+    {schema.map((s) => <script type="application/ld+json" set:html={JSON.stringify(s)} is:inline />)}
+    <Tracking />
+  </head>
+  <body class="has-sticky-bar">
+    <a href="#main" class="skip-link">Bỏ qua tới nội dung chính</a>
+    <Header />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer />
+    <StickyBar utmContent={utmContent.sticky} />
+    <script src="../scripts/fade-in.js"></script>
+  </body>
+</html>

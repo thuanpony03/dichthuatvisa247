@@ -1,0 +1,321 @@
+---
+import { getCollection, render, type CollectionEntry } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import LastUpdated from '../../components/LastUpdated.astro';
+import Lightbox from '../../components/Lightbox.astro';
+import Faq from '../../components/Faq.astro';
+import ZaloButton from '../../components/ZaloButton.astro';
+import { consulateSlugMap, perPagePricing, bundlePricing, formatVnd, utmContent, site } from '../../config/site';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('giay-to');
+  return entries.map((entry) => ({ params: { slug: entry.data.slug }, props: { entry } }));
+}
+
+interface Props {
+  entry: CollectionEntry<'giay-to'>;
+}
+
+const { entry } = Astro.props;
+const { data } = entry;
+const { Content } = await render(entry);
+
+const allDocs = await getCollection('giay-to');
+const relatedDocs = data.related
+  .map((slug) => allDocs.find((d) => d.data.slug === slug))
+  .filter((d): d is CollectionEntry<'giay-to'> => Boolean(d));
+
+const normalPlan = perPagePricing.find((p) => p.id === 'thuong')!;
+const standardBundle = bundlePricing.find((b) => b.id === 'bundle-standard')!;
+
+// Ưu tiên FAQ viết riêng trong frontmatter (data.faq) — chỉ dùng bộ câu hỏi mặc định này
+// làm phương án dự phòng cho giấy tờ chưa kịp viết riêng, để 20 trang không đọc giống hệt nhau.
+const faqItems = data.faq ?? [
+  {
+    question: `${data.docName} dịch xong có nộp thẳng cho lãnh sự được không?`,
+    answer: `Được, nếu là mộc công ty + xác nhận dịch — đủ dùng cho phần lớn hồ sơ visa du lịch. Cần công chứng tư pháp hay không thì tuỳ lãnh sự cụ thể, xem mục "Lãnh sự nào yêu cầu giấy tờ này" bên dưới.`,
+  },
+  {
+    question: `Bao lâu thì có bản dịch?`,
+    answer: `${data.docName} thường chỉ ${data.pageCount} trang nên làm khá nhanh — ${normalPlan.turnaround} nếu không gấp, rút xuống 24h/48h nếu cần sớm hơn.`,
+  },
+  {
+    question: `Tính tiền một tờ này thế nào?`,
+    answer: `Tính lẻ thì từ ${formatVnd(normalPlan.pricePerPage)}/trang. Nhưng nếu đang gom cả bộ hồ sơ visa, gói trọn hồ sơ ${formatVnd(standardBundle.price)}/hồ sơ (tới ${standardBundle.pageLimit} trang) thường lợi hơn tính lẻ từng tờ — xem /bang-gia/.`,
+  },
+];
+
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: data.title,
+    image: new URL(data.sampleImage, site.domain).toString(),
+    datePublished: data.updated.toISOString(),
+    dateModified: data.updated.toISOString(),
+    author: { '@type': 'Organization', name: site.name },
+    publisher: { '@type': 'Organization', name: site.name },
+  },
+];
+---
+
+<BaseLayout
+  title={data.title}
+  description={`Mẫu dịch ${data.docName} sang tiếng Anh chuẩn hồ sơ visa du lịch. Bảng thuật ngữ Việt-Anh, lỗi thường gặp, chi phí & thời gian dịch.`}
+  path={`/mau-dich/${data.slug}/`}
+  ogImage="/img/og/mau-dich.webp"
+  schema={schema}
+>
+  <div class="container doc-page">
+    <Breadcrumb items={[{ label: 'Mẫu dịch', href: '/mau-dich/' }, { label: data.docName, href: `/mau-dich/${data.slug}/` }]} />
+
+    <h1>{data.title}</h1>
+    <LastUpdated date={data.updated} />
+
+    {
+      data.deprecatedNotice && (
+        <p class="doc-page__notice">{data.deprecatedNotice}</p>
+      )
+    }
+
+    <p class="doc-page__intro">{data.intro}</p>
+
+    <section class="fade-in">
+      <Lightbox
+        columns={1}
+        watermark={true}
+        images={[
+          {
+            src: data.sampleImage,
+            alt: `Ảnh mẫu dịch ${data.docName} sang tiếng Anh`,
+            width: 700,
+            height: 910,
+            caption: 'Bấm vào ảnh để phóng to',
+          },
+        ]}
+      />
+    </section>
+
+    <section class="fade-in">
+      <h2>Bảng đối chiếu thuật ngữ Việt–Anh</h2>
+      <div class="table-scroll">
+        <table class="term-table">
+          <thead>
+            <tr>
+              <th>Tiếng Việt</th>
+              <th>Tiếng Anh</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              data.terminology.map((row) => (
+                <tr>
+                  <td data-label="Tiếng Việt">{row.vi}</td>
+                  <td data-label="Tiếng Anh">{row.en}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="fade-in">
+      <h2>3 lỗi thường gặp khi dịch {data.docName}</h2>
+      <ol class="error-list">
+        {
+          data.commonErrors.map((err) => (
+            <li>
+              <strong>{err.title}</strong>
+              <p>{err.desc}</p>
+            </li>
+          ))
+        }
+      </ol>
+    </section>
+
+    <section class="fade-in">
+      <h2>Lãnh sự nào yêu cầu giấy tờ này</h2>
+      <ul class="consulate-list">
+        {
+          data.consulates.map((c) => {
+            const slug = consulateSlugMap[c];
+            return (
+              <li>
+                {slug ? <a href={`/visa/${slug}/`}>Visa {c}</a> : c}
+              </li>
+            );
+          })
+        }
+      </ul>
+    </section>
+
+    <section class="fade-in doc-content">
+      <Content />
+    </section>
+
+    <section class="fade-in">
+      <h2>Chi phí & thời gian</h2>
+      <p>
+        {data.docName} ({data.pageCount} trang): từ {formatVnd(normalPlan.pricePerPage)}/trang, đã gồm mộc
+        công ty + xác nhận dịch. Trọn bộ hồ sơ visa (tới {standardBundle.pageLimit} trang): từ{' '}
+        {formatVnd(standardBundle.price)}/hồ sơ. Xem <a href="/bang-gia/">bảng giá đầy đủ</a>.
+      </p>
+    </section>
+
+    <section class="fade-in doc-page__cta">
+      <ZaloButton utmContent={utmContent.mauDich(data.slug)} variant="block" />
+    </section>
+
+    <aside class="fade-in doc-page__upsell">
+      <p>
+        <strong>Tự chuẩn bị/tự dịch hồ sơ?</strong> Gửi qua để chúng tôi kiểm tra lại thể thức trước khi nộp lãnh
+        sự — xem <a href={`/dich-vu-visa/#final-check`}>dịch vụ Final Check</a>.
+      </p>
+    </aside>
+
+    <section class="fade-in">
+      <h2>Câu hỏi thường gặp</h2>
+      <Faq items={faqItems} />
+    </section>
+
+    {
+      relatedDocs.length > 0 && (
+        <section class="fade-in">
+          <h2>Giấy tờ liên quan</h2>
+          <ul class="related-list">
+            {relatedDocs.map((doc) => (
+              <li>
+                <a href={`/mau-dich/${doc.data.slug}/`}>{doc.data.docName}</a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )
+    }
+  </div>
+</BaseLayout>
+
+<style>
+  .doc-page {
+    padding: var(--space-6) 0 var(--space-8);
+    max-width: 760px;
+  }
+
+  .doc-page > h1 {
+    margin-top: var(--space-4);
+  }
+
+  .doc-page__notice {
+    background: #fdf1ef;
+    border-left: 3px solid var(--seal);
+    padding: var(--space-3) var(--space-4);
+    color: var(--ink);
+    font-size: 0.9375rem;
+  }
+
+  .doc-page__upsell {
+    margin-top: var(--space-4);
+    background: var(--paper);
+    border: 1px dashed var(--line);
+    border-radius: var(--radius-sm);
+    padding: var(--space-3) var(--space-4);
+    font-size: 0.875rem;
+    color: var(--navy-700);
+  }
+
+  .doc-page__upsell a {
+    color: var(--navy-900);
+  }
+
+  .doc-page section {
+    margin-top: var(--space-7);
+  }
+
+  .term-table th,
+  .term-table td {
+    text-align: left;
+    padding: var(--space-2) var(--space-3);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .term-table thead {
+    background: var(--paper);
+  }
+
+  @media (max-width: 560px) {
+    .term-table thead {
+      display: none;
+    }
+    .term-table,
+    .term-table tbody,
+    .term-table tr,
+    .term-table td {
+      display: block;
+      width: 100%;
+    }
+    .term-table tr {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      margin-bottom: var(--space-2);
+    }
+    .term-table td {
+      border-bottom: none;
+      display: flex;
+      justify-content: space-between;
+      gap: var(--space-3);
+    }
+    .term-table td::before {
+      content: attr(data-label);
+      font-weight: 700;
+      color: var(--navy-700);
+    }
+  }
+
+  .error-list {
+    list-style: decimal;
+    padding-left: 1.25em;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .error-list p {
+    margin: var(--space-1) 0 0;
+    color: var(--navy-700);
+  }
+
+  .consulate-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+
+  .consulate-list li a {
+    display: inline-block;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 6px 14px;
+    font-size: 0.875rem;
+    text-decoration: none;
+    color: var(--ink);
+  }
+
+  .related-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+  }
+
+  .related-list a {
+    text-decoration: none;
+    color: var(--navy-700);
+    border-bottom: 1px dashed var(--line);
+  }
+</style>

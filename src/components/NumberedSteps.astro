@@ -1,0 +1,55 @@
+---
+// Danh sách bước có đánh số — kiểu "điều khoản văn bản" (số + gạch đứng) thay vì
+// stepper UI với vòng tròn màu đặc kiểu app hướng dẫn onboarding.
+interface Props {
+  steps: string[];
+}
+
+const { steps } = Astro.props;
+---
+
+<ol class="numbered-steps">
+  {
+    steps.map((step, i) => (
+      <li>
+        <span class="numbered-steps__num">{String(i + 1).padStart(2, '0')}</span>
+        <span class="numbered-steps__text">{step}</span>
+      </li>
+    ))
+  }
+</ol>
+
+<style>
+  .numbered-steps {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .numbered-steps li {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-4);
+    padding: var(--space-3) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+  }
+
+  .numbered-steps li:last-child {
+    border-bottom: none;
+  }
+
+  .numbered-steps__num {
+    flex-shrink: 0;
+    font-weight: 800;
+    font-size: 1.25rem;
+    font-variant-numeric: tabular-nums;
+    color: var(--zalo);
+    min-width: 2ch;
+  }
+
+  .numbered-steps__text {
+    font-size: 1rem;
+  }
+</style>

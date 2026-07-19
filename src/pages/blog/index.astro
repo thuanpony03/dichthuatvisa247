@@ -1,0 +1,100 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+
+const posts = (await getCollection('blog')).sort((a, b) => b.data.updated.valueOf() - a.data.updated.valueOf());
+
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: 'Blog — Kinh nghiệm chuẩn bị hồ sơ visa',
+  },
+];
+---
+
+<BaseLayout
+  title="Blog — Kinh Nghiệm Chuẩn Bị Hồ Sơ Visa | Dịch Thuật Visa 247"
+  description="Kinh nghiệm thực tế chuẩn bị và dịch thuật hồ sơ visa du lịch: lỗi thường gặp, phân biệt mộc công ty và công chứng, checklist giấy tờ cần chuẩn bị."
+  path="/blog/"
+  schema={schema}
+>
+  <div class="container blog-index">
+    <Breadcrumb items={[{ label: 'Blog', href: '/blog/' }]} />
+    <h1>Blog — Kinh Nghiệm Chuẩn Bị Hồ Sơ Visa</h1>
+    <p class="text-muted">
+      Kinh nghiệm thực tế từ quá trình dịch thuật hàng trăm hồ sơ visa du lịch — không phải nội dung dịch từ nơi
+      khác.
+    </p>
+
+    <div class="blog-list">
+      {
+        posts.map((post) => (
+          <a class="blog-card fade-in" href={`/blog/${post.data.slug}/`}>
+            <h2>{post.data.title}</h2>
+            <p>{post.data.description}</p>
+            <span class="blog-card__date">
+              Cập nhật {post.data.updated.toLocaleDateString('vi-VN')}
+            </span>
+          </a>
+        ))
+      }
+    </div>
+
+    {
+      posts.length === 0 && (
+        <p class="text-muted">Chưa có bài viết nào.</p>
+      )
+    }
+  </div>
+</BaseLayout>
+
+<style>
+  .blog-index {
+    padding: var(--space-6) 0 var(--space-8);
+    max-width: 760px;
+  }
+
+  .blog-index > h1 {
+    margin-top: var(--space-4);
+  }
+
+  .blog-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    margin-top: var(--space-6);
+  }
+
+  .blog-card {
+    display: block;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: var(--space-5);
+    text-decoration: none;
+    color: var(--ink);
+  }
+
+  .blog-card:hover {
+    border-color: var(--navy-700);
+  }
+
+  .blog-card h2 {
+    margin: 0 0 var(--space-2);
+    font-size: 1.125rem;
+    color: var(--navy-900);
+  }
+
+  .blog-card p {
+    margin: 0 0 var(--space-3);
+    color: var(--navy-700);
+    font-size: 0.9375rem;
+  }
+
+  .blog-card__date {
+    font-size: 0.8125rem;
+    color: var(--navy-700);
+  }
+</style>

@@ -1,0 +1,143 @@
+---
+import { getCollection, render, type CollectionEntry } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import LastUpdated from '../../components/LastUpdated.astro';
+import SourceNote from '../../components/SourceNote.astro';
+import Faq from '../../components/Faq.astro';
+import ZaloButton from '../../components/ZaloButton.astro';
+import { utmContent, site } from '../../config/site';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('lanh-su');
+  return entries.map((entry) => ({ params: { slug: entry.data.slug }, props: { entry } }));
+}
+
+interface Props {
+  entry: CollectionEntry<'lanh-su'>;
+}
+
+const { entry } = Astro.props;
+const { data } = entry;
+const { Content } = await render(entry);
+
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: data.title,
+    datePublished: data.updated.toISOString(),
+    dateModified: data.updated.toISOString(),
+    author: { '@type': 'Organization', name: site.name },
+    publisher: { '@type': 'Organization', name: site.name },
+  },
+];
+---
+
+<BaseLayout
+  title={data.title}
+  description={`Yêu cầu dịch thuật hồ sơ visa ${data.country}: giấy tờ nào cần dịch (nếu có), hình thức bản dịch, thời gian & chi phí ước tính. Cập nhật ${data.updated.toLocaleDateString('vi-VN')}.`}
+  path={`/visa/${data.slug}/`}
+  ogImage="/img/og/visa.webp"
+  schema={schema}
+>
+  <div class="container visa-page">
+    <Breadcrumb items={[{ label: `Visa ${data.country}`, href: `/visa/${data.slug}/` }]} />
+
+    <h1>{data.title}</h1>
+    <LastUpdated date={data.updated} />
+
+    {
+      data.disclaimer && (
+        <p class="visa-page__disclaimer">{data.disclaimer}</p>
+      )
+    }
+
+    <section class="fade-in">
+      <h2>Giấy tờ cần dịch cho visa {data.country}</h2>
+      <ul class="checklist">
+        {
+          data.checklist.map((item) => (
+            <li>
+              <a href={`/mau-dich/${item.docSlug}/`}>{item.label}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <section class="fade-in">
+      <h2>Yêu cầu về hình thức bản dịch</h2>
+      <p>{data.formRequirement}</p>
+      <SourceNote sourceUrl={data.sourceUrl} sourceName={data.sourceName} />
+    </section>
+
+    <section class="fade-in doc-content">
+      <Content />
+    </section>
+
+    <section class="fade-in">
+      <h2>Thời gian & chi phí ước tính</h2>
+      <p>{data.estimate}</p>
+      <p><a href="/bang-gia/">Xem bảng giá đầy đủ</a></p>
+    </section>
+
+    <section class="fade-in visa-page__cta">
+      <ZaloButton utmContent={utmContent.visa(data.slug)} variant="block" />
+    </section>
+
+    <section class="fade-in">
+      <h2>Câu hỏi thường gặp</h2>
+      <Faq items={data.faq} />
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .visa-page {
+    padding: var(--space-6) 0 var(--space-8);
+    max-width: 760px;
+  }
+
+  .visa-page > h1 {
+    margin-top: var(--space-4);
+  }
+
+  .visa-page__disclaimer {
+    background: var(--paper);
+    border-left: 3px solid var(--accent);
+    padding: var(--space-4);
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .visa-page section {
+    margin-top: var(--space-7);
+  }
+
+  .checklist {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .checklist li {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    padding: var(--space-3) var(--space-4);
+  }
+
+  .checklist a {
+    text-decoration: none;
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  .checklist a:hover {
+    color: var(--navy-900);
+    text-decoration: underline;
+  }
+</style>

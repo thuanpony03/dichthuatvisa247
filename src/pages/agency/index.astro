@@ -1,0 +1,333 @@
+---
+import AgencyLayout from '../../layouts/AgencyLayout.astro';
+import ZaloButton from '../../components/ZaloButton.astro';
+import Lightbox from '../../components/Lightbox.astro';
+import { agencyPricing, contact, utmContent } from '../../config/site';
+
+const opsEvidence = Array.from({ length: 10 }, (_, i) => ({
+  src: `/img/agency/zalo-${String(i + 1).padStart(2, '0')}.webp`,
+  alt: `Ảnh minh hoạ quy trình làm việc thực tế qua Zalo với CTV/đại lý #${i + 1}`,
+  width: 435,
+  height: 943,
+}));
+
+function formatTier(v: number | 'thoathuan') {
+  return v === 'thoathuan' ? 'Thoả thuận' : v.toLocaleString('vi-VN') + 'đ';
+}
+---
+
+<AgencyLayout
+  title="Đối Tác Dịch Thuật Cho Đại Lý Visa & Công Ty Du Lịch"
+  description="Giá sỉ theo khối lượng, cam kết SLA bằng văn bản, công nợ 15–30 ngày. Nhận phần tràn mùa cao điểm."
+  path="/agency/"
+>
+  <!-- Hero -->
+  <section class="section agency-hero">
+    <div class="container">
+      <h1>Đối Tác Dịch Thuật Cho Đại Lý Visa &amp; Công Ty Du Lịch</h1>
+      <p class="agency-hero__sub">Giá sỉ theo khối lượng · Cam kết SLA bằng văn bản · Công nợ 15–30 ngày</p>
+    </div>
+  </section>
+
+  <!-- Năng lực xử lý -->
+  <section class="section">
+    <div class="container">
+      <h2>Năng lực xử lý</h2>
+      <div class="capacity-grid">
+        <div class="capacity-card">
+          <p class="capacity-card__value">71 bộ hồ sơ</p>
+          <p class="capacity-card__label">Xử lý trong một đợt cho một đại lý đối tác</p>
+        </div>
+        <div class="capacity-card">
+          <p class="capacity-card__value">[Chủ site điền số trang/ngày]</p>
+          <p class="capacity-card__label">Số trang xử lý mỗi ngày</p>
+        </div>
+      </div>
+      <p class="text-muted capacity-note">
+        Số bên trái lấy từ sổ theo dõi công nợ thực tế với một đại lý đối tác — không phải số ước đoán. Số bên
+        phải sẽ được chủ site cập nhật theo dữ liệu vận hành mới nhất.
+      </p>
+    </div>
+  </section>
+
+  <!-- Vận hành thực tế -->
+  <section class="section ops-evidence" id="ops-evidence">
+    <div class="container">
+      <h2>Vận hành thực tế</h2>
+      <p class="text-muted">
+        Ảnh chụp màn hình thật từ các nhóm Zalo làm việc với CTV và đại lý — đã che tên nhóm và tên khách hàng
+        trong hồ sơ. Không phải ảnh minh hoạ dàn dựng.
+      </p>
+      <Lightbox columns={3} images={opsEvidence} />
+    </div>
+  </section>
+
+  <!-- Bảng giá sỉ -->
+  <section class="section">
+    <div class="container">
+      <h2>Bảng giá sỉ theo bậc</h2>
+      <div class="table-scroll">
+        <table class="agency-table">
+          <thead>
+            <tr>
+              <th>Khối lượng/tháng</th>
+              <th>Giá trọn hồ sơ</th>
+              <th>Giá theo trang</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              agencyPricing.map((tier) => (
+                <tr>
+                  <td data-label="Khối lượng/tháng">{tier.volumeLabel}</td>
+                  <td data-label="Giá trọn hồ sơ">{formatTier(tier.bundlePrice)}</td>
+                  <td data-label="Giá theo trang">{formatTier(tier.perPagePrice)}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+      <p class="text-muted">Giá gốc xưởng dịch, áp dụng riêng cho đại lý &amp; đối tác khối lượng lớn.</p>
+    </div>
+  </section>
+
+  <!-- Nhận phần tràn mùa cao điểm -->
+  <section class="section overflow-block">
+    <div class="container">
+      <h2>Nhận phần tràn mùa cao điểm</h2>
+      <blockquote>
+        Mùa cao điểm hồ sơ dồn? Chúng tôi nhận phần tràn, không yêu cầu anh/chị thay đổi đơn vị đang hợp tác.
+        Đẩy sang khi kẹt, giao đúng hẹn thì tính tiếp.
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- SLA & bồi thường -->
+  <section class="section">
+    <div class="container">
+      <h2>SLA &amp; bồi thường</h2>
+      <div class="table-scroll">
+        <table class="agency-table">
+          <thead>
+            <tr>
+              <th>Cam kết</th>
+              <th>Nếu trễ hẹn</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-label="Cam kết">Giao đúng giờ theo gói đã chọn (thường/48h/24h/siêu gấp)</td>
+              <td data-label="Nếu trễ hẹn">Hoàn 100% phí gấp của hồ sơ trễ hẹn</td>
+            </tr>
+            <tr>
+              <td data-label="Cam kết">Đúng thể thức hồ sơ nộp lãnh sự quán</td>
+              <td data-label="Nếu trễ hẹn">Sai sót do dịch: dịch lại miễn phí</td>
+            </tr>
+            <tr>
+              <td data-label="Cam kết">Bảo mật thông tin khách hàng trong hồ sơ</td>
+              <td data-label="Nếu trễ hẹn">Cam kết bằng văn bản khi ký hợp tác chính thức</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quy trình làm việc -->
+  <section class="section">
+    <div class="container">
+      <h2>Quy trình làm việc</h2>
+      <p class="text-muted">Nhìn sơ đồ là biết ngay các bước, không cần đọc hết chữ bên dưới.</p>
+      <img
+        src="/img/quy-trinh-agency.webp"
+        alt="Quy trình làm việc với đại lý: liên hệ và thử miễn phí, thiết lập hợp tác, gửi hồ sơ, dịch và kiểm tra chéo, bàn giao đúng hẹn, thanh toán và công nợ"
+        width={1983}
+        height={793}
+        class="process-image"
+        loading="lazy"
+      />
+      <ol class="process-flow">
+        <li>Liên hệ &amp; thử miễn phí — nhắn Zalo, gửi 1 hồ sơ dịch thử miễn phí</li>
+        <li>Thiết lập hợp tác — thống nhất giá theo bậc, tạo folder Drive dùng chung, quy ước đặt tên file</li>
+        <li>Gửi hồ sơ — đại lý up ảnh/scan giấy tờ theo từng đợt</li>
+        <li>Dịch + kiểm tra chéo — đóng mộc công ty + xác nhận dịch</li>
+        <li>Bàn giao đúng hẹn — theo từng đợt hoặc theo ngày, tuỳ thoả thuận</li>
+        <li>Thanh toán / công nợ — báo cáo tổng hợp cuối tháng: số hồ sơ, số trang, công nợ</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Chính sách công nợ -->
+  <section class="section">
+    <div class="container">
+      <h2>Chính sách công nợ</h2>
+      <ul class="debt-policy">
+        <li><strong>3 đơn đầu tiên:</strong> thanh toán ngay khi nhận bản dịch.</li>
+        <li><strong>Từ đơn thứ 4:</strong> áp dụng công nợ 15 ngày.</li>
+        <li><strong>Sau 3 tháng hợp tác ổn định:</strong> công nợ nâng lên 30 ngày.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section agency-cta no-print">
+    <div class="container agency-cta__inner">
+      <ZaloButton
+        utmContent={utmContent.agency}
+        label="Nhận 1 hồ sơ dịch thử miễn phí"
+        variant="block"
+      />
+      <a href={`tel:${contact.phoneTel}`} class="btn btn--call btn--block">Đặt lịch trao đổi — {contact.phoneDisplay}</a>
+    </div>
+  </section>
+
+  <style>
+    .agency-hero__sub {
+      color: var(--navy-700);
+      font-size: 1.0625rem;
+    }
+
+    .capacity-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-4);
+    }
+
+    @media (min-width: 560px) {
+      .capacity-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .capacity-card {
+      background: var(--white);
+      border: 2px dashed var(--accent);
+      border-radius: var(--radius);
+      padding: var(--space-5);
+      text-align: center;
+    }
+
+    .capacity-card__value {
+      font-weight: 800;
+      font-size: 1.125rem;
+      color: var(--navy-900);
+      margin-bottom: var(--space-1);
+    }
+
+    .capacity-card__label {
+      color: var(--navy-700);
+      margin: 0;
+      font-size: 0.9375rem;
+    }
+
+    .capacity-note {
+      margin-top: var(--space-3);
+      font-size: 0.875rem;
+    }
+
+    .agency-table th,
+    .agency-table td {
+      text-align: left;
+      padding: var(--space-3);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .agency-table thead {
+      background: var(--navy-900);
+      color: var(--white);
+    }
+
+    @media (max-width: 640px) {
+      .agency-table thead {
+        display: none;
+      }
+      .agency-table,
+      .agency-table tbody,
+      .agency-table tr,
+      .agency-table td {
+        display: block;
+        width: 100%;
+      }
+      .agency-table tr {
+        border: 1px solid var(--line);
+        border-radius: var(--radius-sm);
+        margin-bottom: var(--space-3);
+        background: var(--white);
+      }
+      .agency-table td {
+        border-bottom: none;
+        display: flex;
+        justify-content: space-between;
+        gap: var(--space-3);
+        text-align: right;
+      }
+      .agency-table td::before {
+        content: attr(data-label);
+        font-weight: 700;
+        color: var(--navy-700);
+        text-align: left;
+      }
+    }
+
+    .overflow-block blockquote {
+      margin: 0;
+      background: var(--white);
+      border-left: 4px solid var(--accent);
+      padding: var(--space-5);
+      font-size: 1.0625rem;
+      font-style: italic;
+      color: var(--ink);
+    }
+
+    .process-image {
+      display: block;
+      width: 100%;
+      height: auto;
+      margin: var(--space-4) 0 var(--space-6);
+      border-radius: var(--radius);
+    }
+
+    .process-flow {
+      list-style: decimal;
+      padding-left: 1.25em;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+
+    .process-flow li {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      padding: var(--space-3) var(--space-4);
+    }
+
+    .debt-policy {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+
+    .debt-policy li {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--accent);
+      border-radius: var(--radius-sm);
+      padding: var(--space-3) var(--space-4);
+    }
+
+    .agency-cta {
+      background: var(--paper);
+    }
+
+    .agency-cta__inner {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+      max-width: 420px;
+    }
+  </style>
+</AgencyLayout>

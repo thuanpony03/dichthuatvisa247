@@ -1,0 +1,124 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import PriceTable from '../../components/PriceTable.astro';
+import Faq from '../../components/Faq.astro';
+import ZaloButton from '../../components/ZaloButton.astro';
+import { utmContent } from '../../config/site';
+
+const faqItems = [
+  {
+    question: 'Giá rẻ vậy thì bản dịch có kém chất lượng không?',
+    answer: 'Không. Phần rẻ hơn đến từ việc rút ngắn thời gian thao tác nhờ tự động hoá — bố cục, thuật ngữ có sẵn khuôn cho từng loại giấy tờ — chứ không phải bỏ bớt bước kiểm tra chéo trước khi đóng mộc.',
+  },
+  {
+    question: 'Nên chọn gói trọn hồ sơ hay tính theo trang?',
+    answer: 'Nếu dịch cả bộ hồ sơ (thường 20–30 trang) thì gói trọn hồ sơ rẻ hơn và biết trước tổng tiền. Chỉ cần dịch một, hai giấy tờ lẻ thì tính theo trang tiện hơn.',
+  },
+  {
+    question: 'Hồ sơ dày hơn 30 trang thì sao?',
+    answer: 'Phần vượt tính thêm 12.000đ/trang — con số này báo trước, không cộng dồn bất ngờ lúc giao hàng.',
+  },
+  {
+    question: 'Công ty du lịch, đại lý gửi số lượng lớn có giá khác không?',
+    answer: 'Có, tính theo bậc khối lượng mỗi tháng, khác hẳn giá lẻ ở bảng trên — liên hệ trực tiếp để nhận báo giá riêng.',
+  },
+  {
+    question: 'Gói siêu gấp trong ngày có cộng thêm phí ngoài bảng không?',
+    answer: 'Không. Mức giá siêu gấp trong bảng đã là giá cuối, không có phụ thu nào khác đi kèm.',
+  },
+];
+
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqItems.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: { '@type': 'Answer', text: item.answer },
+    })),
+  },
+];
+---
+
+<BaseLayout
+  title="Bảng Giá Dịch Thuật Visa 2026 — Giá Rẻ, Có Mộc Công Ty"
+  description="Bảng giá dịch thuật hồ sơ visa: gói trọn hồ sơ từ 400.000đ hoặc tính theo trang từ 20.000đ/trang. Giá rẻ nhờ quy trình tự động hoá, có mộc công ty."
+  path="/bang-gia/"
+  schema={schema}
+>
+  <div class="container price-page">
+    <Breadcrumb items={[{ label: 'Bảng giá', href: '/bang-gia/' }]} />
+    <h1>Bảng Giá Dịch Thuật Visa</h1>
+    <p class="text-muted">
+      Hai cách tính: chọn <strong>gói trọn hồ sơ</strong> nếu dịch cả bộ (biết tổng tiền ngay từ đầu), hoặc tính{' '}
+      <strong>theo trang</strong> nếu chỉ cần một vài giấy tờ lẻ. Giá thấp hơn mặt bằng chung nhờ tự động hoá phần
+      thao tác lặp lại — mọi bản dịch vẫn có mộc công ty + xác nhận dịch như nhau.
+    </p>
+
+    <img
+      src="/img/so-do-2-cach-tinh-gia.webp"
+      alt="So sánh gói trọn hồ sơ (biết trước tổng tiền, không phát sinh) và tính theo trang (linh hoạt theo số trang thực tế)"
+      width={1400}
+      height={560}
+      class="price-compare-image"
+      loading="eager"
+    />
+
+    <PriceTable />
+
+    <div class="agency-note">
+      <p><strong>Đại lý &amp; đối tác khối lượng lớn:</strong> liên hệ nhận báo giá riêng.</p>
+      <ZaloButton utmContent={utmContent.banggia} label="Liên hệ nhận báo giá đại lý" />
+    </div>
+
+    <section class="price-page__faq">
+      <h2>Câu hỏi thường gặp</h2>
+      <Faq items={faqItems} />
+    </section>
+
+    <div class="final-cta">
+      <ZaloButton utmContent={utmContent.banggia} variant="block" />
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .price-page {
+    padding: var(--space-6) 0 var(--space-8);
+    max-width: 760px;
+  }
+
+  .price-compare-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: var(--space-5) 0 var(--space-6);
+  }
+
+  .price-page > h1 {
+    margin-top: var(--space-4);
+  }
+
+  .agency-note {
+    margin-top: var(--space-7);
+    background: var(--white);
+    border: 1px dashed var(--accent);
+    border-radius: var(--radius);
+    padding: var(--space-5);
+  }
+
+  .agency-note p {
+    margin-bottom: var(--space-3);
+  }
+
+  .price-page__faq {
+    margin-top: var(--space-7);
+  }
+
+  .final-cta {
+    margin-top: var(--space-6);
+    max-width: 420px;
+  }
+</style>

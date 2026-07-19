@@ -1,0 +1,205 @@
+---
+import { contact } from '../config/site';
+
+const navItems = [
+  { href: '/', label: 'Trang chủ' },
+  { href: '/bang-gia/', label: 'Bảng giá' },
+  { href: '/mau-dich/', label: 'Mẫu dịch' },
+  { href: '/dich-vu-visa/', label: 'Dịch vụ visa' },
+  { href: '/blog/', label: 'Blog' },
+  { href: '/lien-he/', label: 'Liên hệ' },
+];
+
+const current = Astro.url.pathname;
+---
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a href="/" class="site-header__logo">Dịch Thuật Visa 247</a>
+
+    <details class="site-header__mobile-nav">
+      <summary aria-label="Mở menu">
+        <span class="site-header__hamburger" aria-hidden="true"></span>
+        <span class="visually-hidden">Menu</span>
+      </summary>
+      <nav aria-label="Điều hướng chính" class="site-header__nav-mobile">
+        <ul>
+          {
+            navItems.map((item) => (
+              <li>
+                <a href={item.href} aria-current={current === item.href ? 'page' : undefined}>
+                  {item.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+        <a href={contact.zaloUrl} class="btn btn--zalo btn--block" target="_blank" rel="noopener">
+          Nhắn Zalo
+        </a>
+      </nav>
+    </details>
+
+    <nav aria-label="Điều hướng chính" class="site-header__nav-desktop">
+      <ul>
+        {
+          navItems.map((item) => (
+            <li>
+              <a href={item.href} aria-current={current === item.href ? 'page' : undefined}>
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <a href={`tel:${contact.phoneTel}`} class="site-header__phone">{contact.phoneDisplay}</a>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    background: var(--white);
+    border-bottom: 1px solid var(--line);
+    position: sticky;
+    top: 0;
+    z-index: 40;
+  }
+
+  .site-header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    padding-top: var(--space-3);
+    padding-bottom: var(--space-3);
+  }
+
+  .site-header__logo {
+    font-weight: 800;
+    font-size: 1.125rem;
+    color: var(--navy-900);
+    text-decoration: none;
+    letter-spacing: -0.02em;
+    white-space: nowrap;
+  }
+
+  .site-header__nav-desktop {
+    display: none;
+  }
+
+  .site-header__nav-desktop ul {
+    display: flex;
+    gap: var(--space-5);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .site-header__nav-desktop a {
+    color: var(--ink);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9375rem;
+  }
+
+  .site-header__nav-desktop a:hover,
+  .site-header__nav-desktop a[aria-current='page'] {
+    color: var(--navy-900);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  .site-header__phone {
+    display: none;
+    color: var(--navy-900);
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .site-header__mobile-nav {
+    position: relative;
+  }
+
+  .site-header__mobile-nav summary {
+    list-style: none;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-sm);
+  }
+
+  .site-header__mobile-nav summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .site-header__hamburger,
+  .site-header__hamburger::before,
+  .site-header__hamburger::after {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--navy-900);
+    position: relative;
+  }
+
+  .site-header__hamburger::before,
+  .site-header__hamburger::after {
+    content: '';
+    position: absolute;
+  }
+
+  .site-header__hamburger::before {
+    top: -7px;
+  }
+
+  .site-header__hamburger::after {
+    top: 7px;
+  }
+
+  .site-header__nav-mobile {
+    position: absolute;
+    right: 0;
+    top: calc(100% + 8px);
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-md);
+    padding: var(--space-4);
+    width: 220px;
+  }
+
+  .site-header__nav-mobile ul {
+    list-style: none;
+    margin: 0 0 var(--space-4);
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .site-header__nav-mobile a {
+    color: var(--ink);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  @media (min-width: 768px) {
+    .site-header__mobile-nav {
+      display: none;
+    }
+
+    .site-header__nav-desktop {
+      display: block;
+    }
+
+    .site-header__phone {
+      display: block;
+    }
+  }
+</style>

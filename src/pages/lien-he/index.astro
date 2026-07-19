@@ -1,0 +1,183 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import ZaloButton from '../../components/ZaloButton.astro';
+import CallButton from '../../components/CallButton.astro';
+import { contact, contact2, site } from '../../config/site';
+---
+
+<BaseLayout
+  title="Liên Hệ | Dịch Thuật Visa 247"
+  description="Liên hệ Dịch Thuật Visa 247 qua Zalo hoặc hotline để nhận báo giá dịch thuật hồ sơ visa trong 5 phút."
+  path="/lien-he/"
+>
+  <div class="container contact-page">
+    <Breadcrumb items={[{ label: 'Liên hệ', href: '/lien-he/' }]} />
+    <h1>Liên Hệ</h1>
+    <p class="text-muted">
+      Cách nhanh nhất: chụp ảnh giấy tờ gửi Zalo, nhận báo giá và giờ giao cụ thể trong 5 phút.
+    </p>
+
+    <div class="contact-grid">
+      <div class="contact-card">
+        <p class="contact-card__name">{contact.personName}</p>
+        <ul class="contact-list">
+          <li>
+            <strong>Điện thoại/Zalo:</strong> <a href={`tel:${contact.phoneTel}`}>{contact.phoneDisplay}</a>
+          </li>
+          <li><strong>Giờ làm việc:</strong> {contact.hours}</li>
+          <li><strong>Thời gian phản hồi:</strong> {contact.responseTime}</li>
+          <li>
+            <strong>Fanpage:</strong>{' '}
+            <a href={contact.fanpageUrl} target="_blank" rel="noopener">facebook.com/dichthuatvisa247</a>
+          </li>
+        </ul>
+
+        <div class="contact-card__cta">
+          <ZaloButton utmContent="lienhe" variant="block" />
+          <CallButton variant="block" />
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <p class="contact-card__name">{contact2.personName}</p>
+        <ul class="contact-list">
+          <li>
+            <strong>Điện thoại/Zalo:</strong> <a href={`tel:${contact2.phoneTel}`}>{contact2.phoneDisplay}</a>
+          </li>
+        </ul>
+
+        <div class="contact-card__cta">
+          <a href={`${contact2.zaloUrl}?utm_source=web&utm_content=lienhe-tram`} class="btn btn--zalo btn--block" target="_blank" rel="noopener">
+            Nhắn Zalo
+          </a>
+          <a href={`tel:${contact2.phoneTel}`} class="btn btn--call btn--block">Gọi {contact2.phoneDisplay}</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="offices">
+      <h2>Văn phòng</h2>
+      <div class="offices__grid">
+        <div class="offices__item">
+          <p class="offices__city">TP. Hồ Chí Minh (trụ sở chính)</p>
+          <p class="text-muted">{site.business.streetAddress}, {site.business.addressLocality}, {site.business.addressRegion}</p>
+        </div>
+        <div class="offices__item">
+          <p class="offices__city">Hà Nội (văn phòng đại diện)</p>
+          <p class="text-muted">{site.hanoiOffice}</p>
+        </div>
+      </div>
+      <p class="offices__note">Vận hành bởi {site.business.operatedBy}.</p>
+    </div>
+
+    <div class="about">
+      <h2>Về {site.name}</h2>
+      <p>
+        {site.name} là dịch vụ dịch thuật hồ sơ visa vận hành bởi {site.business.operatedBy}, trụ sở tại TP.HCM
+        và văn phòng đại diện tại Hà Nội. Chúng tôi tập trung vào một việc: dịch giấy tờ tiếng Việt sang tiếng Anh
+        đúng thể thức hồ sơ visa du lịch, có mộc công ty và xác nhận dịch, đủ điều kiện nộp lãnh sự quán.
+      </p>
+      <p>
+        Bên cạnh khách hàng lẻ, chúng tôi hợp tác với các đại lý visa và công ty du lịch xử lý khối lượng lớn —
+        xem <a href="/agency/#ops-evidence">bằng chứng vận hành thực tế</a> (ảnh chụp màn hình trao đổi công
+        việc, số liệu xử lý hồ sơ thật) tại trang dành cho đại lý.
+      </p>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .contact-page {
+    padding: var(--space-6) 0 var(--space-8);
+    max-width: 560px;
+  }
+
+  .contact-page > h1 {
+    margin-top: var(--space-4);
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+    margin-top: var(--space-6);
+  }
+
+  @media (min-width: 560px) {
+    .contact-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .contact-card {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: var(--space-6);
+  }
+
+  .contact-card__name {
+    font-weight: 800;
+    font-size: 1.125rem;
+    color: var(--navy-900);
+  }
+
+  .contact-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    margin-bottom: var(--space-6);
+  }
+
+  .contact-card__cta {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .offices {
+    margin-top: var(--space-7);
+  }
+
+  .offices__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+
+  @media (min-width: 560px) {
+    .offices__grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .offices__item {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--navy-700);
+    padding: var(--space-4);
+  }
+
+  .offices__city {
+    font-weight: 700;
+    color: var(--navy-900);
+    margin-bottom: var(--space-1);
+  }
+
+  .offices__note {
+    margin-top: var(--space-3);
+    font-size: 0.8125rem;
+    color: var(--navy-700);
+  }
+
+  .about {
+    margin-top: var(--space-7);
+  }
+
+  .about p {
+    color: var(--navy-700);
+  }
+</style>

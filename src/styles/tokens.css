@@ -1,0 +1,33 @@
+:root {
+  /* Màu thương hiệu — xanh dương hoàng gia + xanh lá */
+  --navy-900: #013790;
+  --navy-700: #0d4aa0;
+  --ink: #14213a;
+  --paper: #f5f6f8;
+  --white: #ffffff;
+  --line: #d8dde5;
+  --zalo: #0068ff; /* CHỈ dùng cho nút Zalo */
+  --seal: #c0392b; /* đỏ mộc — chỉ chi tiết nhấn nhỏ, dấu đỏ tài liệu */
+  --accent: #16862c; /* xanh lá tươi khớp màu banner (trước quá tối/ngả rêu so với banner) */
+
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+
+  --radius: 8px;
+  --radius-sm: 4px;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+
+  --container-max: 1120px;
+
+  --shadow-sm: 0 1px 2px rgba(15, 27, 51, 0.08);
+  --shadow-md: 0 4px 16px rgba(15, 27, 51, 0.12);
+
+  --transition-fast: 150ms ease;
+}

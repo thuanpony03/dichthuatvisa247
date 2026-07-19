@@ -1,0 +1,22 @@
+---
+interface Props {
+  label?: string;
+  sourceUrl: string;
+  sourceName: string;
+}
+
+const { label = 'Nguồn', sourceUrl, sourceName } = Astro.props;
+---
+
+<p class="source-note">
+  {label}: <a href={sourceUrl} target="_blank" rel="noopener">{sourceName}</a>
+</p>
+
+<style>
+  .source-note {
+    font-size: 0.8125rem;
+    color: var(--navy-700);
+    font-style: italic;
+    margin-top: var(--space-1);
+  }
+</style>
