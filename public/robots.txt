@@ -4,4 +4,4 @@ Allow: /
 # /lp/* và /agency/ dùng <meta name="robots" content="noindex, follow"> trên từng trang.
 # Không Disallow ở đây — chặn crawl sẽ khiến Google không đọc được thẻ noindex.
 
-Sitemap: https://dichthuatvisa247.vn/sitemap-index.xml
+Sitemap: https://dichthuatvisa247.com/sitemap-index.xml

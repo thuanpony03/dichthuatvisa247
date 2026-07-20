@@ -3,7 +3,7 @@
 
 export const site = {
   name: 'Dịch Thuật Visa 247',
-  domain: 'https://dichthuatvisa247.vn', // TODO: đổi thành domain thật khi có
+  domain: 'https://dichthuatvisa247.com',
   locale: 'vi',
   // Địa chỉ dùng cho schema LocalBusiness — lấy từ văn phòng thật của Passport Lounge (đơn vị vận hành),
   // theo xác nhận của chủ site. Văn phòng Hà Nội (Số 1 Đào Duy Anh, Đống Đa) hiển thị riêng ở /lien-he/.
@@ -137,6 +137,7 @@ export const utmContent = {
   agency: 'agency',
   sticky: 'sticky',
   cuoi: 'cuoi',
+  floatingBubble: 'floating-bubble',
   // Dịch vụ ngoài dịch thuật (Mục "Dịch vụ visa") — theo dõi riêng để biết dịch vụ nào khách quan tâm nhất
   tuVanVisa: 'dv-tu-van-visa',
   trongGoiVisa: 'dv-tron-goi-visa',

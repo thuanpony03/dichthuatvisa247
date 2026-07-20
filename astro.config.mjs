@@ -4,7 +4,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://dichthuatvisa247.vn', // TODO: đổi thành domain thật khi có
+  site: 'https://dichthuatvisa247.com',
   output: 'static',
   integrations: [
     sitemap({

@@ -29,7 +29,7 @@ const { images, watermark = false, columns = 3 } = Astro.props;
         aria-label={`Phóng to: ${img.alt}`}
       >
         <img src={img.src} alt={img.alt} width={img.width} height={img.height} loading={i === 0 ? 'eager' : 'lazy'} />
-        {watermark && <span class="lightbox-grid__watermark" aria-hidden="true">dichthuatvisa247.vn</span>}
+        {watermark && <span class="lightbox-grid__watermark" aria-hidden="true">dichthuatvisa247.com</span>}
         {img.caption && <span class="lightbox-grid__caption">{img.caption}</span>}
       </button>
     ))

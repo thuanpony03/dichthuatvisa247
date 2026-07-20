@@ -13,7 +13,7 @@ npm run preview   # xem thử bản build
 
 ## ⚠️ Việc cần làm TRƯỚC khi đưa site lên production
 
-1. **Đổi domain thật** ở 2 chỗ: `astro.config.mjs` (`site:`) và `src/config/site.ts` (`site.domain`). Hiện đang để tạm `https://dichthuatvisa247.vn`.
+1. ✅ **Domain thật đã cập nhật**: `https://dichthuatvisa247.com` (đổi ở `astro.config.mjs` và `src/config/site.ts`). DNS đang lan truyền qua Cloudflare — nếu domain chưa vào được ngay, đợi vài giờ rồi thử lại.
 2. **Dán mã tracking thật** — xem mục "Dán mã Google Ads / GA4 / Pixel" bên dưới.
 3. **Điền địa chỉ công ty thật** vào `src/config/site.ts` → `site.business` (dùng cho schema LocalBusiness ở trang chủ). Hiện để trống có ghi `TODO`.
 4. **Điền số liệu năng lực xử lý thật** ở `/agency/` (số trang/ngày, số hồ sơ gấp 24h đồng thời) — trang đang để placeholder rõ ràng `[Chủ site điền số...]`, **không được tự bịa số**.
