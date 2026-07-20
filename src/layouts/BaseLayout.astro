@@ -5,6 +5,7 @@ import Tracking from '../components/Tracking.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import StickyBar from '../components/StickyBar.astro';
+import FloatingZalo from '../components/FloatingZalo.astro';
 import { utmContent } from '../config/site';
 
 interface Props {
@@ -41,6 +42,7 @@ const { title, description, path, noindex = false, ogImage, schema = [] } = Astr
     </main>
     <Footer />
     <StickyBar utmContent={utmContent.sticky} />
+    <FloatingZalo />
     <script src="../scripts/fade-in.js"></script>
   </body>
 </html>
