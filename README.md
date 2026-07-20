@@ -15,7 +15,7 @@ npm run preview   # xem thử bản build
 
 1. ✅ **Domain thật đã cập nhật**: `https://dichthuatvisa247.com` (đổi ở `astro.config.mjs` và `src/config/site.ts`). DNS đang lan truyền qua Cloudflare — nếu domain chưa vào được ngay, đợi vài giờ rồi thử lại.
 2. **Dán mã tracking thật** — xem mục "Dán mã Google Ads / GA4 / Pixel" bên dưới.
-3. **Điền địa chỉ công ty thật** vào `src/config/site.ts` → `site.business` (dùng cho schema LocalBusiness ở trang chủ). Hiện để trống có ghi `TODO`.
+3. ✅ **Địa chỉ công ty thật đã điền** vào `src/config/site.ts` → `site.business` (192 Trần Quang Khải, TP.HCM + văn phòng Hà Nội).
 4. **Điền số liệu năng lực xử lý thật** ở `/agency/` (số trang/ngày, số hồ sơ gấp 24h đồng thời) — trang đang để placeholder rõ ràng `[Chủ site điền số...]`, **không được tự bịa số**.
 5. **Thay toàn bộ ảnh placeholder** bằng ảnh giấy tờ thật đã che thông tin cá nhân — xem danh sách bên dưới.
 6. Kiểm tra lại nội dung 6 trang `/visa/[slug]/` (yêu cầu hình thức dịch thuật của từng lãnh sự) — nội dung đã được viết cẩn thận kèm nguồn tham khảo chính thức, nhưng **quy định lãnh sự có thể thay đổi**, nên xác minh lại trước khi công bố rộng rãi. Đây là cảnh báo brief gốc đã nêu rõ.
