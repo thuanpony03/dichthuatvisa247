@@ -2,8 +2,10 @@
 import { tracking } from '../config/site';
 ---
 
-<!-- Google tag (gtag.js) — Google Ads + GA4. Mục 7a/7e. -->
-<script async src={`https://www.googletagmanager.com/gtag/js?id=${tracking.googleAdsId}`} is:inline></script>
+<!-- Google tag (gtag.js) — Google Ads + GA4. Mục 7a/7e.
+     Dùng ga4Id cho src vì đó là ID thật hiện có — gtag.js phục vụ chung 1 thư viện bất kể ID nào trên URL,
+     các lệnh gtag('config', ...) bên dưới vẫn hoạt động độc lập cho từng ID khi có Google Ads ID thật sau này. -->
+<script async src={`https://www.googletagmanager.com/gtag/js?id=${tracking.ga4Id}`} is:inline></script>
 <script define:vars={{ googleAdsId: tracking.googleAdsId, ga4Id: tracking.ga4Id }} is:inline>
   window.dataLayer = window.dataLayer || [];
   function gtag() {

@@ -124,7 +124,7 @@ export const tracking = {
   googleAdsId: 'AW-XXXXXXXXX', // TODO: dán Google Ads Conversion ID thật
   googleAdsConversionZalo: 'AW-XXXXXXXXX/YYYYYYYY', // TODO: conversion label cho zalo_click
   googleAdsConversionCall: 'AW-XXXXXXXXX/ZZZZZZZZ', // TODO: conversion label cho call_click
-  ga4Id: 'G-XXXXXXXXX', // TODO: dán GA4 Measurement ID thật
+  ga4Id: 'G-W8WVZEXRCV',
   fbPixelId: 'XXXXXXXXXXXXXXX', // TODO: dán Facebook Pixel ID thật
 } as const;
 
