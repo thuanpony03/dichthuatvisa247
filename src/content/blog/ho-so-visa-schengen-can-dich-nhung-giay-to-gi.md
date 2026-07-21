@@ -1,6 +1,6 @@
 ---
 title: "Hồ Sơ Visa Schengen Cần Dịch Những Giấy Tờ Gì? Checklist 2026"
-slug: "checklist-dich-ho-so-visa-schengen-2026"
+slug: "ho-so-visa-schengen-can-dich-nhung-giay-to-gi"
 description: "Checklist giấy tờ thường cần dịch khi xin visa Schengen: cư trú, tài chính, công việc, và những điểm khác nhau giữa các nước trong khối cần xác nhận trước khi dịch."
 updated: 2026-07-21
 ---
