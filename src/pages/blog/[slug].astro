@@ -89,6 +89,45 @@ const schema = [
     margin-bottom: var(--space-2);
   }
 
+  .blog-post__content img {
+    width: 100%;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--line);
+    margin: var(--space-5) 0;
+  }
+
+  /* Bảng trong nội dung Markdown không có wrapper .table-scroll sẵn — cho chính bảng
+     tự cuộn ngang trong khung riêng (table làm block scroll container), tránh vỡ bố cục
+     hoặc kéo cả trang cuộn ngang trên mobile như mọi bảng khác trên site. */
+  .blog-post__content table {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: var(--space-5) 0;
+  }
+
+  .blog-post__content th,
+  .blog-post__content td {
+    text-align: left;
+    padding: var(--space-3);
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+
+  .blog-post__content th {
+    white-space: nowrap;
+  }
+
+  .blog-post__content thead {
+    background: var(--navy-900);
+    color: var(--white);
+  }
+
+  .blog-post__content tbody tr:nth-child(even) {
+    background: var(--paper);
+  }
+
   .blog-post__cta {
     margin-top: var(--space-7);
     max-width: 420px;
