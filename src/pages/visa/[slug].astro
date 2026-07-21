@@ -6,7 +6,7 @@ import LastUpdated from '../../components/LastUpdated.astro';
 import SourceNote from '../../components/SourceNote.astro';
 import Faq from '../../components/Faq.astro';
 import ZaloButton from '../../components/ZaloButton.astro';
-import { utmContent, site } from '../../config/site';
+import { utmContent, site, perPagePricing } from '../../config/site';
 
 export async function getStaticPaths() {
   const entries = await getCollection('lanh-su');
@@ -20,6 +20,8 @@ interface Props {
 const { entry } = Astro.props;
 const { data } = entry;
 const { Content } = await render(entry);
+
+const normalPlan = perPagePricing.find((p) => p.id === 'thuong')!;
 
 const schema = [
   {
@@ -36,7 +38,7 @@ const schema = [
 
 <BaseLayout
   title={data.title}
-  description={`Yêu cầu dịch thuật hồ sơ visa ${data.country}: giấy tờ nào cần dịch (nếu có), hình thức bản dịch, thời gian & chi phí ước tính. Cập nhật ${data.updated.toLocaleDateString('vi-VN')}.`}
+  description={`Dịch thuật hồ sơ visa ${data.country} sang tiếng Anh: giấy tờ nào cần dịch (nếu có), hình thức bản dịch. Từ ${normalPlan.pricePerPage.toLocaleString('vi-VN')}đ/trang, có mộc công ty + xác nhận dịch.`}
   path={`/visa/${data.slug}/`}
   ogImage="/img/og/visa.webp"
   schema={schema}

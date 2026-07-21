@@ -1,5 +1,5 @@
 ---
-title: "Mẫu Dịch Giấy Phép Kinh Doanh Sang Tiếng Anh (Chuẩn Hồ Sơ Visa 2026)"
+title: "Mẫu Dịch Giấy Đăng Ký Kinh Doanh / Giấy Phép Kinh Doanh Sang Tiếng Anh"
 slug: "giay-phep-kinh-doanh"
 docName: "Giấy chứng nhận đăng ký doanh nghiệp"
 docNameEn: "Business Registration Certificate"
