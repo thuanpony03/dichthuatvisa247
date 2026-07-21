@@ -105,7 +105,8 @@ export type AgencyTier = {
   perPagePrice: number | 'thoathuan';
 };
 
-// 5.3 — Giá đại lý. CHỈ render ở /agency/. Không import ở trang public khác.
+// 5.3 — Giá đại lý. Render ở /agency/ và /bang-gia/ (công khai theo quyết định chủ site 2026-07-21) —
+// luôn hiển thị kèm điều kiện khối lượng tối thiểu (từ 15 hồ sơ/tháng) để không gây nhầm với giá lẻ.
 export const agencyPricing: AgencyTier[] = [
   { id: 'tier-1', volumeLabel: '15–29 hồ sơ', bundlePrice: 340000, perPagePrice: 17000 },
   { id: 'tier-2', volumeLabel: '30–49 hồ sơ', bundlePrice: 320000, perPagePrice: 15000 },

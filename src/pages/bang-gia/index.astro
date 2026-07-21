@@ -4,7 +4,13 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
 import PriceTable from '../../components/PriceTable.astro';
 import Faq from '../../components/Faq.astro';
 import ZaloButton from '../../components/ZaloButton.astro';
-import { utmContent } from '../../config/site';
+import { utmContent, agencyPricing, perPagePricing } from '../../config/site';
+
+function formatTier(v: number | 'thoathuan') {
+  return v === 'thoathuan' ? 'Thoả thuận' : v.toLocaleString('vi-VN') + 'đ';
+}
+
+const startingPrice = perPagePricing[0].pricePerPage;
 
 const faqItems = [
   {
@@ -21,7 +27,7 @@ const faqItems = [
   },
   {
     question: 'Công ty du lịch, đại lý gửi số lượng lớn có giá khác không?',
-    answer: 'Có, tính theo bậc khối lượng mỗi tháng, khác hẳn giá lẻ ở bảng trên — liên hệ trực tiếp để nhận báo giá riêng.',
+    answer: 'Có — xem bảng giá sỉ theo bậc ở trên, áp dụng từ 15 hồ sơ/tháng trở lên. Khối lượng càng lớn, giá/trang càng giảm. Từ 50 hồ sơ/tháng thoả thuận riêng theo nhu cầu.',
   },
   {
     question: 'Gói siêu gấp trong ngày có cộng thêm phí ngoài bảng không?',
@@ -43,14 +49,24 @@ const schema = [
 ---
 
 <BaseLayout
-  title="Bảng Giá Dịch Thuật Visa 2026 — Giá Rẻ, Có Mộc Công Ty"
-  description="Bảng giá dịch thuật hồ sơ visa: gói trọn hồ sơ từ 400.000đ hoặc tính theo trang từ 20.000đ/trang. Giá rẻ nhờ quy trình tự động hoá, có mộc công ty."
+  title="Bảng Giá Dịch Thuật Visa 2026 — Từ 20.000đ/Trang"
+  description="Bảng giá dịch thuật hồ sơ visa: từ 20.000đ/trang hoặc trọn hồ sơ từ 400.000đ. Giá sỉ đại lý từ 17.000đ/trang cho đối tác từ 15 hồ sơ/tháng. Có mộc công ty, xác nhận dịch."
   path="/bang-gia/"
   schema={schema}
 >
   <div class="container price-page">
     <Breadcrumb items={[{ label: 'Bảng giá', href: '/bang-gia/' }]} />
     <h1>Bảng Giá Dịch Thuật Visa</h1>
+
+    <div class="price-hero">
+      <p class="price-hero__label">Giá khởi điểm</p>
+      <p class="price-hero__value">{startingPrice.toLocaleString('vi-VN')}đ<span>/trang</span></p>
+      <p class="price-hero__sub">
+        Mặt bằng thị trường dịch thuật tiếng Anh cho hồ sơ visa hiện phổ biến 50.000–150.000đ/trang tuỳ đơn vị — giá
+        niêm yết dưới đây là con số cuối cùng, đã gồm mộc công ty + xác nhận dịch, không phụ phí ẩn.
+      </p>
+    </div>
+
     <p class="text-muted">
       Hai cách tính: chọn <strong>gói trọn hồ sơ</strong> nếu dịch cả bộ (biết tổng tiền ngay từ đầu), hoặc tính{' '}
       <strong>theo trang</strong> nếu chỉ cần một vài giấy tờ lẻ. Giá thấp hơn mặt bằng chung nhờ tự động hoá phần
@@ -68,10 +84,37 @@ const schema = [
 
     <PriceTable />
 
-    <div class="agency-note">
-      <p><strong>Đại lý &amp; đối tác khối lượng lớn:</strong> liên hệ nhận báo giá riêng.</p>
-      <ZaloButton utmContent={utmContent.banggia} label="Liên hệ nhận báo giá đại lý" />
-    </div>
+    <section class="agency-pricing">
+      <h2>Bảng giá sỉ cho đại lý &amp; đối tác khối lượng lớn</h2>
+      <p class="agency-pricing__condition">Áp dụng từ 15 hồ sơ/tháng trở lên — khác với giá lẻ ở bảng trên</p>
+      <div class="table-scroll">
+        <table class="responsive-table">
+          <thead>
+            <tr>
+              <th>Khối lượng/tháng</th>
+              <th>Giá trọn hồ sơ</th>
+              <th>Giá theo trang</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              agencyPricing.map((tier) => (
+                <tr>
+                  <td data-label="Khối lượng/tháng">{tier.volumeLabel}</td>
+                  <td data-label="Giá trọn hồ sơ">{formatTier(tier.bundlePrice)}</td>
+                  <td data-label="Giá theo trang">{formatTier(tier.perPagePrice)}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+      <p class="price-table__note">
+        Giá sỉ dành riêng cho đại lý visa, công ty du lịch, cộng tác viên gửi khối lượng ổn định hằng tháng — không
+        áp dụng cho khách lẻ. Xem thêm <a href="/agency/">SLA, công nợ và quy trình hợp tác đại lý</a>.
+      </p>
+      <ZaloButton utmContent={utmContent.agency} label="Liên hệ nhận báo giá đại lý" />
+    </section>
 
     <section class="price-page__faq">
       <h2>Câu hỏi thường gặp</h2>
@@ -90,6 +133,47 @@ const schema = [
     max-width: 760px;
   }
 
+  .price-page > h1 {
+    margin-top: var(--space-4);
+  }
+
+  .price-hero {
+    background: var(--navy-900);
+    color: var(--white);
+    border-radius: var(--radius);
+    padding: var(--space-6);
+    margin: var(--space-5) 0 var(--space-6);
+  }
+
+  .price-hero__label {
+    font-size: 0.8125rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #b7c0d4;
+    margin-bottom: var(--space-1);
+  }
+
+  .price-hero__value {
+    font-size: clamp(2.25rem, 8vw, 3rem);
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.02em;
+    margin-bottom: var(--space-3);
+  }
+
+  .price-hero__value span {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #b7c0d4;
+  }
+
+  .price-hero__sub {
+    color: #d7dcea;
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+
   .price-compare-image {
     display: block;
     width: 100%;
@@ -97,11 +181,7 @@ const schema = [
     margin: var(--space-5) 0 var(--space-6);
   }
 
-  .price-page > h1 {
-    margin-top: var(--space-4);
-  }
-
-  .agency-note {
+  .agency-pricing {
     margin-top: var(--space-7);
     background: var(--white);
     border: 1px dashed var(--accent);
@@ -109,8 +189,69 @@ const schema = [
     padding: var(--space-5);
   }
 
-  .agency-note p {
-    margin-bottom: var(--space-3);
+  .agency-pricing__condition {
+    display: inline-block;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 4px 14px;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    color: var(--navy-900);
+    margin-bottom: var(--space-4);
+  }
+
+  .agency-pricing .responsive-table th,
+  .agency-pricing .responsive-table td {
+    text-align: left;
+    padding: var(--space-3);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .agency-pricing .responsive-table thead {
+    background: var(--navy-900);
+    color: var(--white);
+  }
+
+  @media (max-width: 640px) {
+    .agency-pricing .responsive-table thead {
+      display: none;
+    }
+
+    .agency-pricing .responsive-table,
+    .agency-pricing .responsive-table tbody,
+    .agency-pricing .responsive-table tr,
+    .agency-pricing .responsive-table td {
+      display: block;
+      width: 100%;
+    }
+
+    .agency-pricing .responsive-table tr {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      margin-bottom: var(--space-3);
+      background: var(--white);
+    }
+
+    .agency-pricing .responsive-table td {
+      border-bottom: none;
+      display: flex;
+      justify-content: space-between;
+      gap: var(--space-3);
+    }
+
+    .agency-pricing .responsive-table td::before {
+      content: attr(data-label);
+      font-weight: 700;
+      color: var(--navy-700);
+    }
+  }
+
+  .price-table__note {
+    font-size: 0.875rem;
+    color: var(--navy-700);
+    margin-top: var(--space-3);
+    margin-bottom: var(--space-4);
   }
 
   .price-page__faq {
