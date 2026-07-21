@@ -157,6 +157,7 @@ export const utmContent = {
   sticky: 'sticky',
   cuoi: 'cuoi',
   floatingBubble: 'floating-bubble',
+  hoiDap: 'hoi-dap',
   // Dịch vụ ngoài dịch thuật (Mục "Dịch vụ visa") — theo dõi riêng để biết dịch vụ nào khách quan tâm nhất
   tuVanVisa: 'dv-tu-van-visa',
   trongGoiVisa: 'dv-tron-goi-visa',

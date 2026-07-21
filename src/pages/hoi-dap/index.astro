@@ -1,0 +1,268 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import Faq from '../../components/Faq.astro';
+import ZaloButton from '../../components/ZaloButton.astro';
+import LastUpdated from '../../components/LastUpdated.astro';
+import { utmContent } from '../../config/site';
+
+const pageUpdated = new Date('2026-07-21');
+
+const giaItems = [
+  {
+    question: 'Dịch thuật hồ sơ visa giá bao nhiêu?',
+    answer: 'Từ 20.000đ/trang, hoặc 400.000đ trọn bộ hồ sơ tới 30 trang — thấp hơn mặt bằng thị trường phổ biến 49.000–150.000đ/trang. Đã gồm mộc công ty + xác nhận dịch, không phụ phí ẩn.',
+    link: '/bang-gia/',
+  },
+  {
+    question: 'Vì sao giá ở đây thấp hơn hẳn chỗ khác?',
+    answer: 'Vì phần lớn quy trình dịch được tự động hoá — bảng thuật ngữ, bố cục đã có sẵn khuôn cho từng loại giấy tờ. Bớt thời gian thao tác thủ công, không phải bớt bước kiểm tra trước khi đóng mộc.',
+    link: '/blog/gia-dich-thuat-ho-so-visa-tren-thi-truong-2026/',
+  },
+  {
+    question: 'Nên chọn gói trọn hồ sơ hay tính theo trang?',
+    answer: 'Dịch cả bộ (20–30 trang) thì gói trọn hồ sơ rẻ hơn, biết trước tổng tiền. Chỉ cần một, hai giấy tờ lẻ thì tính theo trang tiện hơn.',
+    link: '/bang-gia/',
+  },
+  {
+    question: 'Hồ sơ dày hơn 30 trang thì tính sao?',
+    answer: 'Phần vượt tính thêm 12.000đ/trang — báo trước, không cộng dồn bất ngờ lúc giao.',
+    link: '/bang-gia/',
+  },
+  {
+    question: 'Có dịch được ngôn ngữ khác ngoài tiếng Anh không?',
+    answer: 'Có — Trung, Nhật, Hàn, Pháp, Đức, Nga theo yêu cầu, từ 40.000đ/trang. Tiếng Anh vẫn là dịch vụ chính, giá thấp hơn nhờ quy trình tự động hoá sâu nhất.',
+    link: '/bang-gia/',
+  },
+];
+
+const tocdoItems = [
+  {
+    question: 'Dịch thuật hồ sơ visa mất bao lâu?',
+    answer: 'Có 4 mức: tiêu chuẩn 3–5 ngày làm việc, gấp 48 giờ, gấp 24 giờ, siêu gấp giao trong ngày nếu gửi trước 17h. Chọn theo deadline nộp hồ sơ hoặc phỏng vấn còn lại.',
+    link: '/blog/dich-thuat-ho-so-visa-mat-bao-lau/',
+  },
+  {
+    question: 'Dịch gấp trong ngày có thật sự kịp không?',
+    answer: 'Có — tốc độ đến từ bố cục/thuật ngữ đã chuẩn hoá sẵn theo từng loại giấy tờ, không phải bớt bước kiểm tra chéo trước khi giao.',
+    link: '/blog/dich-thuat-trong-ngay-24h-co-that-khong/',
+  },
+  {
+    question: 'Nếu trễ hẹn thì sao?',
+    answer: 'Với các gói gấp, trễ hẹn do lỗi từ phía dịch vụ được hoàn 100% phần phí gấp đã trả cho hồ sơ đó.',
+    link: '/blog/dich-thuat-ho-so-visa-mat-bao-lau/',
+  },
+];
+
+const hinhThucItems = [
+  {
+    question: 'Mộc công ty có nộp lãnh sự được không hay phải công chứng?',
+    answer: 'Nộp được — mộc công ty + xác nhận dịch là hình thức phổ biến nhất cho hồ sơ visa du lịch. Công chứng tư pháp chỉ cần cho một số trường hợp riêng (định cư, kết hôn với người nước ngoài...), không phải mặc định.',
+    link: '/blog/moc-cong-ty-vs-cong-chung-tu-phap/',
+  },
+  {
+    question: 'Dịch thuật công chứng visa khác mộc công ty thế nào?',
+    answer: 'Mộc công ty: đơn vị dịch có tư cách pháp nhân đóng mộc xác nhận đúng nội dung. Công chứng tư pháp: công chứng viên/UBND xác nhận chữ ký người dịch, thường lâu và tốn hơn — chỉ bắt buộc khi lãnh sự yêu cầu rõ.',
+    link: '/blog/moc-cong-ty-vs-cong-chung-tu-phap/',
+  },
+  {
+    question: 'Visa Úc có yêu cầu dịch giả NAATI không?',
+    answer: 'Không bắt buộc nếu dịch tại Việt Nam — NAATI chỉ cần khi bản dịch thực hiện tại Úc. Dịch tại VN, đơn vị có thẩm quyền chứng thực trong nước là đủ.',
+    link: '/visa/visa-uc/',
+  },
+];
+
+const theoNuocItems = [
+  {
+    question: 'Visa Mỹ có bắt buộc dịch giấy tờ không?',
+    answer: 'Không — đa số hồ sơ B1/B2 không cần dịch, vì phỏng vấn trực tiếp mới là yếu tố quyết định, không phải hồ sơ giấy. Chỉ 3 trường hợp cụ thể mới cần dịch (từng bị từ chối, diện visa khác B1/B2, muốn chủ động mang theo bản dịch).',
+    link: '/blog/su-that-visa-my-khong-can-dich-ho-so/',
+  },
+  {
+    question: 'Khối Schengen gồm những nước nào, mỗi nước yêu cầu dịch giống nhau không?',
+    answer: 'Hơn 25 quốc gia châu Âu dùng chung chính sách thị thực ngắn hạn, nhưng mỗi nước tự quy định ngôn ngữ đích và hình thức dịch riêng — cần xác nhận theo đúng nước dự định nộp.',
+    link: '/blog/ho-so-visa-schengen-can-dich-nhung-giay-to-gi/',
+  },
+  {
+    question: 'IRCC (Canada) có chấp nhận bản dịch mộc công ty không?',
+    answer: 'Có, nếu bản dịch ghi rõ thông tin đơn vị dịch và kèm bản khai (affidavit) xác nhận độ chính xác — đúng theo hướng dẫn IRCC, không bắt buộc công chứng tư pháp kiểu Việt Nam.',
+    link: '/visa/visa-canada/',
+  },
+  {
+    question: 'Bản dịch cho visa Anh (UKVI) cần những thông tin gì?',
+    answer: 'Đủ 4 yếu tố: ngày dịch, xác nhận đây là bản dịch chính xác, họ tên và thông tin liên hệ của người dịch/công ty dịch thuật.',
+    link: '/visa/visa-anh/',
+  },
+];
+
+const giayToItems = [
+  {
+    question: 'Hồ sơ visa cần chuẩn bị những giấy tờ gì?',
+    answer: 'Thường 20–30 trang chia 4 nhóm: nhân thân (khai sinh, kết hôn, CT07), tài chính (sổ tiết kiệm, sao kê, thu nhập), công việc (hợp đồng lao động, đăng ký kinh doanh), và trường hợp riêng (uỷ quyền, lý lịch tư pháp). Không phải hồ sơ nào cũng cần đủ cả 4.',
+    link: '/blog/ho-so-dich-thuat-visa-du-lich-can-giay-to-gi/',
+  },
+  {
+    question: 'Sổ tiết kiệm đứng tên người khác có dùng được không?',
+    answer: 'Dùng được nếu kèm giấy tờ chứng minh quan hệ (khai sinh, đăng ký kết hôn...) để lãnh sự hiểu đây là hỗ trợ tài chính từ người thân.',
+    link: '/mau-dich/so-tiet-kiem/',
+  },
+  {
+    question: 'Sổ hộ khẩu hết hiệu lực rồi thì phải làm sao?',
+    answer: 'Ra công an nơi cư trú xin Giấy xác nhận thông tin về cư trú (CT07) — giấy thay thế chính thức từ 01/2023, dùng được cho hồ sơ visa.',
+    link: '/mau-dich/ct07-xac-nhan-cu-tru/',
+  },
+  {
+    question: 'Tên trên khai sinh với hộ chiếu viết khác nhau thì sao?',
+    answer: 'Bản dịch cần khớp đúng như hộ chiếu đang dùng, kể cả khi khai sinh viết khác do phiên âm cũ. Nói rõ khi gửi để đối chiếu đúng.',
+    link: '/mau-dich/giay-khai-sinh/',
+  },
+  {
+    question: 'Freelancer, không có công ty xác nhận thu nhập thì dùng giấy gì?',
+    answer: 'Có thể dùng sao kê ngân hàng thể hiện dòng tiền thu nhập đều đặn, hoặc giấy tờ thuế nếu có đăng ký hộ kinh doanh.',
+    link: '/mau-dich/xac-nhan-thu-nhap/',
+  },
+  {
+    question: 'Chủ hộ kinh doanh, không ký hợp đồng lao động thì dùng giấy gì thay?',
+    answer: 'Dùng giấy chứng nhận đăng ký doanh nghiệp/giấy phép kinh doanh thay cho hợp đồng lao động để chứng minh công việc và thu nhập.',
+    link: '/mau-dich/giay-phep-kinh-doanh/',
+  },
+];
+
+const daiLyItems = [
+  {
+    question: 'Công ty du lịch, đại lý visa gửi hồ sơ đều đặn thì làm việc thế nào?',
+    answer: 'Có mức giá và cách làm việc riêng cho khối lượng lớn — SLA bằng văn bản, công nợ 15–30 ngày. Xem trang dành cho đại lý hoặc nhắn Zalo để trao đổi trước khi hợp tác.',
+    link: '/agency/',
+  },
+  {
+    question: 'Giá sỉ cho đại lý là bao nhiêu?',
+    answer: 'Áp dụng từ 15 hồ sơ/tháng: từ 17.000đ/trang, giảm còn 15.000đ/trang từ 30 hồ sơ/tháng. Từ 50 hồ sơ/tháng thoả thuận riêng theo nhu cầu.',
+    link: '/bang-gia/',
+  },
+];
+
+const uyTinItems = [
+  {
+    question: 'Dịch thuật hồ sơ visa ở đâu uy tín?',
+    answer: '5 điều kiểm tra được: địa chỉ văn phòng thật, mộc công ty đúng tên pháp nhân, có ảnh mẫu dịch thật để xem trước, giá công khai không mập mờ, và cam kết thời gian giao rõ ràng.',
+    link: '/blog/dich-thuat-visa-uy-tin-tphcm-quan-1/',
+  },
+  {
+    question: 'Dịch vụ này có đảm bảo đậu visa không?',
+    answer: 'Không. Việc xét duyệt visa hoàn toàn thuộc thẩm quyền của lãnh sự quán/cơ quan di trú. Chỉ hỗ trợ hồ sơ đúng thể thức, đầy đủ giấy tờ — không cam kết, không đảm bảo kết quả dưới bất kỳ hình thức nào.',
+    link: '/dich-vu-visa/',
+  },
+  {
+    question: 'Đã tự dịch giấy tờ ở chỗ khác rồi thì dùng Final Check được không?',
+    answer: 'Được — Final Check dành đúng cho trường hợp này. Gửi toàn bộ hồ sơ (kể cả bản dịch đã có) qua Zalo để rà soát thể thức trước khi nộp lãnh sự.',
+    link: '/dich-vu-visa/',
+  },
+];
+
+const allFaqForSchema = [
+  ...giaItems,
+  ...tocdoItems,
+  ...hinhThucItems,
+  ...theoNuocItems,
+  ...giayToItems,
+  ...daiLyItems,
+  ...uyTinItems,
+];
+
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: allFaqForSchema.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: { '@type': 'Answer', text: item.answer },
+    })),
+  },
+];
+---
+
+<BaseLayout
+  title="Hỏi Đáp: Dịch Thuật Hồ Sơ Visa — Giá, Tốc Độ, Giấy Tờ, Từng Nước"
+  description={`${allFaqForSchema.length} câu hỏi thường gặp về dịch thuật hồ sơ visa: giá, tốc độ, hình thức bản dịch, yêu cầu từng nước, giấy tờ cụ thể — trả lời ngắn gọn, link chi tiết từng chủ đề.`}
+  path="/hoi-dap/"
+  schema={schema}
+>
+  <div class="container hoidap-page">
+    <Breadcrumb items={[{ label: 'Hỏi đáp', href: '/hoi-dap/' }]} />
+    <h1>Hỏi Đáp: Dịch Thuật Hồ Sơ Visa</h1>
+    <LastUpdated date={pageUpdated} />
+    <p class="text-muted">
+      {allFaqForSchema.length} câu hỏi thường gặp nhất khi chuẩn bị dịch thuật hồ sơ visa du lịch, gom theo chủ đề.
+      Mỗi câu trả lời ngắn gọn — bấm "Xem chi tiết" để đọc đầy đủ.
+    </p>
+
+    <section class="fade-in">
+      <h2>Giá & thanh toán</h2>
+      <Faq items={giaItems} />
+    </section>
+
+    <section class="fade-in">
+      <h2>Tốc độ & thời gian giao</h2>
+      <Faq items={tocdoItems} />
+    </section>
+
+    <section class="fade-in">
+      <h2>Hình thức bản dịch (mộc công ty / công chứng)</h2>
+      <Faq items={hinhThucItems} />
+    </section>
+
+    <section class="fade-in">
+      <h2>Theo từng nước</h2>
+      <Faq items={theoNuocItems} />
+    </section>
+
+    <section class="fade-in">
+      <h2>Giấy tờ cụ thể</h2>
+      <Faq items={giayToItems} />
+    </section>
+
+    <section class="fade-in">
+      <h2>Đại lý & khối lượng lớn</h2>
+      <Faq items={daiLyItems} />
+    </section>
+
+    <section class="fade-in">
+      <h2>Uy tín & dịch vụ</h2>
+      <Faq items={uyTinItems} />
+    </section>
+
+    <section class="fade-in hoidap-page__cta">
+      <p>Không thấy câu hỏi của mình? Gửi ảnh giấy tờ hoặc câu hỏi qua Zalo để được trả lời trực tiếp trong 5 phút.</p>
+      <ZaloButton utmContent={utmContent.hoiDap} variant="block" />
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .hoidap-page {
+    padding: var(--space-6) 0 var(--space-8);
+    max-width: 760px;
+  }
+
+  .hoidap-page > h1 {
+    margin-top: var(--space-4);
+  }
+
+  .hoidap-page section {
+    margin-top: var(--space-7);
+  }
+
+  .hoidap-page__cta {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: var(--space-5);
+    text-align: center;
+  }
+
+  .hoidap-page__cta p {
+    margin-bottom: var(--space-4);
+    color: var(--navy-700);
+  }
+</style>

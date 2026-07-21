@@ -2,6 +2,8 @@
 interface FaqItem {
   question: string;
   answer: string;
+  link?: string;
+  linkLabel?: string;
 }
 
 interface Props {
@@ -30,6 +32,11 @@ const schema = {
       <details class="faq__item">
         <summary>{item.question}</summary>
         <p>{item.answer}</p>
+        {item.link && (
+          <a class="faq__item-link" href={item.link}>
+            {item.linkLabel ?? 'Xem chi tiết'} →
+          </a>
+        )}
       </details>
     ))
   }
@@ -74,5 +81,13 @@ const schema = {
   .faq__item p {
     margin: var(--space-3) 0 0;
     color: var(--ink);
+  }
+
+  .faq__item-link {
+    display: inline-block;
+    margin-top: var(--space-2);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--navy-700);
   }
 </style>
