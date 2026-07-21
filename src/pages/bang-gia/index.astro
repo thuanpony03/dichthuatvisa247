@@ -62,8 +62,10 @@ const schema = [
       <p class="price-hero__label">Giá khởi điểm</p>
       <p class="price-hero__value">{startingPrice.toLocaleString('vi-VN')}đ<span>/trang</span></p>
       <p class="price-hero__sub">
-        Mặt bằng thị trường dịch thuật tiếng Anh cho hồ sơ visa hiện phổ biến 50.000–150.000đ/trang tuỳ đơn vị — giá
-        niêm yết dưới đây là con số cuối cùng, đã gồm mộc công ty + xác nhận dịch, không phụ phí ẩn.
+        Khảo sát giá công khai trên thị trường dịch thuật tiếng Anh cho hồ sơ visa tại TP.HCM (tháng 7/2026): đơn giá
+        theo trang phổ biến 49.000–150.000đ/trang, gói dịch vụ visa du lịch trọn gói phổ biến 350.000–650.000đ/bộ —
+        thường <strong>chưa gồm</strong> phí công chứng/in ấn, cộng thêm riêng. Giá niêm yết dưới đây là con số cuối
+        cùng, đã gồm mộc công ty + xác nhận dịch, không phụ phí ẩn.
       </p>
     </div>
 
@@ -72,6 +74,44 @@ const schema = [
       <strong>theo trang</strong> nếu chỉ cần một vài giấy tờ lẻ. Giá thấp hơn mặt bằng chung nhờ tự động hoá phần
       thao tác lặp lại — mọi bản dịch vẫn có mộc công ty + xác nhận dịch như nhau.
     </p>
+
+    <section class="cost-example">
+      <h2>Ví dụ tính chi phí thực tế: hồ sơ 25 trang</h2>
+      <div class="table-scroll">
+        <table class="responsive-table">
+          <thead>
+            <tr>
+              <th>Cách tính</th>
+              <th>Đơn giá</th>
+              <th>Tổng chi phí 25 trang</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-label="Cách tính">Mặt bằng thị trường (tính theo trang)</td>
+              <td data-label="Đơn giá">49.000–150.000đ/trang</td>
+              <td data-label="Tổng chi phí 25 trang">1.225.000đ–3.750.000đ*</td>
+            </tr>
+            <tr>
+              <td data-label="Cách tính">Ở đây — tính theo trang</td>
+              <td data-label="Đơn giá">{startingPrice.toLocaleString('vi-VN')}đ/trang</td>
+              <td data-label="Tổng chi phí 25 trang">{(startingPrice * 25).toLocaleString('vi-VN')}đ</td>
+            </tr>
+            <tr>
+              <td data-label="Cách tính">Ở đây — gói trọn hồ sơ (tới 30 trang)</td>
+              <td data-label="Đơn giá">Trọn gói cố định</td>
+              <td data-label="Tổng chi phí 25 trang">400.000đ</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="price-table__note">
+        *Khoảng giá mặt bằng chung tổng hợp từ bảng giá công khai của một số đơn vị dịch thuật/công chứng tại
+        TP.HCM, khảo sát tháng 7/2026 — không đại diện cho một đơn vị cụ thể nào, chỉ để tham khảo đối chiếu. Nhiều
+        đơn vị tính thêm phí công chứng, in ấn, hoặc VAT riêng ngoài đơn giá dịch; giá của{' '}
+        <strong>Dịch Thuật Visa 247</strong> đã gồm mộc công ty + xác nhận dịch, không phát sinh thêm khi giao.
+      </p>
+    </section>
 
     <img
       src="/img/so-do-2-cach-tinh-gia.webp"
@@ -202,45 +242,60 @@ const schema = [
   }
 
   .agency-pricing .responsive-table th,
-  .agency-pricing .responsive-table td {
+  .agency-pricing .responsive-table td,
+  .cost-example .responsive-table th,
+  .cost-example .responsive-table td {
     text-align: left;
     padding: var(--space-3);
     border-bottom: 1px solid var(--line);
   }
 
-  .agency-pricing .responsive-table thead {
+  .agency-pricing .responsive-table thead,
+  .cost-example .responsive-table thead {
     background: var(--navy-900);
     color: var(--white);
   }
 
+  .cost-example {
+    margin-top: var(--space-7);
+  }
+
   @media (max-width: 640px) {
-    .agency-pricing .responsive-table thead {
+    .agency-pricing .responsive-table thead,
+    .cost-example .responsive-table thead {
       display: none;
     }
 
     .agency-pricing .responsive-table,
     .agency-pricing .responsive-table tbody,
     .agency-pricing .responsive-table tr,
-    .agency-pricing .responsive-table td {
+    .agency-pricing .responsive-table td,
+    .cost-example .responsive-table,
+    .cost-example .responsive-table tbody,
+    .cost-example .responsive-table tr,
+    .cost-example .responsive-table td {
       display: block;
       width: 100%;
     }
 
-    .agency-pricing .responsive-table tr {
+    .agency-pricing .responsive-table tr,
+    .cost-example .responsive-table tr {
       border: 1px solid var(--line);
       border-radius: var(--radius-sm);
       margin-bottom: var(--space-3);
       background: var(--white);
     }
 
-    .agency-pricing .responsive-table td {
+    .agency-pricing .responsive-table td,
+    .cost-example .responsive-table td {
       border-bottom: none;
       display: flex;
       justify-content: space-between;
       gap: var(--space-3);
     }
 
-    .agency-pricing .responsive-table td::before {
+    .agency-pricing .responsive-table td::before,
+    .cost-example .responsive-table td::before {
       content: attr(data-label);
       font-weight: 700;
       color: var(--navy-700);
