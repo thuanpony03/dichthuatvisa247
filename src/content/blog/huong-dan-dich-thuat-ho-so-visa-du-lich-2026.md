@@ -60,7 +60,7 @@ Với hồ sơ 25 trang điển hình:
 | Ở đây — tính theo trang (20.000đ/trang) | 500.000đ |
 | Ở đây — gói trọn hồ sơ (tới 30 trang) | 400.000đ |
 
-Xem bảng giá đầy đủ, gói gấp, và giá sỉ đại lý tại [trang bảng giá](/bang-gia/).
+Xem bảng giá đầy đủ, gói gấp, và giá sỉ đại lý tại [trang bảng giá](/bang-gia/), hoặc đối chiếu với [khảo sát giá thị trường 2026](/blog/gia-dich-thuat-ho-so-visa-tren-thi-truong-2026/) và [bảng thời gian dịch theo từng mức độ gấp](/blog/dich-thuat-ho-so-visa-mat-bao-lau/).
 
 ## 5. Có xem trước mẫu bản dịch thật trước khi đặt không?
 
