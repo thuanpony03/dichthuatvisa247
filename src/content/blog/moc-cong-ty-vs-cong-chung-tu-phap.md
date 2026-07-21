@@ -15,7 +15,7 @@ Nhiều người tìm "dịch thuật công chứng visa" vì nghĩ hồ sơ vis
 
 **Công chứng tư pháp** (thường gọi tắt là "dịch thuật công chứng"): một công chứng viên hoặc UBND cấp xã/phường xác nhận chữ ký của người dịch, đóng dấu công chứng theo quy trình pháp lý riêng — thường mất nhiều thời gian và chi phí hơn mộc công ty.
 
-## Bảng tham khảo: 6 nước và hình thức bản dịch phổ biến
+## Nước nào chấp nhận hình thức bản dịch nào?
 
 | Lãnh sự quán | Hình thức phổ biến | Ghi chú |
 |---|---|---|

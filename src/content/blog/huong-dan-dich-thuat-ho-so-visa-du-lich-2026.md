@@ -9,7 +9,7 @@ updated: 2026-07-21
 
 Bài này gom lại toàn bộ thông tin cần biết trước khi dịch hồ sơ visa du lịch sang tiếng Anh: giấy tờ nào cần dịch, mỗi nước trong 6 thị trường yêu cầu gì khác nhau, chọn tốc độ nào cho phù hợp, và giá thực tế so với mặt bằng chung ra sao. Nếu đã biết mình cần gì, dùng mục lục bên dưới để nhảy thẳng đến phần cần đọc.
 
-## 1. Bốn nhóm giấy tờ cần dịch
+## 1. Hồ sơ visa du lịch cần dịch những giấy tờ gì?
 
 Một bộ hồ sơ visa du lịch thường gồm 20–30 trang, chia làm 4 nhóm — không phải hồ sơ nào cũng cần đủ cả 4:
 
@@ -20,7 +20,9 @@ Một bộ hồ sơ visa du lịch thường gồm 20–30 trang, chia làm 4 nh
 
 Xem checklist đầy đủ và giải thích chi tiết từng nhóm tại bài [Hồ sơ dịch thuật visa du lịch cần chuẩn bị những giấy tờ gì?](/blog/ho-so-dich-thuat-visa-du-lich-can-giay-to-gi/)
 
-## 2. Bảng tổng hợp yêu cầu theo 6 thị trường
+## 2. Mỗi nước trong 6 thị trường visa yêu cầu dịch thuật khác nhau thế nào?
+
+Mỹ thường không cần dịch cho B1/B2; Schengen, Canada, Anh, Úc, New Zealand đều chấp nhận bản dịch có mộc công ty hoặc xác nhận đơn vị dịch, chỉ khác chi tiết hình thức. Bảng đầy đủ:
 
 | Thị trường | Hình thức bản dịch | Đặc điểm cần lưu ý |
 |---|---|---|
@@ -33,7 +35,9 @@ Xem checklist đầy đủ và giải thích chi tiết từng nhóm tại bài 
 
 Xem thêm bảng phân biệt hình thức bản dịch (mộc công ty vs công chứng tư pháp) tại bài [Dịch thuật công chứng visa là gì?](/blog/moc-cong-ty-vs-cong-chung-tu-phap/)
 
-## 3. Bốn gói tốc độ — chọn theo deadline thực tế
+## 3. Dịch thuật hồ sơ visa có những mức tốc độ nào?
+
+Có 4 mức: bình thường 3–5 ngày làm việc, gấp 48 giờ, gấp 24 giờ, và siêu gấp giao trong ngày nếu gửi trước 17h — chọn theo deadline nộp hồ sơ thực tế.
 
 | Gói | Thời gian giao | Phù hợp khi nào |
 |---|---|---|
@@ -44,7 +48,7 @@ Xem thêm bảng phân biệt hình thức bản dịch (mộc công ty vs công
 
 Tốc độ nhanh không đổi bằng việc bớt bước kiểm tra — xem giải thích tại sao dịch nhanh vẫn đúng thể thức ở bài [Dịch thuật trong ngày/24h có thật sự kịp không?](/blog/dich-thuat-trong-ngay-24h-co-that-khong/). Với mọi gói gấp, trễ hẹn do lỗi từ phía dịch vụ được hoàn 100% phần phí gấp đã trả.
 
-## 4. Giá — con số thực tế, không mập mờ
+## 4. Dịch thuật hồ sơ visa giá bao nhiêu?
 
 Khảo sát giá công khai trên thị trường dịch thuật tiếng Anh cho hồ sơ visa tại TP.HCM (tháng 7/2026): đơn giá theo trang phổ biến 49.000–150.000đ/trang, gói dịch vụ visa du lịch trọn gói phổ biến 350.000–650.000đ/bộ — thường **chưa gồm** phí công chứng/in ấn, cộng thêm riêng.
 
@@ -58,9 +62,9 @@ Với hồ sơ 25 trang điển hình:
 
 Xem bảng giá đầy đủ, gói gấp, và giá sỉ đại lý tại [trang bảng giá](/bang-gia/).
 
-## 5. Thư viện 17 loại giấy tờ có ảnh mẫu thật
+## 5. Có xem trước mẫu bản dịch thật trước khi đặt không?
 
-Khác với xem mô tả bằng lời, có thể xem trước bản dịch thật (đã che thông tin cá nhân) của từng loại giấy tờ trước khi đặt:
+Có — thư viện 17 loại giấy tờ có ảnh bản dịch thật (đã che thông tin cá nhân), xem trước bố cục và chất lượng trước khi quyết định, thay vì chỉ đọc mô tả bằng lời:
 
 **Nhân thân**: [Giấy khai sinh](/mau-dich/giay-khai-sinh/) · [Đăng ký kết hôn](/mau-dich/dang-ky-ket-hon/) · [CT07 xác nhận cư trú](/mau-dich/ct07-xac-nhan-cu-tru/) · [Xác nhận độc thân](/mau-dich/xac-nhan-doc-than/)
 

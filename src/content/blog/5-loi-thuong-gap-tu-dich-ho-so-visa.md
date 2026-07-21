@@ -29,7 +29,7 @@ Ví dụ "Trưởng phòng" dịch chung chung thành "Manager", hoặc "hợp �
 
 Phụ lục điều chỉnh lương đính kèm hợp đồng lao động, ghi chú cấp lại trên giấy đăng ký kết hôn, hoặc con dấu treo ở góc trang — những chi tiết nhỏ này thường bị bỏ qua vì tưởng không quan trọng, nhưng lại là thứ lãnh sự dùng để xác minh tính nguyên bản khi đối chiếu.
 
-## Cách tự kiểm tra nhanh trước khi nộp
+## Làm sao tự kiểm tra bản dịch trước khi nộp?
 
 Nếu đã tự dịch hoặc dịch ở nơi khác, có thể tự rà soát nhanh theo đúng thứ tự 5 lỗi trên trước khi nộp:
 

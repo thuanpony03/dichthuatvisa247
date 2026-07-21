@@ -9,7 +9,9 @@ updated: 2026-07-21
 
 Sổ tiết kiệm là bằng chứng năng lực tài chính phổ biến nhất trong hồ sơ visa du lịch. Khác với giấy tờ nhân thân, bản dịch sổ tiết kiệm bị soi kỹ hơn vì liên quan trực tiếp đến khả năng tài chính và ràng buộc quay về Việt Nam — một lỗi nhỏ về số liệu cũng đủ khiến hồ sơ bị nghi ngờ.
 
-## Thuật ngữ chuẩn cần dùng đúng
+## Thuật ngữ chuẩn khi dịch sổ tiết kiệm sang tiếng Anh là gì?
+
+Sổ tiết kiệm cần dịch đúng 7 thuật ngữ ngân hàng chuẩn: sổ tiết kiệm (Savings Book), số dư (Balance), kỳ hạn (Term/Tenor), ngày mở sổ (Account opening date), lãi suất (Interest rate), chủ sở hữu (Account holder), ngân hàng phát hành (Issuing bank). Bảng đối chiếu đầy đủ bên dưới.
 
 | Tiếng Việt | Tiếng Anh chuẩn |
 |---|---|

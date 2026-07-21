@@ -58,7 +58,7 @@ Riêng vé máy bay, đặt phòng khách sạn, bảo hiểm du lịch và lị
 
 Bảng trên là mức phổ biến chung quan sát được qua các hồ sơ đã xử lý, **không thay thế** yêu cầu chính thức của từng nước — luôn đối chiếu với checklist của trung tâm tiếp nhận hồ sơ trước khi nộp.
 
-## Hình thức bản dịch được chấp nhận
+## Hình thức bản dịch nào được chấp nhận cho visa Schengen?
 
 Phần lớn trung tâm tiếp nhận hồ sơ Schengen chấp nhận bản dịch có **mộc công ty dịch thuật + xác nhận dịch**: đơn vị dịch (có đăng ký kinh doanh, tư cách pháp nhân) dịch đúng nội dung bản gốc, đóng mộc và ký xác nhận. Bản dịch đạt chuẩn thường có đủ 4 yếu tố:
 
@@ -77,7 +77,7 @@ Ba điểm khác nhau phổ biến nhất giữa các nước:
 - **Hình thức dịch**: phần lớn chấp nhận mộc công ty + xác nhận dịch, nhưng một số trung tâm tiếp nhận yêu cầu công chứng tư pháp cho một số giấy tờ nhất định (xem mục trên).
 - **Số lượng và loại giấy tờ yêu cầu**: tuỳ mục đích chuyến đi (du lịch, thăm thân, công tác) và tuỳ quốc gia cụ thể trong khối — nước xét hồ sơ là nước lưu trú chính hoặc nước nhập cảnh đầu tiên trong lịch trình, mỗi nước có checklist riêng công bố trên trang của trung tâm tiếp nhận.
 
-## Thời gian và chi phí dịch một bộ hồ sơ Schengen
+## Dịch một bộ hồ sơ Schengen mất bao lâu, giá bao nhiêu?
 
 Bộ hồ sơ Schengen thường gồm 15–25 trang tuỳ số lượng giấy tờ chuẩn bị. Dịch lẻ theo trang từ 20.000đ/trang (3–5 ngày làm việc), có gói gấp 48h (35.000đ/trang), gấp 24h (42.000đ/trang) hoặc siêu gấp trong ngày (60.000đ/trang) nếu lịch hẹn nộp hồ sơ gấp. Nếu muốn biết trước tổng chi phí cho cả bộ thay vì tính lẻ từng tờ, gói trọn hồ sơ 400.000đ áp dụng tới 30 trang (750.000đ nếu cần gấp trong 24h), vượt 30 trang tính thêm 12.000đ/trang. Xem đầy đủ tại [bảng giá](/bang-gia/).
 

@@ -15,9 +15,9 @@ Mỗi loại giấy tờ (khai sinh, kết hôn, sổ tiết kiệm, hợp đồ
 
 Đây cũng là lý do [thư viện mẫu dịch](/mau-dich/) trên site này có ảnh mẫu thật cho từng loại giấy tờ — bản thân việc công khai mẫu là bằng chứng cho quy trình chuẩn hoá đó, không phải chỉ để minh hoạ.
 
-## Các mốc thời gian thực tế
+## Dịch thuật hồ sơ visa có những mốc thời gian nào?
 
-Xem đầy đủ tại [bảng giá](/bang-gia/), tóm tắt:
+Có 4 mốc: bình thường 3–5 ngày làm việc, gấp 48 giờ, gấp 24 giờ, và siêu gấp giao trong ngày nếu gửi trước 17h. Xem đầy đủ tại [bảng giá](/bang-gia/), tóm tắt:
 
 - **Bình thường**: 3–5 ngày làm việc
 - **Gấp 48 giờ**: trong 48 giờ
