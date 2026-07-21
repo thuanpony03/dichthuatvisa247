@@ -56,7 +56,12 @@ const schema = [
     }
 
     <section class="fade-in">
-      <h2>Giấy tờ cần dịch cho visa {data.country}</h2>
+      <h2>Visa {data.country} cần dịch những giấy tờ gì?</h2>
+      <p>
+        Hồ sơ visa {data.country} thường cần dịch sang tiếng Anh {data.checklist.length} nhóm giấy tờ chính:{' '}
+        {data.checklist.map((item) => item.label.replace(/\s*\([^)]*\)/g, '')).join(', ')}. Không phải hồ sơ nào
+        cũng cần đủ tất cả — tuỳ tình trạng cá nhân.
+      </p>
       <ul class="checklist">
         {
           data.checklist.map((item) => (
@@ -69,7 +74,7 @@ const schema = [
     </section>
 
     <section class="fade-in">
-      <h2>Yêu cầu về hình thức bản dịch</h2>
+      <h2>Bản dịch cho visa {data.country} cần hình thức gì?</h2>
       <p>{data.formRequirement}</p>
       <SourceNote sourceUrl={data.sourceUrl} sourceName={data.sourceName} />
     </section>
@@ -79,8 +84,12 @@ const schema = [
     </section>
 
     <section class="fade-in">
-      <h2>Thời gian & chi phí ước tính</h2>
+      <h2>Dịch hồ sơ visa {data.country} mất bao lâu, giá bao nhiêu?</h2>
       <p>{data.estimate}</p>
+      <p>
+        Có 4 mức thời gian giao: tiêu chuẩn 3–5 ngày làm việc, gấp 48 giờ, gấp 24 giờ, và siêu gấp giao trong ngày
+        trước 17h (nhận hồ sơ qua Zalo đến 21h30 hằng ngày, phản hồi trong 5 phút).
+      </p>
       <p><a href="/bang-gia/">Xem bảng giá đầy đủ</a></p>
     </section>
 

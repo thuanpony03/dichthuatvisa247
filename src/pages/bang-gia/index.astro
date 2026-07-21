@@ -92,7 +92,13 @@ const schema = [
     </p>
 
     <section class="cost-example">
-      <h2>Ví dụ tính chi phí thực tế: hồ sơ 25 trang</h2>
+      <h2>Dịch hồ sơ visa 25 trang giá bao nhiêu?</h2>
+      <p>
+        Hồ sơ 25 trang tính theo trang ở đây tốn {(startingPrice * 25).toLocaleString('vi-VN')}đ (
+        {startingPrice.toLocaleString('vi-VN')}đ/trang), hoặc 400.000đ nếu chọn gói trọn hồ sơ — so với mặt bằng
+        thị trường 1.225.000đ–3.750.000đ cho cùng số trang (49.000–150.000đ/trang, khảo sát công khai TP.HCM
+        7/2026).
+      </p>
       <div class="table-scroll">
         <table class="responsive-table">
           <thead>
@@ -141,7 +147,12 @@ const schema = [
     <PriceTable />
 
     <section class="agency-pricing">
-      <h2>Bảng giá sỉ cho đại lý &amp; đối tác khối lượng lớn</h2>
+      <h2>Giá sỉ cho đại lý visa là bao nhiêu?</h2>
+      <p>
+        Đại lý, công ty du lịch, cộng tác viên gửi từ 15 hồ sơ/tháng trở lên được áp giá sỉ theo bậc: từ{' '}
+        {formatTier(agencyPricing[0].perPagePrice)}/trang, giảm còn {formatTier(agencyPricing[1].perPagePrice)}/trang
+        {' '}từ 30 hồ sơ/tháng — khác với giá lẻ {startingPrice.toLocaleString('vi-VN')}đ/trang ở trên.
+      </p>
       <p class="agency-pricing__condition">Áp dụng từ 15 hồ sơ/tháng trở lên — khác với giá lẻ ở bảng trên</p>
       <div class="table-scroll">
         <table class="responsive-table">
