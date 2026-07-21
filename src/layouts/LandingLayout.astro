@@ -41,6 +41,10 @@ const year = new Date().getFullYear();
         © {year} {site.name} · {contact.personName} · {contact.phoneDisplay} ·{' '}
         <a href="/chinh-sach-bao-mat/">Chính sách bảo mật</a> · <a href="/dieu-khoan/">Điều khoản</a>
       </p>
+      <p class="landing-footer__address">
+        {site.business.streetAddress}, {site.business.addressLocality}, {site.business.addressRegion} · Vận hành
+        bởi {site.business.operatedBy}
+      </p>
     </footer>
     <script src="../scripts/fade-in.js"></script>
     <style>
@@ -53,6 +57,12 @@ const year = new Date().getFullYear();
 
       .landing-footer a {
         color: var(--navy-700);
+      }
+
+      .landing-footer__address {
+        margin-top: var(--space-1);
+        color: var(--navy-700);
+        opacity: 0.8;
       }
 
       /* Chừa chỗ cho sticky bar mobile để không che nội dung cuối trang */

@@ -1,5 +1,5 @@
 ---
-import { tracking } from '../config/site';
+import { tracking, contact, contact2 } from '../config/site';
 ---
 
 <!-- Google tag (gtag.js) — Google Ads + GA4. Mục 7a/7e.
@@ -52,9 +52,16 @@ import { tracking } from '../config/site';
   define:vars={{
     googleAdsConversionZalo: tracking.googleAdsConversionZalo,
     googleAdsConversionCall: tracking.googleAdsConversionCall,
+    contactThuanPhone: contact.phoneTel,
+    contactTramPhone: contact2.phoneTel,
   }}
   is:inline
 >
-  window.__TRACKING__ = { googleAdsConversionZalo, googleAdsConversionCall };
+  window.__TRACKING__ = {
+    googleAdsConversionZalo,
+    googleAdsConversionCall,
+    contactThuanPhone,
+    contactTramPhone,
+  };
 </script>
 <script src="../scripts/tracking.js"></script>

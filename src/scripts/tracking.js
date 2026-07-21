@@ -30,12 +30,23 @@ function appendPageParamsToZaloHref(href) {
   return url.toString();
 }
 
-function fireConversion(kind) {
+// Xác định click thuộc số Thuận hay Trâm bằng cách so khớp chuỗi số điện thoại có trong href
+// (tel: và zalo.me đều chứa nguyên số điện thoại trong đường dẫn) — để tách hiệu quả 2 số trong GA4.
+function identifyContactPerson(href) {
+  if (tracking.contactTramPhone && href.includes(tracking.contactTramPhone)) return 'tram';
+  if (tracking.contactThuanPhone && href.includes(tracking.contactThuanPhone)) return 'thuan';
+  return 'unknown';
+}
+
+function fireConversion(kind, person) {
   const conversionId =
     kind === 'zalo' ? tracking.googleAdsConversionZalo : tracking.googleAdsConversionCall;
+  const eventName = kind === 'zalo' ? 'zalo_click' : 'call_click';
 
   if (typeof window.gtag === 'function') {
     window.gtag('event', 'conversion', { send_to: conversionId });
+    // Event GA4 riêng (không giới hạn send_to) kèm contact_person để so sánh hiệu quả số Thuận/Trâm
+    window.gtag('event', eventName, { contact_person: person });
   }
   if (typeof window.fbq === 'function') {
     window.fbq('track', 'Contact');
@@ -55,9 +66,9 @@ function initTracking() {
     const href = link.getAttribute('href') || '';
 
     if (href.includes('zalo.me')) {
-      fireConversion('zalo');
+      fireConversion('zalo', identifyContactPerson(href));
     } else if (href.startsWith('tel:')) {
-      fireConversion('call');
+      fireConversion('call', identifyContactPerson(href));
     }
   });
 }
