@@ -65,6 +65,17 @@ export const perPagePricing: PerPagePlan[] = [
   },
 ];
 
+// 5.1b — Ngôn ngữ khác ngoài tiếng Anh (dịch vụ phụ, tiếng Anh vẫn là trọng tâm chính).
+// Giá scale x2 từ giá tiếng Anh — phản ánh đúng thực tế: tiếng Anh đã có sẵn quy trình
+// tự động hoá (khuôn mẫu, thuật ngữ dựng sẵn cho từng loại giấy tờ) nên rẻ hơn, các ngôn ngữ
+// khác chưa có hạ tầng đó nên thao tác thủ công nhiều hơn. Không dùng cho SEO/Ads chính,
+// chỉ hiển thị như dịch vụ có sẵn khi khách hỏi.
+export const otherLanguages = ['Trung', 'Nhật', 'Hàn', 'Pháp', 'Đức', 'Nga'] as const;
+
+export const otherLanguagePricing: PerPagePlan[] = perPagePricing
+  .filter((p) => p.id !== 'khachquen')
+  .map((p) => ({ ...p, pricePerPage: p.pricePerPage * 2 }));
+
 export type BundlePlan = {
   id: string;
   label: string;
