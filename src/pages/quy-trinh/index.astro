@@ -1,0 +1,178 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import ThreeCommitments from '../../components/ThreeCommitments.astro';
+import Lightbox from '../../components/Lightbox.astro';
+import Faq from '../../components/Faq.astro';
+import ZaloButton from '../../components/ZaloButton.astro';
+import LastUpdated from '../../components/LastUpdated.astro';
+import { utmContent, site, authorPerson } from '../../config/site';
+
+const pageUpdated = new Date('2026-07-21');
+
+const opsEvidencePreview = [2, 6, 10].map((i) => ({
+  src: `/img/agency/zalo-${String(i).padStart(2, '0')}.webp`,
+  alt: `Ảnh minh hoạ quy trình làm việc thực tế qua Zalo với CTV/đại lý #${i}`,
+  width: 435,
+  height: 943,
+}));
+
+const faqItems = [
+  {
+    question: 'Ai là người trực tiếp xử lý bản dịch?',
+    answer: 'Đội ngũ dịch thuật xử lý hồ sơ visa mỗi ngày, theo đúng bố cục và thuật ngữ chuẩn cho từng loại giấy tờ — không phải dịch máy tự động.',
+  },
+  {
+    question: 'Làm sao biết bản dịch đúng trước khi trả tiền hết?',
+    answer: 'Trang đầu tiên dịch miễn phí, gửi xem trước — ưng thì làm tiếp phần còn lại của bộ hồ sơ, không phải trả tiền rồi mới biết được hay không.',
+    link: '/mau-dich/',
+    linkLabel: 'Xem mẫu dịch thật',
+  },
+  {
+    question: 'Bản dịch bị lãnh sự yêu cầu bổ sung/sửa thì sao?',
+    answer: 'Nếu sai sót do lỗi dịch, sửa lại miễn phí — không tính thêm phí. Việc lãnh sự yêu cầu bổ sung giấy tờ khác ngoài bản dịch không thuộc phạm vi cam kết này.',
+  },
+];
+
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: 'Quy Trình Dịch Thuật & Cam Kết Chất Lượng',
+    dateModified: pageUpdated.toISOString(),
+    author: { '@type': 'Person', name: authorPerson.name, description: authorPerson.description },
+    publisher: { '@type': 'Organization', name: site.name },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqItems.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: { '@type': 'Answer', text: item.answer },
+    })),
+  },
+];
+---
+
+<BaseLayout
+  title="Quy Trình Dịch Thuật & Cam Kết Chất Lượng | Dịch Thuật Visa 247"
+  description="Quy trình dịch thuật hồ sơ visa từ lúc gửi ảnh qua Zalo đến khi nhận bản dịch, 3 cam kết chất lượng bằng văn bản, và bằng chứng vận hành thực tế — không phải lời quảng cáo suông."
+  path="/quy-trinh/"
+  schema={schema}
+>
+  <div class="container quy-trinh-page">
+    <Breadcrumb items={[{ label: 'Quy trình & cam kết', href: '/quy-trinh/' }]} />
+    <h1>Quy Trình Dịch Thuật & Cam Kết Chất Lượng</h1>
+    <LastUpdated date={pageUpdated} />
+
+    <p class="quy-trinh-page__intro">
+      Trang này nêu rõ quy trình xử lý một bản dịch và những cam kết bằng văn bản — không phải mô tả chung chung
+      "uy tín, chuyên nghiệp" mà không kiểm chứng được.
+    </p>
+
+    <section class="fade-in">
+      <h2>Quy trình dịch thuật một bộ hồ sơ diễn ra thế nào?</h2>
+      <p>
+        4 bước: gửi ảnh giấy tờ qua Zalo → nhận báo giá và giờ giao cụ thể trong 5 phút → xác nhận, tiến hành dịch
+        kèm đối chiếu chéo tên riêng/số liệu/ngày tháng → nhận bản dịch có mộc công ty đúng hẹn, file mềm hoặc giao
+        tận nơi.
+      </p>
+      <img
+        src="/img/quy-trinh-khach-le.webp"
+        alt="Quy trình dịch thuật hồ sơ visa: gửi ảnh giấy tờ qua Zalo, nhận báo giá trong 5 phút, xác nhận và tiến hành dịch, nhận bản dịch đúng hẹn"
+        width={1983}
+        height={793}
+        class="quy-trinh-page__process-img"
+        loading="eager"
+      />
+    </section>
+
+    <section class="fade-in">
+      <h2>3 cam kết chất lượng là gì?</h2>
+      <p>
+        Đúng thể thức lãnh sự (dịch giả có chứng chỉ, đúng chuẩn hồ sơ nộp lãnh sự quán), kiểm tra chéo trước khi
+        đóng mộc nên sai sót do dịch được dịch lại miễn phí, và cam kết đúng giờ giao — trễ hẹn hoàn 100% phí gấp
+        đã trả cho hồ sơ đó.
+      </p>
+      <ThreeCommitments />
+    </section>
+
+    <section class="fade-in">
+      <h2>Năng lực xử lý thực tế là bao nhiêu?</h2>
+      <p>
+        71 bộ hồ sơ xử lý trong một đợt cho một đại lý đối tác — số liệu lấy từ sổ theo dõi công nợ thực tế, không
+        phải số ước đoán. Thư viện mẫu dịch công khai hiện có 17+ loại giấy tờ thường gặp, phục vụ 6 thị trường
+        visa (Mỹ, Schengen, Canada, Úc, Anh, New Zealand), và tiếp tục bổ sung theo hồ sơ thực tế.
+      </p>
+      <img
+        src="/img/nang-luc-that.webp"
+        alt="71 bộ hồ sơ xử lý trong 1 đợt cho 1 đại lý đối tác, 17+ loại giấy tờ thường gặp, 6 thị trường visa"
+        width={1691}
+        height={770}
+        class="quy-trinh-page__capacity-img"
+        loading="lazy"
+      />
+    </section>
+
+    <section class="fade-in">
+      <h2>Có bằng chứng vận hành thực tế nào không?</h2>
+      <p class="text-muted">
+        Ảnh chụp màn hình thật từ các nhóm Zalo làm việc với CTV và đại lý — đã che tên nhóm và tên khách hàng
+        trong hồ sơ. Không phải ảnh minh hoạ dàn dựng.
+      </p>
+      <Lightbox columns={3} images={opsEvidencePreview} />
+      <a href="/agency/#ops-evidence" class="quy-trinh-page__see-all">Xem thêm ảnh thực tế ở trang đại lý →</a>
+    </section>
+
+    <section class="fade-in quy-trinh-page__cta">
+      <ZaloButton utmContent={utmContent.cuoi} variant="block" />
+    </section>
+
+    <section class="fade-in">
+      <h2>Câu hỏi thường gặp</h2>
+      <Faq items={faqItems} />
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .quy-trinh-page {
+    padding: var(--space-6) 0 var(--space-8);
+    max-width: 760px;
+  }
+
+  .quy-trinh-page > h1 {
+    margin-top: var(--space-4);
+  }
+
+  .quy-trinh-page__intro {
+    color: var(--navy-700);
+    font-size: 1.0625rem;
+  }
+
+  .quy-trinh-page section {
+    margin-top: var(--space-7);
+  }
+
+  .quy-trinh-page__process-img,
+  .quy-trinh-page__capacity-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-top: var(--space-4);
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--line);
+  }
+
+  .quy-trinh-page__see-all {
+    display: inline-block;
+    margin-top: var(--space-3);
+    font-weight: 600;
+    color: var(--navy-700);
+  }
+
+  .quy-trinh-page__cta {
+    max-width: 420px;
+  }
+</style>
