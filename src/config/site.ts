@@ -29,6 +29,13 @@ export const contact = {
   responseTime: 'Phản hồi trong 5 phút',
 } as const;
 
+// Author schema cho Article (E-E-A-T machine-readable) — dùng cho blog, mẫu dịch, trang visa.
+// Mô tả chỉ nêu vai trò thật, không bịa số năm/số hồ sơ chưa xác nhận được.
+export const authorPerson = {
+  name: contact.personName,
+  description: 'Phụ trách vận hành dịch vụ dịch thuật hồ sơ visa tại Dịch Thuật Visa 247, trực tiếp xử lý hồ sơ dịch thuật cho khách lẻ và đại lý visa/du lịch.',
+} as const;
+
 // Người liên hệ thứ 2 — hiển thị song song với contact chính ở Header/Footer/Liên hệ.
 // utmContent riêng để tách biệt số liệu theo dõi giữa 2 số.
 export const contact2 = {

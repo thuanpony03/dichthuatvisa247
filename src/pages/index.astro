@@ -67,6 +67,9 @@ const schema = [
       addressCountry: site.business.addressCountry,
     },
     url: site.domain,
+    // Entity stitching cho AI Overview — chỉ liệt kê profile có thật, xác nhận được.
+    // TODO: bổ sung Google Business Profile / LinkedIn / TikTok khi có URL thật.
+    sameAs: [contact.fanpageUrl, contact.zaloUrl],
   },
   {
     '@context': 'https://schema.org',

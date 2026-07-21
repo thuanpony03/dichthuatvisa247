@@ -3,8 +3,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import PriceTable from '../../components/PriceTable.astro';
 import Faq from '../../components/Faq.astro';
+import LastUpdated from '../../components/LastUpdated.astro';
 import ZaloButton from '../../components/ZaloButton.astro';
-import { utmContent, agencyPricing, perPagePricing, otherLanguages, otherLanguagePricing } from '../../config/site';
+import { utmContent, agencyPricing, perPagePricing, otherLanguages, otherLanguagePricing, site } from '../../config/site';
 
 function formatTier(v: number | 'thoathuan') {
   return v === 'thoathuan' ? 'Thoả thuận' : v.toLocaleString('vi-VN') + 'đ';
@@ -12,6 +13,8 @@ function formatTier(v: number | 'thoathuan') {
 
 const startingPrice = perPagePricing[0].pricePerPage;
 const otherLangStarting = otherLanguagePricing[0].pricePerPage;
+// Cập nhật thủ công khi giá thay đổi — dùng cho tín hiệu freshness (LastUpdated + WebPage schema)
+const pageUpdated = new Date('2026-07-21');
 
 const faqItems = [
   {
@@ -50,6 +53,13 @@ const schema = [
       acceptedAnswer: { '@type': 'Answer', text: item.answer },
     })),
   },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: 'Bảng Giá Dịch Thuật Visa',
+    dateModified: pageUpdated.toISOString(),
+    publisher: { '@type': 'Organization', name: site.name },
+  },
 ];
 ---
 
@@ -62,6 +72,7 @@ const schema = [
   <div class="container price-page">
     <Breadcrumb items={[{ label: 'Bảng giá', href: '/bang-gia/' }]} />
     <h1>Bảng Giá Dịch Thuật Visa</h1>
+    <LastUpdated date={pageUpdated} />
 
     <div class="price-hero">
       <p class="price-hero__label">Giá khởi điểm</p>

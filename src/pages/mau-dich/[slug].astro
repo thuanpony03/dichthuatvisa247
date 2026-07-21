@@ -6,7 +6,7 @@ import LastUpdated from '../../components/LastUpdated.astro';
 import Lightbox from '../../components/Lightbox.astro';
 import Faq from '../../components/Faq.astro';
 import ZaloButton from '../../components/ZaloButton.astro';
-import { consulateSlugMap, perPagePricing, bundlePricing, formatVnd, utmContent, site } from '../../config/site';
+import { consulateSlugMap, perPagePricing, bundlePricing, formatVnd, utmContent, site, authorPerson } from '../../config/site';
 
 export async function getStaticPaths() {
   const entries = await getCollection('giay-to');
@@ -54,7 +54,7 @@ const schema = [
     image: new URL(data.sampleImage, site.domain).toString(),
     datePublished: data.updated.toISOString(),
     dateModified: data.updated.toISOString(),
-    author: { '@type': 'Organization', name: site.name },
+    author: { '@type': 'Person', name: authorPerson.name, description: authorPerson.description },
     publisher: { '@type': 'Organization', name: site.name },
   },
 ];

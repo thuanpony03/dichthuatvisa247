@@ -6,7 +6,7 @@ import LastUpdated from '../../components/LastUpdated.astro';
 import SourceNote from '../../components/SourceNote.astro';
 import Faq from '../../components/Faq.astro';
 import ZaloButton from '../../components/ZaloButton.astro';
-import { utmContent, site, perPagePricing } from '../../config/site';
+import { utmContent, site, perPagePricing, authorPerson } from '../../config/site';
 
 export async function getStaticPaths() {
   const entries = await getCollection('lanh-su');
@@ -30,7 +30,7 @@ const schema = [
     headline: data.title,
     datePublished: data.updated.toISOString(),
     dateModified: data.updated.toISOString(),
-    author: { '@type': 'Organization', name: site.name },
+    author: { '@type': 'Person', name: authorPerson.name, description: authorPerson.description },
     publisher: { '@type': 'Organization', name: site.name },
   },
 ];
