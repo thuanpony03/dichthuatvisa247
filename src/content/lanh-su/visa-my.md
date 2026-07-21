@@ -33,3 +33,15 @@ faq:
 ---
 
 Nếu chỉ xin visa du lịch Mỹ (B1/B2) và chưa từng bị từ chối, khả năng cao anh/chị **không cần dịch giấy tờ gì** — tập trung chuẩn bị tốt cho buổi phỏng vấn sẽ hiệu quả hơn nhiều so với việc dịch thật nhiều loại giấy tờ. Dịch vụ dịch thuật ở đây dành cho 3 trường hợp cụ thể đã nêu ở trên, không phải bước bắt buộc cho mọi hồ sơ B1/B2.
+
+## Vậy nên chuẩn bị gì thay vì dịch giấy tờ
+
+Đơn DS-160 khai trực tuyến bằng tiếng Anh, sau đó đương đơn tham dự buổi phỏng vấn trực tiếp tại Đại sứ quán (Hà Nội) hoặc Tổng Lãnh sự quán (TP.HCM) Hoa Kỳ. Buổi phỏng vấn thường ngắn, viên chức lãnh sự hỏi trực tiếp về mục đích chuyến đi, công việc, và ràng buộc quay về Việt Nam — không yêu cầu xuất trình một chồng giấy tờ dịch sẵn. Thời gian nên dồn vào:
+
+- Trả lời rõ ràng, nhất quán về mục đích chuyến đi và kế hoạch quay về.
+- Chuẩn bị tinh thần cho các câu hỏi thường gặp về công việc, gia đình, tài chính — có thể trả lời bằng lời, không cần giấy tờ chứng minh kèm theo trừ khi được yêu cầu.
+- Khai đơn DS-160 chính xác, khớp với những gì sẽ trình bày khi phỏng vấn.
+
+## Nếu hồ sơ thuộc 1 trong 3 trường hợp cần dịch
+
+Xem chi tiết đầy đủ hơn tại bài viết [Sự thật: đa số hồ sơ visa Mỹ B1/B2 không cần dịch giấy tờ](/blog/su-that-visa-my-khong-can-dich-ho-so/) — bao gồm cách chuẩn bị nếu từng bị từ chối theo mục 214(b), hoặc đang xin diện visa Mỹ khác ngoài B1/B2.

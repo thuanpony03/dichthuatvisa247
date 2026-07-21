@@ -33,4 +33,18 @@ faq:
     answer: "Gói bình thường 3–5 ngày làm việc, có gói gấp 24h hoặc siêu gấp trong ngày. Trang đầu dịch miễn phí để anh/chị xem chất lượng trước khi quyết định."
 ---
 
-Khi tải bản dịch lên hệ thống UKVI, nên giữ tên file rõ ràng theo tên loại giấy tờ để nhân viên xét hồ sơ dễ đối chiếu với bản gốc đã tải lên trước đó.
+Visa du lịch Anh phổ biến nhất là Standard Visitor visa, nộp trực tuyến qua hệ thống của UK Visas and Immigration (UKVI). Sau khi nộp đơn và giấy tờ hỗ trợ online, đương đơn thường đến trung tâm tiếp nhận hồ sơ visa tại Hà Nội hoặc TP.HCM để lấy sinh trắc học — bước này tách biệt với việc chuẩn bị bản dịch.
+
+## Quy trình chuẩn bị hồ sơ dịch thuật cho visa Anh
+
+1. Xác định giấy tờ cần dịch theo checklist ở trên — với hồ sơ có vợ/chồng đi cùng, bổ sung đăng ký kết hôn; có người đại diện nộp hồ sơ, bổ sung giấy uỷ quyền.
+2. Gửi ảnh chụp/scan giấy tờ qua Zalo để nhận báo giá và xác nhận hình thức dịch.
+3. Nhận bản dịch có mộc công ty + xác nhận dịch, đảm bảo đủ 4 thông tin UKVI yêu cầu: ngày dịch, xác nhận độ chính xác, họ tên và thông tin liên hệ người dịch/công ty dịch thuật.
+4. Tải file scan/ảnh chụp rõ nét bản dịch lên hệ thống UKVI cùng giấy tờ gốc.
+
+## Lưu ý khi dịch giấy tờ cho hồ sơ Anh
+
+- **Đặt tên file rõ ràng**: khi tải bản dịch lên hệ thống UKVI, nên giữ tên file theo đúng tên loại giấy tờ (ví dụ "So-tiet-kiem-dich.pdf") để nhân viên xét hồ sơ dễ đối chiếu với bản gốc đã tải lên trước đó.
+- **Không cần công chứng tư pháp**: UKVI chỉ yêu cầu bản dịch kèm xác nhận chính xác và thông tin liên hệ người dịch rõ ràng, không đòi hỏi thủ tục công chứng như một số hồ sơ pháp lý khác.
+- **Đơn vị tiền tệ**: giữ nguyên VNĐ trên bản dịch, không tự quy đổi sang GBP.
+- **Tên riêng và địa danh**: phiên âm nhất quán với hộ chiếu trên toàn bộ giấy tờ trong hồ sơ.

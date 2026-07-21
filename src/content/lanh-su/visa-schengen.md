@@ -33,4 +33,20 @@ faq:
     answer: "Gói bình thường 3–5 ngày làm việc, có gói gấp 24h hoặc siêu gấp trong ngày nếu lịch hẹn gấp. Trang đầu dịch miễn phí để anh/chị xem chất lượng trước khi quyết định."
 ---
 
+Visa Schengen (Visa C, thị thực ngắn hạn) nộp qua trung tâm tiếp nhận hồ sơ (VFS Global, TLScontact...) của quốc gia dự định xin visa, đặt tại Hà Nội hoặc TP.HCM. Nước xét hồ sơ thường là nước lưu trú chính (nhiều ngày nhất trong lịch trình) hoặc nước nhập cảnh đầu tiên nếu thời gian lưu trú các nước bằng nhau — quy tắc cụ thể nên xác nhận lại với trung tâm tiếp nhận hồ sơ.
+
+## Quy trình chuẩn bị hồ sơ dịch thuật cho visa Schengen
+
+1. Xác định quốc gia Schengen sẽ nộp hồ sơ (nước lưu trú chính) — yêu cầu dịch thuật khác nhau tuỳ nước.
+2. Gửi ảnh chụp/scan giấy tờ + tên quốc gia định nộp qua Zalo để nhận báo giá và xác nhận đúng hình thức dịch (mộc công ty hay cần công chứng cho một số giấy tờ).
+3. Nhận bản dịch có mộc công ty + xác nhận dịch, đúng ngôn ngữ trung tâm tiếp nhận yêu cầu (tiếng Anh hoặc ngôn ngữ bản địa).
+4. Nộp bản dịch cùng hồ sơ tại trung tâm tiếp nhận theo lịch hẹn đã đặt.
+
+## Lưu ý khi dịch giấy tờ cho hồ sơ Schengen
+
+- **Ngôn ngữ đích khác nhau theo nước**: nhiều nước chấp nhận tiếng Anh, một số yêu cầu ngôn ngữ bản địa (Pháp, Đức, Ý...) — xác nhận trước khi dịch để không phải dịch lại.
+- **Đơn vị tiền tệ**: giữ nguyên VNĐ trên bản dịch, không tự quy đổi sang EUR.
+- **Tên riêng và địa danh**: phiên âm nhất quán với hộ chiếu trên toàn bộ giấy tờ trong hồ sơ.
+- Xem checklist đầy đủ theo từng nhóm giấy tờ tại bài viết [Hồ sơ visa Schengen cần dịch những giấy tờ gì?](/blog/ho-so-visa-schengen-can-dich-nhung-giay-to-gi/).
+
 Vì mỗi quốc gia Schengen tự quy định chi tiết hồ sơ, anh/chị nên gửi kèm tên quốc gia dự định nộp hồ sơ khi liên hệ Zalo để được tư vấn đúng yêu cầu giấy tờ và hình thức dịch thuật phù hợp.
