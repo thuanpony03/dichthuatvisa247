@@ -31,4 +31,12 @@ commonErrors:
     desc: "Nếu xe đã qua sang tên, thông tin chủ sở hữu trước đó đôi khi cần thể hiện để chứng minh tính liên tục sở hữu tài sản."
 ---
 
+## Khi nào nên bổ sung giấy đăng ký xe vào hồ sơ
+
+Đây là giấy tờ tuỳ chọn, không bắt buộc như CT07 hay giấy tờ tài chính — nên bổ sung khi hồ sơ cần thêm bằng chứng tài sản, đặc biệt với xe ô tô giá trị cao.
+
+## Xe đang trả góp/thế chấp ngân hàng
+
+Nên nêu rõ tình trạng này khi gửi dịch. Nếu bản chính giấy đăng ký xe đang do ngân hàng cho vay giữ, có thể dùng bản sao có công chứng hoặc xác nhận của ngân hàng để dịch thay thế.
+
 Ảnh chụp giấy đăng ký xe nên rõ cả mặt trước và mặt sau (nếu có ghi chú sang tên) để bản dịch đầy đủ thông tin đối chiếu.

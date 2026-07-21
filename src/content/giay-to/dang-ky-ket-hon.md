@@ -38,4 +38,14 @@ commonErrors:
     desc: "Nếu giấy chứng nhận từng được cấp lại, ghi chú này cần thể hiện trong bản dịch để lãnh sự không nghi ngờ tính liên tục của quan hệ hôn nhân."
 ---
 
+## Khi nào cần dịch giấy đăng ký kết hôn
+
+- Vợ/chồng cùng đứng tên trong hồ sơ, đi cùng nhau trong chuyến đi
+- Cần chứng minh quan hệ khi dùng tài sản hoặc tài khoản ngân hàng đứng tên chung
+- Hồ sơ diện thăm vợ/chồng đang cư trú hoặc làm việc ở nước ngoài
+
+## Nếu mất bản gốc hoặc kết hôn đã lâu chỉ còn bản sao
+
+Xin trích lục hoặc bản sao tại UBND cấp xã/phường nơi đã đăng ký kết hôn — bản trích lục có giá trị tương đương bản chính để dịch thuật, không bắt buộc phải có bản gốc đầu tiên.
+
 Nếu vợ/chồng có thay đổi họ tên sau kết hôn (theo phong tục hoặc pháp lý nước ngoài), nên ghi chú rõ trong yêu cầu dịch để bản dịch phản ánh đúng tên hiện dùng trên hộ chiếu.

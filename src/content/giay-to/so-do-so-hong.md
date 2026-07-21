@@ -31,4 +31,12 @@ commonErrors:
     desc: "Làm tròn hoặc dịch sai đơn vị diện tích thửa đất, gây chênh lệch so với bản gốc khi đối chiếu."
 ---
 
+## Khi nào cần dùng sổ đỏ/sổ hồng trong hồ sơ
+
+Thường dùng bổ sung khi hồ sơ cần thể hiện tài sản lớn ngoài tiền mặt/tiết kiệm — đặc biệt hữu ích khi mức lương hoặc số dư sổ tiết kiệm chưa đủ thuyết phục về ràng buộc kinh tế tại Việt Nam.
+
+## Sổ đứng tên chung với người khác thì sao
+
+Vẫn dùng được nếu kèm giấy tờ chứng minh quan hệ — đăng ký kết hôn nếu đứng tên chung vợ/chồng, hoặc giấy tờ khác nếu đứng tên chung với người thân — để lãnh sự hiểu rõ mối liên hệ và tỷ lệ sở hữu tài sản.
+
 Nếu sổ đang thế chấp ngân hàng, nên nêu rõ tình trạng này khi gửi dịch — bản dịch cần phản ánh đúng thực trạng pháp lý ghi trên trang bổ sung.

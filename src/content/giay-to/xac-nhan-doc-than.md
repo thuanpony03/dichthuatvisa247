@@ -29,4 +29,12 @@ commonErrors:
     desc: "Hai loại giấy khác nhau nhưng dễ bị gộp nhầm khi khách gửi hồ sơ có nhiều thành viên gia đình."
 ---
 
+## Khi nào cần giấy xác nhận độc thân
+
+Phổ biến nhất với hồ sơ diện thăm người yêu/bạn đời chưa đăng ký kết hôn ở nước ngoài — lãnh sự cần xác minh đương đơn thực sự độc thân tại thời điểm nộp hồ sơ, không đang có quan hệ hôn nhân hợp pháp khác.
+
+## Xin ở đâu, giá trị bao lâu
+
+Xin tại UBND cấp xã/phường nơi thường trú. Giá trị sử dụng thường trong khoảng 6 tháng kể từ ngày cấp, nên xin gần thời điểm nộp hồ sơ để tránh phải xin cấp lại.
+
 Nếu đương đơn từng đăng ký kết hôn rồi ly hôn, cần xin đúng loại giấy xác nhận phản ánh tình trạng hiện tại (độc thân sau ly hôn), không dùng nhầm mẫu dành cho người chưa từng kết hôn.

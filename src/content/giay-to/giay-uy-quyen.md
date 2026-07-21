@@ -31,4 +31,14 @@ commonErrors:
     desc: "Cấu trúc câu tiếng Việt đặt chủ ngữ linh hoạt hơn tiếng Anh, dễ dịch nhầm bên ủy quyền và bên được ủy quyền."
 ---
 
+## Khi nào cần chuẩn bị giấy ủy quyền
+
+- Người thân đại diện nộp hồ sơ hoặc nhận kết quả visa thay đương đơn
+- Ủy quyền quản lý tài sản/tài khoản ngân hàng trong thời gian đương đơn đi du lịch
+- Ủy quyền chăm sóc con cái/người phụ thuộc trong thời gian vắng mặt
+
+## Giấy ủy quyền cần công chứng trước khi dịch
+
+Khác với mộc công ty dịch thuật (chỉ xác nhận bản dịch đúng nội dung), giấy ủy quyền bản gốc cần được công chứng tại phòng công chứng hoặc UBND trước khi gửi dịch — dịch thuật chỉ dịch lại đúng nội dung bản gốc đã công chứng, không thay thế được bước công chứng này.
+
 Nếu giấy ủy quyền có nhiều nội dung ủy quyền khác nhau (tài sản, hồ sơ, con cái), nên liệt kê rõ từng mục trong bản dịch đúng thứ tự bản gốc.

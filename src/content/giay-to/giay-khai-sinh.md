@@ -48,4 +48,14 @@ commonErrors:
     desc: "Các trường hợp đặc biệt về quan hệ cha/mẹ-con cần dùng đúng thuật ngữ hộ tịch tiếng Anh chuẩn thay vì diễn giải tự do, vì lãnh sự dùng chi tiết này để xét quan hệ gia đình khi bảo lãnh hoặc đi cùng."
 ---
 
+## Khi nào bắt buộc phải có giấy khai sinh trong hồ sơ
+
+- Hồ sơ diện gia đình (bố mẹ bảo lãnh con, hoặc con dưới 18 tuổi đi cùng bố mẹ)
+- Cần chứng minh quan hệ huyết thống với người đồng hành hoặc người bảo lãnh
+- Một số lãnh sự yêu cầu cho mọi hồ sơ để xác minh nhân thân cơ bản, dù không đi cùng gia đình
+
+## Nếu mất bản gốc hoặc bản gốc hư hỏng
+
+Xin cấp bản sao tại UBND cấp xã/phường nơi đăng ký khai sinh ban đầu, hoặc qua Cổng dịch vụ công nếu địa phương đã số hoá dữ liệu hộ tịch — bản sao cấp lại có giá trị pháp lý tương đương bản chính để dịch thuật.
+
 Nếu giấy khai sinh bản gốc là mẫu cũ (viết tay hoặc đánh máy trước 2016) và chữ ký, con dấu mờ, nên photo màu độ phân giải cao trước khi gửi để bản dịch đối chiếu chính xác từng chi tiết, đặc biệt là số hiệu quyển sổ và số vào sổ.

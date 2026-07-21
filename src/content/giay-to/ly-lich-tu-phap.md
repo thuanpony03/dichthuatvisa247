@@ -31,4 +31,12 @@ commonErrors:
     desc: "Phiếu thường chỉ có giá trị 6 tháng kể từ ngày cấp — nộp bản dịch của phiếu đã hết hạn khiến hồ sơ bị trả về."
 ---
 
+## Khi nào lãnh sự yêu cầu phiếu lý lịch tư pháp
+
+Không phổ biến với hồ sơ visa du lịch ngắn hạn thông thường, nhưng một số hồ sơ dài hạn hoặc yêu cầu riêng của lãnh sự cụ thể có thể cần bổ sung — nên xác nhận trước khi xin phiếu để không mất thời gian chờ nếu không thực sự cần.
+
+## Xin phiếu lý lịch tư pháp ở đâu
+
+Nộp yêu cầu tại Sở Tư pháp nơi thường trú/tạm trú, hoặc qua Cổng dịch vụ công quốc gia. Thời gian xử lý thường khoảng 10–15 ngày làm việc, nên xin sớm nếu hồ sơ có yêu cầu giấy này để không bị động deadline nộp hồ sơ visa.
+
 Nên kiểm tra ngày cấp phiếu trước khi nộp hồ sơ — nếu gần hết hạn 6 tháng, nên xin cấp lại trước khi dịch để tránh phải làm lại toàn bộ.

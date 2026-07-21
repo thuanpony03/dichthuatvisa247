@@ -29,4 +29,12 @@ commonErrors:
     desc: "Nếu người lao động từng chuyển công ty nhiều lần, bỏ sót các đơn vị cũ làm hồ sơ việc làm trông ngắn hơn thực tế."
 ---
 
+## Khi nào nên bổ sung sổ bảo hiểm xã hội
+
+Khi hợp đồng lao động hiện tại chỉ mới ký gần đây nhưng thực tế đã đi làm nhiều năm (chuyển đổi loại hợp đồng, thăng chức nội bộ, đổi công ty trong cùng tập đoàn...) — sổ bảo hiểm xã hội thể hiện quá trình làm việc liên tục dài hơn những gì hợp đồng hiện tại phản ánh.
+
+## Tra cứu sổ bảo hiểm xã hội điện tử
+
+Nếu không giữ sổ giấy, có thể tra cứu và xuất quá trình đóng bảo hiểm qua ứng dụng VssID hoặc Cổng dịch vụ công bảo hiểm xã hội — bản xuất điện tử có mã tra cứu vẫn dịch được như sổ giấy.
+
 Với sổ bảo hiểm có quá trình đóng dài (nhiều trang), nên dịch đủ toàn bộ thay vì chỉ trích đoạn gần nhất, để thể hiện đầy đủ quá trình công tác.

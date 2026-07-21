@@ -46,4 +46,12 @@ commonErrors:
     desc: "CT07 có ký hiệu mẫu và căn cứ pháp lý in ở góc văn bản. Bỏ qua chi tiết này vì cho là không quan trọng khiến bản dịch thiếu yếu tố xác thực mà một số lãnh sự đối chiếu khi kiểm tra tính nguyên bản."
 ---
 
+## Khi nào bắt buộc cần CT07 trong hồ sơ
+
+Phần lớn lãnh sự Schengen, Canada, Úc, Anh, New Zealand yêu cầu giấy tờ cư trú để xác minh nơi ở ổn định tại Việt Nam — CT07 là giấy tờ thay thế chính thức duy nhất hiện hành kể từ 2023, thay cho sổ hộ khẩu giấy.
+
+## Cách xin CT07 nhanh nhất
+
+Có thể nộp yêu cầu qua Cổng dịch vụ công quốc gia hoặc trực tiếp tại công an cấp xã/phường nơi đăng ký cư trú. Thời gian xử lý thường vài ngày làm việc, nên chủ động xin sớm thay vì để sát ngày cần nộp hồ sơ visa.
+
 Giấy xác nhận thông tin về cư trú (CT07) do công an cấp theo yêu cầu, không có sẵn tại nhà như sổ hộ khẩu cũ — cần xin cấp mới trước khi dịch. Bản gốc thường chỉ có giá trị xác nhận tại một thời điểm, vì vậy nhiều đơn vị lữ hành khuyên xin CT07 trong vòng 3–6 tháng trước ngày nộp hồ sơ visa để thông tin còn cập nhật.

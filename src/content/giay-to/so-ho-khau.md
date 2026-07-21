@@ -39,4 +39,8 @@ commonErrors:
     desc: "Phần ghi chú thay đổi thành viên/chuyển khẩu đôi khi cần thiết để đối chiếu thời gian cư trú liên tục, đặc biệt với hồ sơ diện thăm thân."
 ---
 
-Nếu anh/chị vẫn còn giữ sổ hộ khẩu giấy và hồ sơ yêu cầu giấy tờ cư trú, nên liên hệ công an nơi cư trú xin cấp CT07 mới thay vì dùng sổ cũ — hầu hết lãnh sự hiện chỉ chấp nhận giấy tờ cư trú còn hiệu lực tại thời điểm nộp hồ sơ.
+## Vì sao trang này vẫn được giữ lại
+
+Một số hồ sơ nộp trước 2023, hoặc giấy tờ lưu trữ nội bộ của khách hàng, vẫn cần tra cứu thuật ngữ sổ hộ khẩu để đối chiếu — trang này phục vụ mục đích tham khảo đó, không khuyến khích dùng cho hồ sơ visa mới.
+
+Nếu anh/chị vẫn còn giữ sổ hộ khẩu giấy và hồ sơ yêu cầu giấy tờ cư trú, nên liên hệ công an nơi cư trú xin cấp CT07 mới thay vì dùng sổ cũ — hầu hết lãnh sự hiện chỉ chấp nhận giấy tờ cư trú còn hiệu lực tại thời điểm nộp hồ sơ. Xem [mẫu dịch CT07](/mau-dich/ct07-xac-nhan-cu-tru/) để biết bản dịch giấy tờ cư trú hiện hành trông như thế nào.

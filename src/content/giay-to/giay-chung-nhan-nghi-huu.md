@@ -29,4 +29,12 @@ commonErrors:
     desc: "Nghỉ hưu đúng tuổi và nghỉ hưu trước tuổi/mất sức có mức hưởng khác nhau, dịch nhầm ảnh hưởng đến đánh giá tài chính đương đơn."
 ---
 
+## Khi nào cần dùng quyết định nghỉ hưu
+
+Dành cho đương đơn đã nghỉ hưu, cần chứng minh nguồn thu nhập ổn định (lương hưu) thay vì thu nhập từ công việc đang làm — đặc biệt quan trọng với hồ sơ visa du lịch của người lớn tuổi không còn đi làm.
+
+## Nếu đã nghỉ hưu lâu, quyết định gốc bị thất lạc
+
+Có thể liên hệ cơ quan Bảo hiểm xã hội nơi đang nhận lương hưu để xin xác nhận thay thế, thể hiện đầy đủ mức lương hưu và thời gian đóng bảo hiểm tương đương quyết định gốc.
+
 Nên dịch kèm sổ lương hưu hoặc sao kê tài khoản nhận lương hưu hàng tháng nếu hồ sơ cần chứng minh dòng tiền thực nhận, không chỉ quyết định nghỉ hưu.

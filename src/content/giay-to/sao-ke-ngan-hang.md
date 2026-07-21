@@ -31,4 +31,12 @@ commonErrors:
     desc: "Phần ghi chú chuyển khoản chứa thông tin nguồn thu nhập mà lãnh sự dùng để đối chiếu với xác nhận thu nhập."
 ---
 
+## Xin sao kê ở đâu, mất bao lâu
+
+Có thể xin trực tiếp tại quầy giao dịch ngân hàng hoặc xuất trực tiếp qua ứng dụng ngân hàng điện tử — bản điện tử có đóng dấu/xác nhận số của ngân hàng vẫn dịch được như bản giấy, không cần ra quầy nếu ứng dụng hỗ trợ xuất file PDF chính thức.
+
+## Nên chọn tài khoản nào nếu có nhiều ngân hàng
+
+Ưu tiên tài khoản có dòng tiền ra vào đều đặn, khớp với mức lương trên giấy xác nhận thu nhập. Tài khoản chỉ có một, hai giao dịch nạp tiền đột biến ngay trước ngày nộp hồ sơ dễ khiến lãnh sự đặt câu hỏi về nguồn gốc dòng tiền.
+
 Với sao kê nhiều trang, nên dịch trọn vẹn cả giai đoạn được yêu cầu (thường 3–6 tháng gần nhất) thay vì cắt bớt để giảm số trang.

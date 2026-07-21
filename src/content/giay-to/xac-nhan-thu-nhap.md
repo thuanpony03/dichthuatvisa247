@@ -38,4 +38,12 @@ commonErrors:
     desc: "Không mô tả đủ con dấu treo hoặc chữ ký nháy ở góc trang khiến bản dịch không phản ánh đủ yếu tố xác thực của bản gốc."
 ---
 
+## Khi nào cần bổ sung thêm ngoài giấy xác nhận thu nhập
+
+Nếu mức lương ghi trên giấy thấp hơn nhiều so với chi phí chuyến đi dự kiến, nên chuẩn bị thêm sổ tiết kiệm hoặc sao kê ngân hàng để bổ sung năng lực tài chính, thay vì chỉ dựa vào một giấy xác nhận thu nhập duy nhất.
+
+## Nếu công ty đã giải thể hoặc không xác nhận được
+
+Có thể dùng hợp đồng lao động gần nhất kèm sao kê ngân hàng thể hiện lương chuyển khoản đều đặn để thay thế, hoặc giấy tờ thuế thu nhập cá nhân nếu có đăng ký hộ kinh doanh.
+
 Nên dịch đồng thời với hợp đồng lao động để chức danh và mức lương khớp nhau giữa hai giấy tờ — lãnh sự thường đối chiếu song song hai văn bản này.

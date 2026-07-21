@@ -38,4 +38,12 @@ commonErrors:
     desc: "Nhầm ngày bắt đầu/kết thúc do định dạng ngày tháng khác nhau giữa tiếng Việt và tiếng Anh."
 ---
 
+## Khi hợp đồng lao động không đủ để chứng minh công việc
+
+Với hợp đồng dưới 1 năm hoặc công ty mới thành lập, nên bổ sung thêm sổ bảo hiểm xã hội để thể hiện quá trình làm việc liên tục dài hơn thời hạn hợp đồng hiện tại.
+
+## Trường hợp làm nhiều công ty cùng lúc
+
+Nên ưu tiên dịch hợp đồng của công ty chính (nơi đóng bảo hiểm xã hội, mức lương cao nhất) trước — các hợp đồng phụ chỉ cần bổ sung nếu hồ sơ cần thể hiện tổng thu nhập từ nhiều nguồn.
+
 Nếu hợp đồng đã qua nhiều lần gia hạn hoặc phụ lục, nên gửi kèm toàn bộ bản gốc và phụ lục mới nhất để bản dịch phản ánh đúng tình trạng công việc hiện tại.

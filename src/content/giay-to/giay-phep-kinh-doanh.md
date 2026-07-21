@@ -38,4 +38,12 @@ commonErrors:
     desc: "Nhầm nghìn đồng và đồng, gây sai lệch quy mô công ty khi lãnh sự đối chiếu năng lực tài chính chủ hồ sơ."
 ---
 
+## Khi nào cần dùng giấy chứng nhận đăng ký doanh nghiệp
+
+Thay thế hợp đồng lao động cho chủ doanh nghiệp/hộ kinh doanh cá thể — chứng minh nguồn thu nhập và ràng buộc kinh tế thông qua việc sở hữu, vận hành doanh nghiệp tại Việt Nam thay vì đi làm thuê cho người khác.
+
+## Vừa có công ty vừa có hợp đồng lao động ở nơi khác
+
+Nên dịch cả hai nếu có — thể hiện đầy đủ nguồn thu nhập từ nhiều phía giúp hồ sơ tài chính vững hơn, đặc biệt khi cần chứng minh khả năng chi trả cho chuyến đi ở mức cao.
+
 Nếu công ty có nhiều lần thay đổi đăng ký kinh doanh, chỉ cần dịch bản mới nhất còn hiệu lực — không cần dịch toàn bộ lịch sử thay đổi trừ khi lãnh sự yêu cầu riêng.

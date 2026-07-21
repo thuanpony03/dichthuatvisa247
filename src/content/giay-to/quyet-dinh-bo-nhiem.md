@@ -31,4 +31,12 @@ commonErrors:
     desc: "Hai mốc thời gian này có thể khác nhau trên văn bản gốc, cần đối chiếu kỹ trước khi dịch."
 ---
 
+## Khi nào cần bổ sung quyết định bổ nhiệm
+
+Với đương đơn giữ chức vụ quản lý, quyết định bổ nhiệm củng cố thêm tính ràng buộc công việc mà hợp đồng lao động đơn thuần không thể hiện rõ — đặc biệt hữu ích khi chức danh trên hợp đồng chung chung hơn thực tế đang đảm nhiệm.
+
+## Nếu công ty không có văn bản bổ nhiệm chính thức
+
+Một số công ty tư nhân nhỏ chỉ có quyết định bằng email hoặc thông báo nội bộ — vẫn dịch được nếu có chữ ký/xác nhận của người có thẩm quyền, không nhất thiết phải là văn bản hành chính đầy đủ.
+
 Nếu đã có nhiều quyết định bổ nhiệm qua các giai đoạn, chỉ cần dịch quyết định hiện hành trừ khi hồ sơ cần chứng minh quá trình thăng tiến.
