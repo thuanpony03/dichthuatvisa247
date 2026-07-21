@@ -2,7 +2,7 @@
 title: "5 Lỗi Thường Gặp Khi Tự Dịch Hồ Sơ Visa"
 slug: "5-loi-thuong-gap-tu-dich-ho-so-visa"
 description: "5 lỗi lặp lại nhiều nhất khi tự dịch hoặc dịch ẩu giấy tờ hồ sơ visa du lịch — từ tên không khớp hộ chiếu đến làm tròn số dư sổ tiết kiệm."
-updated: 2026-07-19
+updated: 2026-07-21
 ---
 
 Dưới đây là 5 lỗi lặp lại nhiều nhất mà chúng tôi thấy khi rà soát hồ sơ khách tự dịch hoặc dịch ở nơi không chuyên về visa. Không phải lỗi ngữ pháp — mà là lỗi khiến hồ sơ bị lãnh sự nghi ngờ khi đối chiếu giữa các giấy tờ.
@@ -26,6 +26,16 @@ Ví dụ "Trưởng phòng" dịch chung chung thành "Manager", hoặc "hợp �
 ## 5. Bỏ sót phụ lục, ghi chú, hoặc con dấu phụ
 
 Phụ lục điều chỉnh lương đính kèm hợp đồng lao động, ghi chú cấp lại trên giấy đăng ký kết hôn, hoặc con dấu treo ở góc trang — những chi tiết nhỏ này thường bị bỏ qua vì tưởng không quan trọng, nhưng lại là thứ lãnh sự dùng để xác minh tính nguyên bản khi đối chiếu.
+
+## Cách tự kiểm tra nhanh trước khi nộp
+
+Nếu đã tự dịch hoặc dịch ở nơi khác, có thể tự rà soát nhanh theo đúng thứ tự 5 lỗi trên trước khi nộp:
+
+1. Đối chiếu từng tên riêng trên bản dịch với đúng cách viết trên hộ chiếu.
+2. Kiểm tra lại mọi ngày tháng — đọc theo thứ tự ngày/tháng/năm hay tháng/ngày/năm đều phải nhất quán trong toàn bộ hồ sơ.
+3. Đối chiếu từng chữ số trên sổ tiết kiệm/sao kê với bản gốc, không chỉ đọc lướt tổng số.
+4. Xem lại chức danh, loại hợp đồng có dịch đúng nghĩa hay bị diễn giải thoát ý.
+5. Kiểm tra đã dịch đủ phụ lục, ghi chú, con dấu phụ hay chưa — so với toàn bộ số trang bản gốc.
 
 ## Đã tự dịch rồi thì sao?
 
