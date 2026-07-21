@@ -5,6 +5,8 @@ description: "Thuật ngữ chuẩn khi dịch sổ tiết kiệm sang tiếng A
 updated: 2026-07-21
 ---
 
+![Ảnh mẫu dịch giấy xác nhận số dư ngân hàng sang tiếng Anh, đã che thông tin cá nhân](/img/moc-do.webp)
+
 Sổ tiết kiệm là bằng chứng năng lực tài chính phổ biến nhất trong hồ sơ visa du lịch. Khác với giấy tờ nhân thân, bản dịch sổ tiết kiệm bị soi kỹ hơn vì liên quan trực tiếp đến khả năng tài chính và ràng buộc quay về Việt Nam — một lỗi nhỏ về số liệu cũng đủ khiến hồ sơ bị nghi ngờ.
 
 ## Thuật ngữ chuẩn cần dùng đúng

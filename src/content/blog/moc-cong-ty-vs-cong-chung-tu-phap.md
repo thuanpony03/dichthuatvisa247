@@ -5,6 +5,8 @@ description: "Dịch thuật công chứng visa và bản dịch mộc công ty 
 updated: 2026-07-21
 ---
 
+![Sơ đồ minh hoạ giấy tờ trước và sau khi dịch, đóng mộc xác nhận](/img/before-after-dich.webp)
+
 Nhiều người tìm "dịch thuật công chứng visa" vì nghĩ hồ sơ visa bắt buộc phải công chứng mới chắc ăn. Thực tế: với phần lớn hồ sơ **visa du lịch**, bản dịch có **mộc công ty dịch thuật + xác nhận dịch** là đủ để nộp lãnh sự quán — công chứng tư pháp chỉ cần trong một số trường hợp cụ thể, không phải mặc định cho mọi giấy tờ hay mọi nước.
 
 ## Hai hình thức bản dịch khác nhau ở đâu

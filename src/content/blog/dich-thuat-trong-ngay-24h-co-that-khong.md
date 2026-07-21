@@ -5,6 +5,8 @@ description: "Vì sao dịch thuật hồ sơ visa có thể giao trong 24h ho�
 updated: 2026-07-21
 ---
 
+![Ảnh mẫu dịch giấy chứng nhận đăng ký kết hôn sang tiếng Anh, đã che thông tin cá nhân](/img/ban-dich-3.webp)
+
 Có — nhưng không phải vì dịch ẩu cho nhanh. Tốc độ đến từ việc phần lớn thao tác lặp lại đã được chuẩn hoá từ trước, không phải từ việc bỏ bớt bước kiểm tra.
 
 ## Vì sao dịch nhanh được mà vẫn đúng thể thức

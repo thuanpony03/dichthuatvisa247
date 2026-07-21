@@ -5,6 +5,8 @@ description: "Quận 1 tập trung nhiều văn phòng dịch thuật lâu năm 
 updated: 2026-07-22
 ---
 
+![Ảnh mẫu dịch giấy xác nhận thông tin cư trú CT07 sang tiếng Anh, đã che thông tin cá nhân](/img/ban-dich-1.webp)
+
 Quận 1, TP.HCM từ lâu tập trung nhiều văn phòng dịch thuật lâu năm — một phần vì gần Sở Ngoại vụ và nhiều lãnh sự quán nước ngoài, thuận tiện cho khách vừa dịch xong vừa nộp hồ sơ trong buổi. Nhưng vị trí gần lãnh sự quán không đồng nghĩa với uy tín, và "uy tín" cũng không phải thứ tự nhận trên fanpage là đủ tin. Dưới đây là 5 điều có thể tự kiểm tra được trước khi chọn nơi dịch, không cần dựa vào quảng cáo.
 
 ## 1. Địa chỉ văn phòng thật, kiểm tra được

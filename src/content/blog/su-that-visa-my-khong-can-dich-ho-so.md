@@ -5,6 +5,8 @@ description: "Đa số hồ sơ xin visa du lịch Mỹ (B1/B2) không cần d�
 updated: 2026-07-21
 ---
 
+![Cờ Mỹ](/img/icons/flag-my.webp)
+
 Có một hiểu lầm khá phổ biến: xin visa nước nào cũng cần dịch hồ sơ ra tiếng Anh trước khi nộp. Với visa Mỹ diện du lịch (B1/B2), điều này **không đúng** — và bài viết này viết ra không phải để bán thêm dịch vụ, mà vì đây là thông tin nhiều người chuẩn bị hồ sơ visa Mỹ nên biết trước khi tốn tiền dịch những giấy tờ không cần thiết.
 
 ## Vì sao đa số hồ sơ B1/B2 không cần dịch

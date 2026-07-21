@@ -5,6 +5,8 @@ description: "Checklist đầy đủ giấy tờ cần dịch khi xin visa Schen
 updated: 2026-07-21
 ---
 
+![Ảnh mẫu dịch giấy xác nhận thông tin cư trú CT07 sang tiếng Anh, đã che thông tin cá nhân](/img/ban-dich-1.webp)
+
 Visa Schengen là thị thực ngắn hạn (Visa C, tối đa 90 ngày trong 180 ngày) dùng chung cho khối gồm hơn 25 quốc gia châu Âu. Vì dùng chung chính sách nhập cảnh nhưng **mỗi nước tự quy định yêu cầu hồ sơ và dịch thuật riêng**, không ít người chuẩn bị xong hồ sơ mới phát hiện thiếu giấy hoặc dịch sai hình thức, phải bổ sung gấp sát ngày nộp. Bài viết này liệt kê chi tiết các nhóm giấy tờ thường cần dịch, hình thức dịch được chấp nhận, và những điểm khác nhau giữa các nước trong khối cần xác nhận trước khi bắt tay dịch.
 
 ## Vì sao giấy tờ tiếng Việt cần dịch trước khi nộp

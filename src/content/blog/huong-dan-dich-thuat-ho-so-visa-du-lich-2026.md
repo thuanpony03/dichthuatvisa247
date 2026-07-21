@@ -5,6 +5,8 @@ description: "Hướng dẫn đầy đủ dịch thuật hồ sơ visa du lịch
 updated: 2026-07-22
 ---
 
+![Năng lực xử lý thực tế: 71 bộ hồ sơ trong một đợt cho một đại lý đối tác, 17+ loại giấy tờ thường gặp, 6 thị trường visa](/img/nang-luc-that.webp)
+
 Bài này gom lại toàn bộ thông tin cần biết trước khi dịch hồ sơ visa du lịch sang tiếng Anh: giấy tờ nào cần dịch, mỗi nước trong 6 thị trường yêu cầu gì khác nhau, chọn tốc độ nào cho phù hợp, và giá thực tế so với mặt bằng chung ra sao. Nếu đã biết mình cần gì, dùng mục lục bên dưới để nhảy thẳng đến phần cần đọc.
 
 ## 1. Bốn nhóm giấy tờ cần dịch

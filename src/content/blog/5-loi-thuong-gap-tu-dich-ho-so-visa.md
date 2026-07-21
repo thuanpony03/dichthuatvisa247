@@ -5,6 +5,8 @@ description: "5 lỗi lặp lại nhiều nhất khi tự dịch hoặc dịch �
 updated: 2026-07-21
 ---
 
+![Ảnh mẫu dịch giấy khai sinh sang tiếng Anh, đã che thông tin cá nhân](/img/ban-dich-2.webp)
+
 Dưới đây là 5 lỗi lặp lại nhiều nhất mà chúng tôi thấy khi rà soát hồ sơ khách tự dịch hoặc dịch ở nơi không chuyên về visa. Không phải lỗi ngữ pháp — mà là lỗi khiến hồ sơ bị lãnh sự nghi ngờ khi đối chiếu giữa các giấy tờ.
 
 ## 1. Tên không khớp tuyệt đối với hộ chiếu

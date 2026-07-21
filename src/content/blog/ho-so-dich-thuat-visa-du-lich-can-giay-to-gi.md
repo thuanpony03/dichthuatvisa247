@@ -5,13 +5,16 @@ description: "Checklist đầy đủ giấy tờ cần dịch thuật trong hồ
 updated: 2026-07-21
 ---
 
-Một bộ hồ sơ visa du lịch thường gồm 20–30 trang giấy tờ cần dịch, chia làm 4 nhóm chính. Không phải ai cũng cần đủ cả 4 nhóm — tuỳ hồ sơ cá nhân và lãnh sự quán nộp. Bài này là checklist tổng quát cho mọi thị trường; nếu đang xin visa Schengen cụ thể, xem thêm [checklist riêng cho Schengen](/blog/ho-so-visa-schengen-can-dich-nhung-giay-to-gi/) với các lưu ý khác biệt giữa từng nước trong khối.
+![Quy trình dịch thuật hồ sơ visa: gửi ảnh giấy tờ qua Zalo, nhận báo giá trong 5 phút, xác nhận và tiến hành dịch, nhận bản dịch đúng hẹn](/img/quy-trinh-khach-le.webp)
+
+Một bộ hồ sơ visa du lịch thường gồm 20–30 trang giấy tờ cần dịch. Thực tế xử lý hồ sơ cho thấy có hơn 17 loại giấy tờ khác nhau thường được yêu cầu tuỳ từng trường hợp — dưới đây là 4 nhóm phổ biến nhất để dễ hình dung, không phải danh sách đóng khung cho mọi hồ sơ. Nếu có giấy tờ nào không thấy trong danh sách, cứ gửi ảnh qua Zalo để được xác nhận có dịch được không. Bài này là checklist tổng quát cho mọi thị trường; nếu đang xin visa Schengen cụ thể, xem thêm [checklist riêng cho Schengen](/blog/ho-so-visa-schengen-can-dich-nhung-giay-to-gi/) với các lưu ý khác biệt giữa từng nước trong khối.
 
 ## 1. Giấy tờ nhân thân
 
 - [Giấy khai sinh](/mau-dich/giay-khai-sinh/)
 - [Đăng ký kết hôn](/mau-dich/dang-ky-ket-hon/) hoặc xác nhận tình trạng độc thân
 - [CT07 — xác nhận thông tin về cư trú](/mau-dich/ct07-xac-nhan-cu-tru/) (thay cho sổ hộ khẩu giấy đã hết hiệu lực từ 2023)
+- Và các giấy tờ hộ tịch khác tuỳ hồ sơ cụ thể (ví dụ giấy khai tử người thân nếu cần chứng minh thừa kế, giấy xác nhận quan hệ gia đình...)
 
 Nhóm này xác minh danh tính và các mối quan hệ gia đình liên quan đến hồ sơ (ai đi cùng ai, ai bảo lãnh ai) — cần thiết cho hầu hết hồ sơ, kể cả khi đi một mình vẫn thường cần CT07 để chứng minh nơi cư trú ổn định.
 
@@ -20,6 +23,7 @@ Nhóm này xác minh danh tính và các mối quan hệ gia đình liên quan �
 - [Sổ tiết kiệm](/mau-dich/so-tiet-kiem/) hoặc [sao kê tài khoản ngân hàng](/mau-dich/sao-ke-ngan-hang/)
 - [Xác nhận thu nhập](/mau-dich/xac-nhan-thu-nhap/)
 - [Sổ đỏ/sổ hồng](/mau-dich/so-do-so-hong/), [đăng ký xe](/mau-dich/dang-ky-xe/) — nếu dùng để chứng minh tài sản
+- Cổ phần/góp vốn doanh nghiệp, hợp đồng cho thuê tài sản... nếu có và cần bổ sung năng lực tài chính
 
 Nhóm này lãnh sự soi kỹ nhất vì liên quan trực tiếp đến khả năng tài chính và ràng buộc quay về Việt Nam sau chuyến đi. Nên dịch đồng bộ các giấy tờ tài chính trong cùng một đợt để số liệu nhất quán khi đối chiếu.
 
@@ -28,12 +32,14 @@ Nhóm này lãnh sự soi kỹ nhất vì liên quan trực tiếp đến khả 
 - [Hợp đồng lao động](/mau-dich/hop-dong-lao-dong/)
 - [Giấy chứng nhận đăng ký doanh nghiệp/giấy phép kinh doanh](/mau-dich/giay-phep-kinh-doanh/) (nếu tự kinh doanh thay vì đi làm công ty)
 - [Quyết định bổ nhiệm](/mau-dich/quyet-dinh-bo-nhiem/), [giấy chứng nhận nghỉ hưu](/mau-dich/giay-chung-nhan-nghi-huu/) — tuỳ tình trạng công việc hiện tại
+- Quyết định khen thưởng, bằng cấp chuyên môn... nếu muốn củng cố thêm vị trí công việc
 
 ## 4. Giấy tờ theo trường hợp riêng
 
 - [Giấy uỷ quyền](/mau-dich/giay-uy-quyen/) — nếu người thân đại diện nộp hồ sơ hoặc quản lý tài sản trong thời gian đi
 - [Phiếu lý lịch tư pháp](/mau-dich/ly-lich-tu-phap/) — một số lãnh sự yêu cầu tuỳ diện xin visa
 - [Sổ bảo hiểm xã hội](/mau-dich/so-bao-hiem-xa-hoi/) — bổ sung chứng minh quá trình làm việc nếu hồ sơ cần
+- Giấy tờ khác theo yêu cầu riêng của từng lãnh sự quán hoặc trường hợp cá nhân — không nằm gọn trong 3 nhóm trên
 
 ## Bảng tóm tắt theo nhóm
 
