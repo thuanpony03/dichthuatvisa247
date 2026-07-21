@@ -2,7 +2,7 @@
 title: "Dịch Thuật Hồ Sơ Visa Ở Đâu Uy Tín Tại TP.HCM? 5 Điều Cần Kiểm Tra Trước Khi Chọn"
 slug: "dich-thuat-visa-uy-tin-tphcm-quan-1"
 description: "Quận 1 tập trung nhiều văn phòng dịch thuật lâu năm nhưng vị trí gần lãnh sự quán không đồng nghĩa uy tín — 5 điều nên kiểm tra thật trước khi chọn nơi dịch hồ sơ visa."
-updated: 2026-07-22
+updated: 2026-07-21
 ---
 
 ![Ảnh mẫu dịch giấy xác nhận thông tin cư trú CT07 sang tiếng Anh, đã che thông tin cá nhân](/img/ban-dich-1.webp)

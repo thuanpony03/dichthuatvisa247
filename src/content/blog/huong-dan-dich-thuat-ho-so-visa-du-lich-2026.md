@@ -2,7 +2,7 @@
 title: "Hướng Dẫn Dịch Thuật Hồ Sơ Visa Du Lịch 2026: Giấy Tờ, Giá, Tốc Độ, Yêu Cầu 6 Nước"
 slug: "huong-dan-dich-thuat-ho-so-visa-du-lich-2026"
 description: "Hướng dẫn đầy đủ dịch thuật hồ sơ visa du lịch: 4 nhóm giấy tờ cần dịch, bảng tổng hợp yêu cầu 6 nước, 4 gói tốc độ, bảng giá có ví dụ tính toán, và thư viện 17 loại giấy tờ."
-updated: 2026-07-22
+updated: 2026-07-21
 ---
 
 ![Năng lực xử lý thực tế: 71 bộ hồ sơ trong một đợt cho một đại lý đối tác, 17+ loại giấy tờ thường gặp, 6 thị trường visa](/img/nang-luc-that.webp)
