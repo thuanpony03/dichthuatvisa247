@@ -2,6 +2,8 @@
 dist/
 # generated types
 .astro/
+# local wrangler dev cache/state (not deployment config — wrangler.jsonc stays tracked)
+.wrangler/
 
 # dependencies
 node_modules/

@@ -9,6 +9,7 @@ import UspStats from '../components/UspStats.astro';
 import Lightbox from '../components/Lightbox.astro';
 import TravelBand from '../components/TravelBand.astro';
 import Faq from '../components/Faq.astro';
+import CallbackForm from '../components/CallbackForm.astro';
 import { contact, utmContent, site, extraServices } from '../config/site';
 
 const docs = (await getCollection('giay-to')).sort((a, b) => a.data.docName.localeCompare(b.data.docName, 'vi'));
@@ -142,6 +143,13 @@ const schema = [
         height={442}
         class="home-hero__img"
       />
+    </div>
+  </section>
+
+  <!-- Khối gọi lại — phương án phụ khi chưa tiện nhắn Zalo, đổi tông ngoài giờ -->
+  <section class="section home-callback">
+    <div class="container">
+      <CallbackForm compact />
     </div>
   </section>
 

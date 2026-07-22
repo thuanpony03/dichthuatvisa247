@@ -2,6 +2,7 @@
 import AgencyLayout from '../../layouts/AgencyLayout.astro';
 import ZaloButton from '../../components/ZaloButton.astro';
 import Lightbox from '../../components/Lightbox.astro';
+import AgencyForm from '../../components/AgencyForm.astro';
 import { agencyPricing, contact, utmContent } from '../../config/site';
 
 const opsEvidence = Array.from({ length: 10 }, (_, i) => ({
@@ -179,6 +180,13 @@ function formatTier(v: number | 'thoathuan') {
         variant="block"
       />
       <a href={`tel:${contact.phoneTel}`} class="btn btn--call btn--block">Đặt lịch trao đổi — {contact.phoneDisplay}</a>
+    </div>
+  </section>
+
+  <!-- Form đăng ký nhận chính sách giá sỉ -->
+  <section class="section no-print">
+    <div class="container agency-cta__inner">
+      <AgencyForm />
     </div>
   </section>
 

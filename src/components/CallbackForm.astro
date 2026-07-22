@@ -1,0 +1,182 @@
+---
+// Form "Gọi lại cho tôi" — 1 trường SĐT, honeypot chống spam, gửi qua /api/goi-lai (Worker → email).
+// Dùng cho 2 trang LP ads + trang chủ. Ngoài giờ làm việc đổi tông điệp (xem prop offHours).
+interface Props {
+  offHours?: boolean;
+  compact?: boolean;
+}
+
+const { offHours = false, compact = false } = Astro.props;
+const formId = `callback-form-${Math.random().toString(36).slice(2, 8)}`;
+---
+
+<div class={`callback-form ${compact ? 'callback-form--compact' : ''}`} data-off-hours={offHours ? 'true' : 'false'}>
+  <p class="callback-form__title" data-callback-title>
+    {offHours ? 'Ngoài giờ làm việc? Để lại số, 7h30 sáng gọi lại anh/chị đầu tiên.' : 'Không tiện nhắn Zalo? Để lại số, gọi lại trong ít phút.'}
+  </p>
+  <form id={formId} class="callback-form__form" data-callback-form>
+    <input
+      type="tel"
+      name="phone"
+      inputmode="numeric"
+      placeholder="Số điện thoại của anh/chị"
+      required
+      class="callback-form__input"
+      aria-label="Số điện thoại"
+    />
+    <input type="text" name="website" tabindex="-1" autocomplete="off" class="callback-form__honeypot" aria-hidden="true" />
+    <button type="submit" class="btn btn--call callback-form__submit">Gọi lại cho tôi</button>
+  </form>
+  <p class="callback-form__status" data-callback-status role="status" aria-live="polite"></p>
+</div>
+
+<script>
+  // Site tĩnh không biết giờ thật của khách lúc build — kiểm tra giờ ngay trên trình duyệt khách
+  // để đổi tông điệp đúng lúc (7h30–21h30 làm việc, ngoài giờ mời để lại số thay vì hứa nhắn ngay).
+  function applyOffHoursTitle() {
+    const hour = new Date().getHours();
+    const minute = new Date().getMinutes();
+    const minutesNow = hour * 60 + minute;
+    const isOffHours = minutesNow < 7 * 60 + 30 || minutesNow >= 21 * 60 + 30;
+
+    document.querySelectorAll<HTMLElement>('[data-callback-title]').forEach((el) => {
+      el.textContent = isOffHours
+        ? 'Ngoài giờ làm việc? Để lại số, 7h30 sáng gọi lại anh/chị đầu tiên.'
+        : 'Không tiện nhắn Zalo? Để lại số, gọi lại trong ít phút.';
+    });
+  }
+
+  function initCallbackForms() {
+    applyOffHoursTitle();
+    document.querySelectorAll<HTMLFormElement>('[data-callback-form]').forEach((form) => {
+      if (form.dataset.bound) return;
+      form.dataset.bound = 'true';
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const statusEl = form.parentElement?.querySelector('[data-callback-status]');
+        const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement | null;
+        const formData = new FormData(form);
+
+        const pageParams = new URLSearchParams(window.location.search);
+        formData.set('page', window.location.pathname);
+        formData.set('utm_source', pageParams.get('utm_source') || '');
+        formData.set('utm_content', pageParams.get('utm_content') || '');
+
+        if (submitBtn) submitBtn.disabled = true;
+        if (statusEl) {
+          statusEl.textContent = 'Đang gửi...';
+          statusEl.className = 'callback-form__status';
+        }
+
+        try {
+          const res = await fetch('/api/goi-lai', { method: 'POST', body: formData });
+          const data = await res.json();
+          if (res.ok && data.ok) {
+            if (statusEl) {
+              statusEl.textContent = 'Đã ghi nhận — sẽ gọi lại cho anh/chị sớm nhất.';
+              statusEl.className = 'callback-form__status callback-form__status--ok';
+            }
+            form.reset();
+            if (typeof (window as any).gtag === 'function') {
+              (window as any).gtag('event', 'form_submit', { form_name: 'goi_lai' });
+            }
+          } else {
+            if (statusEl) {
+              statusEl.textContent = data.error || 'Có lỗi xảy ra, vui lòng thử lại hoặc nhắn Zalo.';
+              statusEl.className = 'callback-form__status callback-form__status--error';
+            }
+          }
+        } catch {
+          if (statusEl) {
+            statusEl.textContent = 'Không gửi được — vui lòng thử lại hoặc nhắn Zalo.';
+            statusEl.className = 'callback-form__status callback-form__status--error';
+          }
+        } finally {
+          if (submitBtn) submitBtn.disabled = false;
+        }
+      });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCallbackForms);
+  } else {
+    initCallbackForms();
+  }
+</script>
+
+<style>
+  .callback-form {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: var(--space-5);
+  }
+
+  .callback-form--compact {
+    padding: var(--space-4);
+  }
+
+  .callback-form__title {
+    font-weight: 700;
+    color: var(--navy-900);
+    margin: 0 0 var(--space-3);
+  }
+
+  .callback-form__form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  @media (min-width: 480px) {
+    .callback-form__form {
+      flex-direction: row;
+    }
+  }
+
+  .callback-form__input {
+    flex: 1;
+    padding: 12px 16px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    font-size: 1rem;
+    font-family: inherit;
+    background: var(--white);
+    color: var(--ink);
+  }
+
+  .callback-form__input:focus {
+    outline: 2px solid var(--navy-700);
+    outline-offset: 1px;
+  }
+
+  .callback-form__honeypot {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+  }
+
+  .callback-form__submit {
+    white-space: nowrap;
+  }
+
+  .callback-form__status {
+    min-height: 1.2em;
+    margin: var(--space-2) 0 0;
+    font-size: 0.875rem;
+  }
+
+  .callback-form__status--ok {
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  .callback-form__status--error {
+    color: var(--seal);
+    font-weight: 600;
+  }
+</style>

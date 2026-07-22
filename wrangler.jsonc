@@ -2,8 +2,19 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "dichthuatvisa247",
   "compatibility_date": "2026-07-20",
+  "main": "worker/index.js",
+  // run_worker_first: chỉ /api/* mới đi qua Worker của mình (xử lý form → gửi email);
+  // mọi request khác đi thẳng tới Asset Worker như cũ, không tốn thời gian qua fetch handler.
   "assets": {
     "directory": "./dist",
-    "not_found_handling": "404-page"
-  }
+    "not_found_handling": "404-page",
+    "binding": "ASSETS",
+    "run_worker_first": ["/api/*"]
+  },
+  "send_email": [
+    {
+      "name": "SEND_EMAIL",
+      "destination_address": "luongcongthuann@gmail.com"
+    }
+  ]
 }

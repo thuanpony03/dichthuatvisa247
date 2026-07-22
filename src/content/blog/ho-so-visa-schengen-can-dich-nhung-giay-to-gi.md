@@ -80,7 +80,9 @@ Ba điểm khác nhau phổ biến nhất giữa các nước:
 
 ## Dịch một bộ hồ sơ Schengen mất bao lâu, giá bao nhiêu?
 
-Bộ hồ sơ Schengen thường gồm 15–25 trang tuỳ số lượng giấy tờ chuẩn bị. Dịch lẻ theo trang từ 20.000đ/trang (3–5 ngày làm việc), có gói gấp 48h (35.000đ/trang), gấp 24h (42.000đ/trang) hoặc siêu gấp trong ngày (60.000đ/trang) nếu lịch hẹn nộp hồ sơ gấp. Nếu muốn biết trước tổng chi phí cho cả bộ thay vì tính lẻ từng tờ, gói trọn hồ sơ 400.000đ áp dụng tới 30 trang (750.000đ nếu cần gấp trong 24h), vượt 30 trang tính thêm 12.000đ/trang. Xem đầy đủ tại [bảng giá](/bang-gia/).
+Bộ hồ sơ Schengen thường gồm 15–25 trang tuỳ số lượng giấy tờ chuẩn bị. Dịch lẻ theo trang từ 20.000đ/trang (3–5 ngày làm việc), có gói gấp 48h (35.000đ/trang), gấp 24h (42.000đ/trang) hoặc siêu gấp trong ngày (60.000đ/trang) nếu lịch hẹn nộp hồ sơ gấp.
+
+**Nên tính lẻ hay chọn gói trọn hồ sơ (400.000đ, tới 30 trang)?** Với hồ sơ 15 trang, tính lẻ ≈ 300.000đ — rẻ hơn gói trọn. Với 25 trang, tính lẻ ≈ 500.000đ — gói trọn 400.000đ lợi hơn hẳn. Điểm hoà vốn đúng 20 trang (20 × 20.000đ = 400.000đ); hồ sơ Schengen của bạn càng gần hoặc vượt mốc này, gói trọn càng lợi — và biết trước tổng tiền ngay từ đầu, không phải đợi đếm xong từng tờ mới ra số cuối cùng. Xem đầy đủ tại [bảng giá](/bang-gia/).
 
 ## Cách xác định đúng giấy tờ cần dịch cho trường hợp của mình
 

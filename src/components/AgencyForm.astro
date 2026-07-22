@@ -1,0 +1,138 @@
+---
+// Form B2B trên /agency/ — 3 trường: tên công ty, SĐT, số hồ sơ/tháng ước tính.
+// Gửi qua /api/agency (Worker → email). Trường "số hồ sơ/tháng" giúp tự lọc chất lượng lead.
+---
+
+<div class="agency-form">
+  <p class="agency-form__title">Đăng ký nhận chính sách giá sỉ</p>
+  <p class="agency-form__desc">Để lại thông tin, gửi bảng giá sỉ và điều kiện hợp tác trong ngày.</p>
+  <form id="agency-form" class="agency-form__form" data-agency-form>
+    <input type="text" name="company" placeholder="Tên công ty / CTV" required class="agency-form__input" aria-label="Tên công ty hoặc CTV" />
+    <input type="tel" name="phone" inputmode="numeric" placeholder="Số điện thoại" required class="agency-form__input" aria-label="Số điện thoại" />
+    <input type="text" name="volume" placeholder="Số hồ sơ/tháng ước tính (không bắt buộc)" class="agency-form__input" aria-label="Số hồ sơ mỗi tháng ước tính" />
+    <input type="text" name="website" tabindex="-1" autocomplete="off" class="agency-form__honeypot" aria-hidden="true" />
+    <button type="submit" class="btn btn--zalo agency-form__submit">Gửi thông tin</button>
+  </form>
+  <p class="agency-form__status" data-agency-status role="status" aria-live="polite"></p>
+</div>
+
+<script>
+  function initAgencyForm() {
+    const form = document.querySelector<HTMLFormElement>('[data-agency-form]');
+    if (!form || form.dataset.bound) return;
+    form.dataset.bound = 'true';
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const statusEl = document.querySelector('[data-agency-status]');
+      const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement | null;
+      const formData = new FormData(form);
+
+      if (submitBtn) submitBtn.disabled = true;
+      if (statusEl) {
+        statusEl.textContent = 'Đang gửi...';
+        statusEl.className = 'agency-form__status';
+      }
+
+      try {
+        const res = await fetch('/api/agency', { method: 'POST', body: formData });
+        const data = await res.json();
+        if (res.ok && data.ok) {
+          if (statusEl) {
+            statusEl.textContent = 'Đã nhận thông tin — sẽ liên hệ gửi bảng giá sỉ sớm nhất.';
+            statusEl.className = 'agency-form__status agency-form__status--ok';
+          }
+          form.reset();
+          if (typeof (window as any).gtag === 'function') {
+            (window as any).gtag('event', 'form_agency', {});
+          }
+        } else {
+          if (statusEl) {
+            statusEl.textContent = data.error || 'Có lỗi xảy ra, vui lòng thử lại hoặc nhắn Zalo.';
+            statusEl.className = 'agency-form__status agency-form__status--error';
+          }
+        }
+      } catch {
+        if (statusEl) {
+          statusEl.textContent = 'Không gửi được — vui lòng thử lại hoặc nhắn Zalo.';
+          statusEl.className = 'agency-form__status agency-form__status--error';
+        }
+      } finally {
+        if (submitBtn) submitBtn.disabled = false;
+      }
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initAgencyForm);
+  } else {
+    initAgencyForm();
+  }
+</script>
+
+<style>
+  .agency-form {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: var(--space-5);
+  }
+
+  .agency-form__title {
+    font-weight: 800;
+    color: var(--navy-900);
+    margin: 0 0 var(--space-1);
+    font-size: 1.125rem;
+  }
+
+  .agency-form__desc {
+    color: var(--navy-700);
+    margin: 0 0 var(--space-4);
+    font-size: 0.9375rem;
+  }
+
+  .agency-form__form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .agency-form__input {
+    padding: 12px 16px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    font-size: 1rem;
+    font-family: inherit;
+    background: var(--paper);
+    color: var(--ink);
+  }
+
+  .agency-form__input:focus {
+    outline: 2px solid var(--navy-700);
+    outline-offset: 1px;
+  }
+
+  .agency-form__honeypot {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+  }
+
+  .agency-form__status {
+    min-height: 1.2em;
+    margin: var(--space-2) 0 0;
+    font-size: 0.875rem;
+  }
+
+  .agency-form__status--ok {
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  .agency-form__status--error {
+    color: var(--seal);
+    font-weight: 600;
+  }
+</style>

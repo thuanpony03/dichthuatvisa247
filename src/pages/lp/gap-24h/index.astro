@@ -9,6 +9,7 @@ import Lightbox from '../../../components/Lightbox.astro';
 import DocChips from '../../../components/DocChips.astro';
 import Faq from '../../../components/Faq.astro';
 import NumberedSteps from '../../../components/NumberedSteps.astro';
+import CallbackForm from '../../../components/CallbackForm.astro';
 import { contact, utmContent } from '../../../config/site';
 
 const faqItems = [
@@ -74,6 +75,13 @@ const schema = [
       <p class="hero__meta">{contact.personName} · {contact.responseTime} · {contact.hours}</p>
     </div>
     <div id="sticky-trigger" class="hero__sticky-trigger" aria-hidden="true"></div>
+  </section>
+
+  <!-- Khối gọi lại — phương án phụ khi chưa tiện nhắn Zalo, đổi tông ngoài giờ -->
+  <section class="section callback-block">
+    <div class="container">
+      <CallbackForm compact />
+    </div>
   </section>
 
   <!-- Khối 2: Xoá rào cản -->
@@ -144,6 +152,10 @@ const schema = [
   .hero {
     padding: var(--space-4) 0 var(--space-3);
     position: relative;
+  }
+
+  .callback-block {
+    padding: var(--space-4) 0;
   }
 
   .hero__inner {
