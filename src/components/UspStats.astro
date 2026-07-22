@@ -14,6 +14,8 @@ const items = [
     stat: 'Rẻ hơn 3–4 lần',
     label: 'Giá sỉ cho đại lý & CTV',
     desc: 'Quy trình tự động hoá giúp giá thấp hơn mặt bằng chung. Nhận số lượng lớn ổn định hàng tháng cho đại lý, cộng tác viên.',
+    link: '/blog/gia-dich-thuat-ho-so-visa-tren-thi-truong-2026/',
+    linkLabel: 'Xem cách tính →',
   },
   {
     icon: '/img/icons/usp-giaytoo.webp',
@@ -32,6 +34,11 @@ const items = [
         <p class="usp-strip__stat">{item.stat}</p>
         <p class="usp-strip__label">{item.label}</p>
         <p class="usp-strip__desc">{item.desc}</p>
+        {item.link && (
+          <a href={item.link} class="usp-strip__link">
+            {item.linkLabel}
+          </a>
+        )}
       </div>
     ))
   }
@@ -97,5 +104,13 @@ const items = [
     font-size: 0.9375rem;
     color: var(--navy-700);
     margin: 0;
+  }
+
+  .usp-strip__link {
+    display: inline-block;
+    margin-top: var(--space-2);
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--navy-900);
   }
 </style>

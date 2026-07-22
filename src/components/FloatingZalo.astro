@@ -4,9 +4,11 @@
 // hai kiểu CTA nổi cùng lúc trên màn hình nhỏ.
 // Có vòng pulse liên tục + tự mở chữ vài giây sau khi tải trang để chắc khách thấy được lời
 // mời gọi, không chỉ trông chờ khách tự hover mới biết.
-import { contact, utmContent } from '../config/site';
+import { contact2, utmContent } from '../config/site';
 
-const zaloHref = `${contact.zaloUrl}?utm_source=web&utm_content=${utmContent.floatingBubble}`;
+// Đặt riêng số Trâm ở vị trí này (khác Header/StickyBar đều dùng số Thuận) — để 2 số có
+// phân phối vị trí khác nhau, tránh so sánh hiệu quả 2 số bị lệch vì cùng đặt hết vào 1 số.
+const zaloHref = `${contact2.zaloUrl}?utm_source=web&utm_content=${utmContent.floatingBubble}`;
 ---
 
 <a
