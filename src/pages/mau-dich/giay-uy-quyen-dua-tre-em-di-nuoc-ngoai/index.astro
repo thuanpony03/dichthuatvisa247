@@ -3,79 +3,210 @@ import DownloadTemplateLayout from '../../../components/DownloadTemplateLayout.a
 
 const faqItems = [
   {
-    question: 'Giấy ủy quyền khác thư đồng ý của cha mẹ ở điểm nào?',
-    answer: 'Giấy ủy quyền trao trách nhiệm trông nom, đưa đón trẻ cho người đi cùng — hãng bay và hải quan thường yêu cầu khi làm thủ tục. Thư đồng ý thể hiện việc cha/mẹ chấp thuận chuyến đi và hồ sơ visa của trẻ — lãnh sự thường yêu cầu khi xét hồ sơ.',
-    link: '/mau-dich/thu-dong-y-cha-me-cho-con-di-nuoc-ngoai/',
-    linkLabel: 'Xem mẫu thư đồng ý',
+    question: 'Mẫu song ngữ này có cần dịch thuật thêm không?',
+    answer: 'Bản thân giấy ủy quyền song ngữ thì không — đó là lý do nên dùng bản song ngữ ngay từ đầu. Nhưng giấy khai sinh, CCCD, và các giấy tờ tiếng Việt nộp kèm trong hồ sơ visa của trẻ thì vẫn cần bản dịch có xác nhận của đơn vị dịch thuật.',
+    link: '/mau-dich/giay-khai-sinh/',
+    linkLabel: 'Xem mẫu dịch khai sinh',
   },
   {
-    question: 'Chỉ cha hoặc mẹ ký giấy ủy quyền có được không?',
-    answer: 'Thường cần cả cha và mẹ cùng ký nếu cả hai còn quyền nuôi con, vì cả hai đều có trách nhiệm với trẻ. Trường hợp đơn thân hoặc một bên mất quyền nuôi con cần kèm giấy tờ chứng minh (giấy chứng tử, bản án ly hôn có ghi quyền nuôi con).',
+    question: 'Ông bà đưa cháu đi du lịch Thái Lan/Singapore có cần giấy này không?',
+    answer: 'Nên có. Kể cả nước miễn visa, hãng bay và cửa khẩu vẫn có quyền hỏi giấy chứng minh sự đồng ý của cha mẹ khi trẻ đi với người không phải cha mẹ.',
+  },
+  {
+    question: 'Cha mẹ đã ly hôn, chỉ một người ký được không?',
+    answer: 'Tuỳ nơi tiếp nhận. Người có quyền nuôi con theo bản án/quyết định ly hôn ký kèm bản sao quyết định đó thường được chấp nhận — mang theo giấy tờ này khi đi chứng thực và khi bay.',
   },
   {
     question: 'Giấy ủy quyền có thời hạn bao lâu?',
-    answer: 'Nên ghi rõ thời hạn khớp với chuyến đi cụ thể (ngày đi – ngày về) thay vì để thời hạn chung chung — dễ được chấp nhận hơn khi đối chiếu với vé và lịch trình.',
+    answer: 'Ghi rõ thời hạn theo chuyến đi (mẫu có sẵn dòng này). Không nên lập ủy quyền vô thời hạn — nhiều nơi từ chối chứng thực và hải quan có thể nghi ngờ.',
+  },
+  {
+    question: 'Tôi cần dịch giấy khai sinh và hộ khẩu kèm hồ sơ của bé, giá thế nào?',
+    answer: '20.000đ/trang gói tiêu chuẩn 3–5 ngày, có gói gấp 24h; khai sinh + hộ khẩu/CT07 thường chỉ 2–4 trang.',
+    link: '/bang-gia/',
+    linkLabel: 'Xem bảng giá đầy đủ',
+  },
+];
+
+const files = [
+  {
+    href: '/downloads/mau-giay-uy-quyen-dua-tre-em-di-nuoc-ngoai-song-ngu.docx',
+    downloadName: 'uy-quyen-tre-em-docx',
+    label: 'Tải bản Word (.docx) song ngữ',
+  },
+  {
+    href: '/downloads/mau-giay-uy-quyen-dua-tre-em-di-nuoc-ngoai-song-ngu.pdf',
+    downloadName: 'uy-quyen-tre-em-pdf',
+    label: 'Tải bản PDF xem trước / in',
   },
 ];
 ---
 
 <DownloadTemplateLayout
-  title="Mẫu Giấy Ủy Quyền Đưa Trẻ Em Đi Nước Ngoài (Song Ngữ) — Hướng Dẫn Chứng Thực"
-  description="Giấy ủy quyền đưa trẻ em đi nước ngoài: khi nào cần, nội dung phải có, cách chứng thực tại UBND xã/phường — kèm phân biệt với thư đồng ý của cha mẹ."
+  title="Mẫu Giấy Ủy Quyền Đưa Trẻ Em Đi Nước Ngoài Song Ngữ (Tải Miễn Phí 2026)"
+  description="Tải miễn phí mẫu giấy ủy quyền đưa trẻ em đi nước ngoài song ngữ Việt–Anh chuẩn nộp hãng bay và lãnh sự, kèm hướng dẫn chứng thực tại UBND và giấy tờ cần mang theo."
   path="/mau-dich/giay-uy-quyen-dua-tre-em-di-nuoc-ngoai/"
-  h1="Giấy Ủy Quyền Đưa Trẻ Em Đi Nước Ngoài (Song Ngữ) — Nội Dung & Cách Chứng Thực"
+  h1="Mẫu Giấy Ủy Quyền Đưa Trẻ Em Đi Nước Ngoài (Song Ngữ Việt–Anh, Tải Miễn Phí)"
   breadcrumbLabel="Giấy ủy quyền đưa trẻ em đi nước ngoài"
-  answerBlock="Giấy ủy quyền đưa trẻ em đi nước ngoài là văn bản cha/mẹ (người giám hộ) trao quyền cho người khác — ông bà, cô dì, hướng dẫn viên đoàn — đưa trẻ dưới 18 tuổi xuất cảnh khi trẻ không đi cùng cả cha lẫn mẹ. Cần chứng thực chữ ký tại UBND xã/phường, mang theo khi làm thủ tục tại sân bay và có thể được lãnh sự yêu cầu kèm hồ sơ visa của trẻ."
+  answerBlock="Giấy ủy quyền đưa trẻ em đi nước ngoài là văn bản do cha mẹ (hoặc người giám hộ hợp pháp) lập để cho phép một người khác — ông bà, cô dì, người thân quen — đưa con mình xuất cảnh khi cha mẹ không đi cùng. Hãng hàng không và cơ quan xuất nhập cảnh thường yêu cầu giấy này, có chứng thực chữ ký, kèm giấy tờ chứng minh quan hệ."
+  files={files}
+  previewImage={{ src: '/img/mau-tai/giay-uy-quyen-tre-em.webp', alt: 'Mẫu giấy ủy quyền đưa trẻ em đi nước ngoài song ngữ Việt Anh, xem trước trang 1' }}
   faqItems={faqItems}
-  previewImage={{ src: '/img/mau-tai/thu-dong-y-cha-me.webp', alt: 'Minh hoạ mẫu giấy tờ song ngữ liên quan đến trẻ em đi nước ngoài' }}
-  ctaText="Cần dịch giấy khai sinh, sổ hộ khẩu, giấy tờ đi kèm hồ sơ của bé? Gửi Zalo — Mr Thuận 0394 180 613 / Ms Trâm 0866 049 694 — 20.000đ/trang, báo giá trong 5 phút."
-  disclaimer="Mẫu mang tính tham khảo theo thực tiễn hồ sơ; quy định chứng thực và yêu cầu của từng nước có thể thay đổi — kiểm tra với UBND/lãnh sự trước khi dùng. Đây không phải tư vấn pháp lý."
+  ctaText="Cần dịch giấy khai sinh, hộ khẩu, giấy tờ kèm hồ sơ cho bé? Chụp giấy tờ gửi Zalo — Mr Thuận 0394 180 613 / Ms Trâm 0866 049 694 — báo giá trong 5 phút, làm việc 7h30–21h30 mỗi ngày."
+  disclaimer="Mẫu và hướng dẫn trong bài mang tính tham khảo theo thực tiễn hồ sơ; quy định chứng thực và yêu cầu của từng quốc gia, hãng hàng không có thể thay đổi theo thời điểm — vui lòng kiểm tra quy định hiện hành trước chuyến đi."
 >
-  <p class="mau-tai-page__pending-note">
-    <strong>Bản Word tải trực tiếp cho trang này đang được hoàn thiện.</strong> Trong lúc chờ, gửi Zalo để nhận mẫu
-    song ngữ ngay hôm nay, không cần chờ đợi.
+  <p class="mau-tai-page__provenance">
+    Mẫu do đội ngũ Dịch Thuật Visa 247 soạn theo chuẩn văn bản hành chính Việt Nam, phần tiếng Anh dùng đúng thuật
+    ngữ chúng tôi dùng trong bản dịch nộp lãnh sự hằng ngày (không phải bản dịch máy). Song ngữ trên cùng một văn
+    bản nên <strong>dùng được cho cả khâu chứng thực trong nước lẫn xuất trình ở nước ngoài mà không cần dịch
+    thêm.</strong>
   </p>
 
-  <h2>Giấy ủy quyền khác gì thư đồng ý của cha mẹ?</h2>
+  <h2>Khi nào bắt buộc phải có giấy ủy quyền này?</h2>
   <p>
-    Hai văn bản hay bị nhầm lẫn: <strong>giấy ủy quyền</strong> trao trách nhiệm trông nom, đưa đón trẻ cho người đi
-    cùng — dùng khi làm thủ tục với hãng bay, xuất nhập cảnh. <strong>Thư đồng ý</strong> (
-    <a href="/mau-dich/thu-dong-y-cha-me-cho-con-di-nuoc-ngoai/">xem mẫu tại đây</a>) thể hiện sự chấp thuận của cha
-    mẹ với chuyến đi và hồ sơ visa của trẻ — thứ lãnh sự muốn thấy khi xét hồ sơ. Trẻ đi với ông bà/người thân
-    thường cần <strong>cả hai</strong>: giấy ủy quyền mang theo khi bay, thư đồng ý nộp kèm hồ sơ visa.
+    Cần giấy ủy quyền khi trẻ dưới 18 tuổi xuất cảnh mà <strong>không có cha mẹ/người giám hộ hợp pháp đi
+    cùng</strong> — đi với ông bà, họ hàng, thầy cô, đoàn du lịch. Ba nơi có thể yêu cầu xuất trình:
   </p>
-
-  <h2>Nội dung cần có trong giấy ủy quyền</h2>
-  <ul>
-    <li>Thông tin đầy đủ của cha và mẹ (bên ủy quyền): họ tên, số CCCD, quan hệ với trẻ.</li>
-    <li>Thông tin người được ủy quyền: họ tên, số CCCD/hộ chiếu, quan hệ với trẻ.</li>
-    <li>Thông tin trẻ: họ tên, ngày sinh, số hộ chiếu — khớp chính xác với hộ chiếu đang dùng.</li>
-    <li>Phạm vi ủy quyền: đưa đón, chăm sóc trẻ trong suốt chuyến đi (ghi rõ, tránh diễn giải chung chung).</li>
-    <li>Thời hạn ủy quyền: nên khớp đúng ngày đi – ngày về của chuyến đi cụ thể.</li>
-    <li>Nước đến, mục đích chuyến đi.</li>
-  </ul>
-
-  <h2>Cách chứng thực giấy ủy quyền</h2>
   <ol>
-    <li>Điền đầy đủ thông tin theo mục trên — tên khớp từng ký tự với hộ chiếu/CCCD.</li>
     <li>
-      Cả cha và mẹ (nếu còn quyền nuôi con) cùng ký trước mặt cán bộ tại UBND xã/phường hoặc văn phòng công chứng
-      để chứng thực chữ ký — lệ phí vài chục nghìn đồng, thường lấy trong ngày.
+      <strong>Hãng hàng không</strong> — các hãng đều có điều lệ vận chuyển riêng cho hành khách trẻ em đi cùng
+      người không phải cha mẹ; nhân viên check-in có quyền yêu cầu giấy ủy quyền kèm giấy khai sinh để đối chiếu
+      quan hệ.
     </li>
-    <li>Mang bản gốc đã chứng thực khi làm thủ tục tại sân bay, kèm giấy tờ tuỳ thân của trẻ và người đi cùng.</li>
     <li>
-      Nếu hồ sơ visa yêu cầu, nộp kèm bản dịch giấy khai sinh của trẻ có xác nhận đơn vị dịch thuật — xem{' '}
-      <a href="/mau-dich/giay-khai-sinh/">mẫu dịch giấy khai sinh</a>.
+      <strong>Cơ quan xuất nhập cảnh</strong> tại cửa khẩu Việt Nam và nước đến — mục đích chống đưa trẻ ra nước
+      ngoài trái phép.
+    </li>
+    <li>
+      <strong>Lãnh sự quán khi xin visa</strong> — nhiều checklist (Schengen, Canada, Úc, New Zealand) yêu cầu thư
+      đồng ý/ủy quyền của cha mẹ ngay trong bộ hồ sơ xin visa cho trẻ, thường kèm bản dịch hoặc bản song ngữ.
     </li>
   </ol>
+  <p>
+    Ngược lại, trẻ đi cùng <strong>đủ cả cha lẫn mẹ</strong> thì không cần giấy này (chỉ cần giấy khai sinh chứng
+    minh quan hệ). Trẻ đi cùng <strong>một trong hai người</strong> — một số nước và một số hãng yêu cầu thư đồng
+    ý của người còn lại; nếu đi Schengen/Canada, hãy chuẩn bị sẵn cho chắc.
+  </p>
+
+  <h2>Cách điền mẫu (5 phút, theo đúng 4 mục trong file)</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Mục</th>
+        <th>Điền gì</th>
+        <th>Lỗi hay gặp</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>I. Bên ủy quyền</td>
+        <td>Thông tin <strong>cả cha và mẹ</strong> theo đúng CCCD/hộ chiếu</td>
+        <td>
+          Chỉ một người ký trong khi nơi tiếp nhận yêu cầu cả hai — nếu một người không thể ký (đã mất, mất liên
+          lạc, ly hôn có quyền nuôi con...), chuẩn bị giấy tờ chứng minh kèm theo
+        </td>
+      </tr>
+      <tr>
+        <td>II. Trẻ em</td>
+        <td>Họ tên <strong>đúng từng ký tự như hộ chiếu của trẻ</strong>, số hộ chiếu, ngày cấp</td>
+        <td>Ghi tên có dấu kiểu giấy khai sinh nhưng lệch thứ tự so với hộ chiếu</td>
+      </tr>
+      <tr>
+        <td>III. Bên được ủy quyền</td>
+        <td>Người thực tế đưa trẻ đi, ghi rõ quan hệ ("bà nội / paternal grandmother")</td>
+        <td>Ghi quan hệ chung chung "người thân" — hải quan muốn biết quan hệ cụ thể</td>
+      </tr>
+      <tr>
+        <td>IV. Nội dung</td>
+        <td>Nước đến, mục đích, <strong>khoảng thời gian có ngày cụ thể</strong>, số hiệu chuyến bay nếu đã có vé</td>
+        <td>Ghi thời hạn mở kiểu "trong năm 2026" — nơi chứng thực và hải quan đều không thích ủy quyền vô thời hạn</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Chứng thực ở đâu? (bước bắt buộc, nhiều người bỏ sót)</h2>
+  <p>
+    Giấy ủy quyền chỉ có giá trị khi <strong>chữ ký được chứng thực</strong>. Bạn mang giấy đã điền (chưa ký) +
+    CCCD của người ký + giấy khai sinh của trẻ đến một trong hai nơi:
+  </p>
+  <ul>
+    <li>
+      <strong>UBND xã/phường</strong> (bộ phận một cửa — chứng thực chữ ký): lệ phí theo quy định hiện hành khoảng
+      vài chục nghìn đồng/trường hợp, thường lấy trong ngày. Ký trước mặt cán bộ tiếp nhận, đừng ký sẵn ở nhà.
+    </li>
+    <li><strong>Văn phòng công chứng</strong>: phí cao hơn UBND nhưng nhanh và làm ngoài giờ được ở nhiều nơi.</li>
+  </ul>
+  <p class="mau-tai-page__pending-note">
+    Minh bạch: khâu chứng thực này là thủ tục nhà nước, Dịch Thuật Visa 247 không làm thay được — chúng tôi chỉ hỗ
+    trợ phần văn bản và bản dịch. Mức phí và thủ tục có thể thay đổi theo địa phương và thời điểm, bạn nên gọi
+    UBND phường trước khi đến.
+  </p>
+
+  <h2>Giấy tờ mang kèm khi trẻ xuất cảnh (checklist cho người đưa trẻ đi)</h2>
+  <ul>
+    <li>Giấy ủy quyền đã chứng thực (bản chính + 1 bản sao);</li>
+    <li>Hộ chiếu của trẻ (còn hạn theo yêu cầu nước đến, nhiều nước yêu cầu còn ≥6 tháng);</li>
+    <li>
+      <strong>Giấy khai sinh của trẻ</strong> — bản sao chứng thực; nếu nộp hồ sơ visa hoặc xuất trình ở nước
+      ngoài thì kèm <strong>bản dịch tiếng Anh có xác nhận</strong>;
+    </li>
+    <li>CCCD/hộ chiếu của người đưa trẻ đi;</li>
+    <li>Visa của trẻ và người đi cùng (nếu nước đến yêu cầu).</li>
+  </ul>
+
+  <h2>Từng nước yêu cầu gì với hồ sơ visa cho trẻ em?</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Nước</th>
+        <th>Yêu cầu phổ biến trong checklist cho trẻ vị thành niên</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Schengen</td>
+        <td>
+          Thư đồng ý của cha mẹ (cả hai, nếu trẻ đi thiếu 1 hoặc cả 2 người) có chứng thực + khai sinh; giấy tiếng
+          Việt cần kèm bản dịch — xem{' '}
+          <a href="/blog/ho-so-visa-schengen-can-dich-nhung-giay-to-gi/">checklist giấy tờ cần dịch cho visa Schengen</a>
+        </td>
+      </tr>
+      <tr>
+        <td>Canada</td>
+        <td>IRCC khuyến nghị rõ <strong>Letter of authorization</strong> cho trẻ đi không đủ cha mẹ; giấy tiếng Việt kèm bản dịch certified</td>
+      </tr>
+      <tr>
+        <td>Úc, New Zealand</td>
+        <td>Form/thư đồng ý của cha mẹ + giấy tờ quan hệ, bản dịch có xác nhận đơn vị dịch</td>
+      </tr>
+      <tr>
+        <td>Anh</td>
+        <td>Thư đồng ý nêu rõ người chăm sóc trẻ tại Anh + quan hệ; bản dịch theo chuẩn UKVI</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>
+    Điểm chung của mọi nước: thư/giấy ủy quyền phải <strong>khớp tuyệt đối</strong> với khai sinh và hộ chiếu về
+    tên, ngày sinh — sai một ký tự là mâu thuẫn hồ sơ. Đây là lý do mẫu song ngữ soạn chuẩn ngay từ đầu đỡ rủi ro
+    hơn viết tay rồi dịch sau.
+  </p>
 
   <p>
-    Xem thêm checklist đầy đủ cho <a href="/blog/ho-so-visa-schengen-can-dich-nhung-giay-to-gi/">hồ sơ visa Schengen</a>
-    {' '}nếu trẻ đi cùng đoàn hoặc người thân sang châu Âu.
+    Xem thêm{' '}
+    <a href="/mau-dich/thu-dong-y-cha-me-cho-con-di-nuoc-ngoai/">mẫu thư đồng ý của cha mẹ cho con đi nước ngoài</a>
+    {' '}(dùng song song với giấy ủy quyền khi trẻ đi cùng ông bà/người thân), hoặc{' '}
+    <a href="/mau-dich/tre-em-di-may-bay-can-giay-to-gi/">giấy tờ cần thiết khi trẻ đi máy bay</a>.
   </p>
 </DownloadTemplateLayout>
 
 <style>
+  .mau-tai-page__provenance {
+    background: var(--paper);
+    border-left: 3px solid var(--accent);
+    padding: var(--space-4);
+    font-size: 0.9375rem;
+  }
+
   .mau-tai-page__pending-note {
     background: #fdf1ef;
     border-left: 3px solid var(--seal);

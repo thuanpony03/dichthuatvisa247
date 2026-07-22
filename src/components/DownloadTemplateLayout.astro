@@ -15,6 +15,13 @@ interface FaqItem {
   linkLabel?: string;
 }
 
+interface FileDownload {
+  href: string;
+  downloadName: string;
+  label: string;
+  encodingFormat?: string;
+}
+
 interface Props {
   title: string;
   description: string;
@@ -25,6 +32,7 @@ interface Props {
   fileHref?: string;
   fileDownloadName?: string;
   fileButtonLabel?: string;
+  files?: FileDownload[];
   previewImage: { src: string; alt: string };
   faqItems: FaqItem[];
   ctaText: string;
@@ -42,12 +50,16 @@ const {
   fileHref,
   fileDownloadName,
   fileButtonLabel = 'Tải bản Word miễn phí',
+  files,
   previewImage,
   faqItems,
   ctaText,
   disclaimer,
   updated = new Date('2026-07-22'),
 } = Astro.props;
+
+const downloadFiles: FileDownload[] =
+  files ?? (fileHref ? [{ href: fileHref, downloadName: fileDownloadName ?? '', label: fileButtonLabel }] : []);
 
 const schema = [
   {
@@ -68,18 +80,18 @@ const schema = [
       acceptedAnswer: { '@type': 'Answer', text: item.answer },
     })),
   },
-  ...(fileHref
-    ? [
-        {
-          '@context': 'https://schema.org',
-          '@type': 'DigitalDocument',
-          name: h1,
-          url: new URL(fileHref, site.domain).toString(),
-          encodingFormat: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
-          isAccessibleForFree: true,
-        },
-      ]
-    : []),
+  ...downloadFiles.map((f) => ({
+    '@context': 'https://schema.org',
+    '@type': 'DigitalDocument',
+    name: h1,
+    url: new URL(f.href, site.domain).toString(),
+    encodingFormat:
+      f.encodingFormat ??
+      (f.href.endsWith('.pdf')
+        ? 'application/pdf'
+        : 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'),
+    isAccessibleForFree: true,
+  })),
 ];
 ---
 
@@ -97,12 +109,16 @@ const schema = [
     <p class="mau-tai-page__answer">{answerBlock}</p>
 
     {
-      fileHref && (
+      downloadFiles.length > 0 && (
         <div class="mau-tai-page__download">
           <img src={previewImage.src} alt={previewImage.alt} width={400} height={520} class="mau-tai-page__preview" loading="eager" />
-          <a href={fileHref} download data-download-name={fileDownloadName} class="btn btn--download">
-            ⬇ {fileButtonLabel}
-          </a>
+          <div class="mau-tai-page__download-buttons">
+            {downloadFiles.map((f) => (
+              <a href={f.href} download data-download-name={f.downloadName} class="btn btn--download">
+                ⬇ {f.label}
+              </a>
+            ))}
+          </div>
         </div>
       )
     }
@@ -158,6 +174,13 @@ const schema = [
     height: auto;
     border-radius: var(--radius-sm);
     border: 1px solid var(--line);
+  }
+
+  .mau-tai-page__download-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-3);
   }
 
   .btn--download {

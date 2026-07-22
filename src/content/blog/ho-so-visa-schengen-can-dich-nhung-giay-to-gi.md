@@ -40,6 +40,7 @@ Ngoài hợp đồng lao động, một số hồ sơ chuẩn bị thêm đơn x
 - [Đăng ký kết hôn](/mau-dich/dang-ky-ket-hon/) — nếu đi cùng vợ/chồng trong cùng hồ sơ, hoặc cần chứng minh quan hệ khi dùng tài sản/tài khoản đứng tên người thân
 - Giấy tờ chứng minh tài sản (sổ đỏ/sổ hồng, đăng ký xe) — nếu muốn củng cố thêm ràng buộc quay về Việt Nam
 - [Giấy uỷ quyền](/mau-dich/giay-uy-quyen/) — nếu người thân đại diện nộp hồ sơ hoặc quản lý tài sản trong thời gian đi
+- Giấy tờ của con — trẻ đi không đủ cha mẹ cần thêm [giấy ủy quyền/thư đồng ý — tải mẫu song ngữ tại đây](/mau-dich/giay-uy-quyen-dua-tre-em-di-nuoc-ngoai/)
 
 Riêng vé máy bay, đặt phòng khách sạn, bảo hiểm du lịch và lịch trình chuyến đi thường đã ở dạng tiếng Anh sẵn (đặt qua các nền tảng quốc tế) nên phần lớn trường hợp **không cần dịch thêm** — chỉ cần dịch khi các giấy tờ này ở dạng tiếng Việt thuần (ví dụ xác nhận đặt tour của công ty du lịch trong nước).
 
