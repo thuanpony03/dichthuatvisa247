@@ -69,6 +69,10 @@ function initTracking() {
       fireConversion('zalo', identifyContactPerson(href));
     } else if (href.startsWith('tel:')) {
       fireConversion('call', identifyContactPerson(href));
+    } else if (href.startsWith('/downloads/') && typeof window.gtag === 'function') {
+      // Tải mẫu giấy tờ miễn phí — đo tỉ lệ tải/phiên (Mục "Đo lường" kế hoạch content mẫu)
+      const fileName = link.dataset.downloadName || href.split('/').pop();
+      window.gtag('event', 'download_mau', { file_name: fileName });
     }
   });
 }

@@ -1,0 +1,85 @@
+---
+import DownloadTemplateLayout from '../../../components/DownloadTemplateLayout.astro';
+
+const faqItems = [
+  {
+    question: 'Thư song ngữ có cần dịch nữa không?',
+    answer: 'Không — đó là lý do dùng bản song ngữ. Nhưng giấy khai sinh, CCCD nộp kèm vẫn cần bản dịch có xác nhận.',
+    link: '/mau-dich/giay-khai-sinh/',
+    linkLabel: 'Xem mẫu dịch khai sinh',
+  },
+  {
+    question: 'Cha đang làm việc ở nước ngoài, ký thế nào?',
+    answer: 'Ký tại cơ quan đại diện Việt Nam ở nước sở tại (đại sứ quán/lãnh sự quán) để chứng thực chữ ký, hoặc theo hướng dẫn riêng của lãnh sự nơi nộp hồ sơ.',
+  },
+  {
+    question: 'Canada có mẫu riêng không?',
+    answer: 'IRCC có mẫu khuyến nghị (consent letter) trên website chính thức; dùng mẫu của IRCC hoặc thư nội dung tương đương đều được — quan trọng là đủ thông tin và có chứng thực.',
+  },
+];
+---
+
+<DownloadTemplateLayout
+  title="Mẫu Thư Đồng Ý Của Cha Mẹ Cho Con Đi Nước Ngoài (Song Ngữ, Tải Miễn Phí)"
+  description="Tải miễn phí mẫu thư đồng ý của cha mẹ (Parental Consent Letter) song ngữ Việt–Anh cho hồ sơ visa Schengen, Canada, Úc khi trẻ đi thiếu cha hoặc mẹ, kèm hướng dẫn chứng thực."
+  path="/mau-dich/thu-dong-y-cha-me-cho-con-di-nuoc-ngoai/"
+  h1="Mẫu Thư Đồng Ý Của Cha Mẹ Cho Con Đi Nước Ngoài (Parental Consent Letter song ngữ)"
+  breadcrumbLabel="Thư đồng ý cho con đi nước ngoài"
+  answerBlock="Thư đồng ý của cha mẹ (Parental Consent Letter) là văn bản cả cha và mẹ ký xác nhận đồng ý cho con dưới 18 tuổi đi nước ngoài, dùng khi trẻ đi thiếu một hoặc cả hai phụ huynh. Nhiều lãnh sự (Schengen, Canada, Úc, Anh) yêu cầu thư này, có chứng thực chữ ký, ngay trong hồ sơ xin visa của trẻ."
+  fileHref="/downloads/mau-thu-dong-y-cha-me-cho-con-di-nuoc-ngoai-song-ngu.docx"
+  fileDownloadName="thu-dong-y-cha-me"
+  previewImage={{ src: '/img/mau-tai/thu-dong-y-cha-me.webp', alt: 'Mẫu thư đồng ý của cha mẹ cho con đi nước ngoài song ngữ Việt-Anh' }}
+  faqItems={faqItems}
+  ctaText="Cần dịch giấy khai sinh, sổ hộ khẩu kèm hồ sơ của bé? Gửi Zalo — Mr Thuận 0394 180 613 / Ms Trâm 0866 049 694 — 20.000đ/trang, báo giá trong 5 phút."
+  disclaimer="Mẫu mang tính tham khảo; yêu cầu từng lãnh sự có thể thay đổi, vui lòng đối chiếu checklist hiện hành."
+>
+  <h2>Thư đồng ý khác gì giấy ủy quyền?</h2>
+  <p>
+    Hai văn bản hay bị nhầm: <strong>giấy ủy quyền</strong> trao trách nhiệm trông nom trẻ cho người đưa đi (dùng cho
+    hãng bay, xuất nhập cảnh —{' '}
+    <a href="/mau-dich/giay-uy-quyen-dua-tre-em-di-nuoc-ngoai/">tải mẫu tại đây</a>); <strong>thư đồng ý</strong>
+    thể hiện sự chấp thuận của cha mẹ với chuyến đi và việc xin visa của con — thứ lãnh sự muốn thấy trong hồ sơ.
+    Trẻ đi với ông bà thường cần <strong>cả hai</strong>: thư đồng ý nộp lãnh sự, giấy ủy quyền mang theo khi bay.
+  </p>
+
+  <h2>Khi nào lãnh sự yêu cầu thư đồng ý?</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Tình huống</th>
+        <th>Cần thư đồng ý của ai</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Trẻ đi cùng cả cha lẫn mẹ</td>
+        <td>Không cần</td>
+      </tr>
+      <tr>
+        <td>Trẻ đi cùng chỉ cha hoặc chỉ mẹ</td>
+        <td>Người còn lại ký thư đồng ý</td>
+      </tr>
+      <tr>
+        <td>Trẻ đi với người khác (ông bà, cô dì, đoàn)</td>
+        <td>Cả cha và mẹ ký</td>
+      </tr>
+      <tr>
+        <td>Cha/mẹ đơn thân, người kia đã mất hoặc mất quyền nuôi con</td>
+        <td>Người có quyền nuôi ký + kèm giấy chứng tử/bản án ly hôn</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Cách dùng mẫu đúng</h2>
+  <ol>
+    <li>Điền đủ 4 phần (cha, mẹ, con, nội dung đồng ý) — tên khớp từng ký tự với hộ chiếu.</li>
+    <li>Ghi rõ nước đến, thời gian, người đi cùng và quan hệ.</li>
+    <li>
+      <strong>Chưa ký</strong> — mang ra UBND xã/phường hoặc văn phòng công chứng ký trước mặt cán bộ để chứng
+      thực chữ ký (lệ phí vài chục nghìn đồng, thường lấy trong ngày; mức phí theo địa phương và thời điểm).
+    </li>
+    <li>
+      Nộp kèm: giấy khai sinh của trẻ (bản dịch có xác nhận nếu checklist yêu cầu), CCCD của cha mẹ.
+    </li>
+  </ol>
+</DownloadTemplateLayout>

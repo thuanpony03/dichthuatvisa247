@@ -152,6 +152,7 @@ export const utmContent = {
   hero: 'hero',
   banggia: 'banggia',
   mauDich: (slug: string) => `mau-dich-${slug}`,
+  mauTai: (slug: string) => `mau-tai-${slug}`,
   visa: (slug: string) => `visa-${slug}`,
   agency: 'agency',
   sticky: 'sticky',

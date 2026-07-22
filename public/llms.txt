@@ -4,7 +4,7 @@
 
 ## Dịch vụ chính (dịch thuật)
 - [Bảng giá](/bang-gia/): giá theo trang và giá trọn gói hồ sơ visa du lịch, biết trước tổng chi phí
-- [Thư viện mẫu dịch](/mau-dich/): ảnh mẫu dịch thật (đã che thông tin cá nhân) cho 17+ loại giấy tờ thường gặp trong hồ sơ visa du lịch
+- [Thư viện mẫu dịch](/mau-dich/): ảnh mẫu dịch thật (đã che thông tin cá nhân) cho 17+ loại giấy tờ thường gặp trong hồ sơ visa du lịch, cộng 9 mẫu giấy tờ song ngữ tải Word miễn phí (thư đồng ý cha mẹ, giấy ủy quyền cho trẻ em, thư giải trình/thư mời xin visa, lịch trình du lịch, giấy xác nhận công tác/thu nhập, đơn xin nghỉ phép)
 - [Yêu cầu theo từng lãnh sự quán](/visa/): giấy tờ cần chuẩn bị và hình thức dịch thuật theo từng thị trường visa
 - [Hướng dẫn dịch thuật hồ sơ visa du lịch 2026](/blog/huong-dan-dich-thuat-ho-so-visa-du-lich-2026/): trang tổng hợp giấy tờ, giá, tốc độ, yêu cầu 6 nước
 - [Hỏi đáp](/hoi-dap/): câu hỏi thường gặp gom theo chủ đề (giá, tốc độ, hình thức bản dịch, từng nước, giấy tờ cụ thể, đại lý, uy tín)

@@ -1,0 +1,248 @@
+---
+// Layout dùng chung cho các trang "mẫu giấy tờ tải miễn phí" (cụm A2/A3/B/C).
+// Cấu trúc cố định theo brief: answer block → nút tải nổi bật → (slot: hướng dẫn riêng từng trang) → FAQ → CTA + disclaimer.
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import LastUpdated from '../components/LastUpdated.astro';
+import Faq from '../components/Faq.astro';
+import ZaloButton from '../components/ZaloButton.astro';
+import { utmContent, site, authorPerson } from '../config/site';
+
+interface FaqItem {
+  question: string;
+  answer: string;
+  link?: string;
+  linkLabel?: string;
+}
+
+interface Props {
+  title: string;
+  description: string;
+  path: string;
+  h1: string;
+  breadcrumbLabel: string;
+  answerBlock: string;
+  fileHref?: string;
+  fileDownloadName?: string;
+  fileButtonLabel?: string;
+  previewImage: { src: string; alt: string };
+  faqItems: FaqItem[];
+  ctaText: string;
+  disclaimer: string;
+  updated?: Date;
+}
+
+const {
+  title,
+  description,
+  path,
+  h1,
+  breadcrumbLabel,
+  answerBlock,
+  fileHref,
+  fileDownloadName,
+  fileButtonLabel = 'Tải bản Word miễn phí',
+  previewImage,
+  faqItems,
+  ctaText,
+  disclaimer,
+  updated = new Date('2026-07-22'),
+} = Astro.props;
+
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: h1,
+    datePublished: updated.toISOString(),
+    dateModified: updated.toISOString(),
+    author: { '@type': 'Person', name: authorPerson.name, description: authorPerson.description },
+    publisher: { '@type': 'Organization', name: site.name },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqItems.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: { '@type': 'Answer', text: item.answer },
+    })),
+  },
+  ...(fileHref
+    ? [
+        {
+          '@context': 'https://schema.org',
+          '@type': 'DigitalDocument',
+          name: h1,
+          url: new URL(fileHref, site.domain).toString(),
+          encodingFormat: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+          isAccessibleForFree: true,
+        },
+      ]
+    : []),
+];
+---
+
+<BaseLayout title={title} description={description} path={path} ogImage={previewImage.src} schema={schema}>
+  <div class="container mau-tai-page">
+    <Breadcrumb
+      items={[
+        { label: 'Mẫu bản dịch', href: '/mau-dich/' },
+        { label: breadcrumbLabel, href: path },
+      ]}
+    />
+    <h1>{h1}</h1>
+    <LastUpdated date={updated} />
+
+    <p class="mau-tai-page__answer">{answerBlock}</p>
+
+    {
+      fileHref && (
+        <div class="mau-tai-page__download">
+          <img src={previewImage.src} alt={previewImage.alt} width={400} height={520} class="mau-tai-page__preview" loading="eager" />
+          <a href={fileHref} download data-download-name={fileDownloadName} class="btn btn--download">
+            ⬇ {fileButtonLabel}
+          </a>
+        </div>
+      )
+    }
+
+    <div class="mau-tai-page__content fade-in">
+      <slot />
+    </div>
+
+    <section class="fade-in mau-tai-page__cta">
+      <ZaloButton utmContent={utmContent.mauTai(path)} variant="block" />
+    </section>
+
+    <section class="fade-in">
+      <h2>Câu hỏi thường gặp</h2>
+      <Faq items={faqItems} />
+    </section>
+
+    <p class="mau-tai-page__disclaimer">{ctaText}</p>
+    <p class="mau-tai-page__disclaimer mau-tai-page__disclaimer--muted">{disclaimer}</p>
+  </div>
+</BaseLayout>
+
+<style>
+  .mau-tai-page {
+    padding: var(--space-6) 0 var(--space-8);
+    max-width: 760px;
+  }
+
+  .mau-tai-page > h1 {
+    margin-top: var(--space-4);
+  }
+
+  .mau-tai-page__answer {
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    color: var(--ink);
+  }
+
+  .mau-tai-page__download {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-4);
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: var(--space-6) var(--space-4);
+    margin: var(--space-5) 0 var(--space-7);
+  }
+
+  .mau-tai-page__preview {
+    width: 220px;
+    height: auto;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--line);
+  }
+
+  .btn--download {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    background: var(--accent);
+    color: var(--white);
+    font-weight: 700;
+    font-size: 1.0625rem;
+    padding: 14px 28px;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+  }
+
+  .btn--download:hover {
+    filter: brightness(1.05);
+  }
+
+  .mau-tai-page__content :global(h2) {
+    margin-top: var(--space-7);
+  }
+
+  .mau-tai-page__content :global(h3) {
+    margin-top: var(--space-5);
+  }
+
+  .mau-tai-page__content :global(p) {
+    line-height: 1.7;
+  }
+
+  .mau-tai-page__content :global(ul),
+  .mau-tai-page__content :global(ol) {
+    padding-left: 1.25em;
+    line-height: 1.7;
+  }
+
+  .mau-tai-page__content :global(li) {
+    margin-bottom: var(--space-2);
+  }
+
+  .mau-tai-page__content :global(table) {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: var(--space-5) 0;
+    width: 100%;
+  }
+
+  .mau-tai-page__content :global(th),
+  .mau-tai-page__content :global(td) {
+    text-align: left;
+    padding: var(--space-3);
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+
+  .mau-tai-page__content :global(th) {
+    white-space: nowrap;
+    background: var(--navy-900);
+    color: var(--white);
+  }
+
+  .mau-tai-page__content :global(tbody tr:nth-child(even)) {
+    background: var(--paper);
+  }
+
+  .mau-tai-page section {
+    margin-top: var(--space-7);
+  }
+
+  .mau-tai-page__cta {
+    max-width: 420px;
+  }
+
+  .mau-tai-page__disclaimer {
+    margin-top: var(--space-5);
+    font-size: 0.9375rem;
+    color: var(--ink);
+  }
+
+  .mau-tai-page__disclaimer--muted {
+    font-size: 0.8125rem;
+    color: var(--navy-700);
+    font-style: italic;
+  }
+</style>

@@ -5,6 +5,18 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
 
 const docs = (await getCollection('giay-to')).sort((a, b) => a.data.docName.localeCompare(b.data.docName, 'vi'));
 
+const freeTemplates = [
+  { title: 'Giấy ủy quyền đưa trẻ em đi nước ngoài', desc: 'Song ngữ — hướng dẫn chứng thực', href: '/mau-dich/giay-uy-quyen-dua-tre-em-di-nuoc-ngoai/' },
+  { title: 'Thư đồng ý của cha mẹ cho con đi nước ngoài', desc: 'Parental Consent Letter, song ngữ', href: '/mau-dich/thu-dong-y-cha-me-cho-con-di-nuoc-ngoai/' },
+  { title: 'Trẻ em đi máy bay cần giấy tờ gì?', desc: 'Đi một mình & đi cùng người thân', href: '/mau-dich/tre-em-di-may-bay-can-giay-to-gi/' },
+  { title: 'Thư giải trình xin visa', desc: 'Cover letter tiếng Anh + 5 tình huống', href: '/mau-dich/thu-giai-trinh-xin-visa/' },
+  { title: 'Thư mời xin visa', desc: 'Invitation Letter tiếng Anh', href: '/mau-dich/thu-moi-xin-visa/' },
+  { title: 'Lịch trình du lịch xin visa', desc: 'Itinerary dạng bảng, tiếng Anh', href: '/mau-dich/lich-trinh-du-lich-xin-visa/' },
+  { title: 'Đơn xin nghỉ phép đi du lịch nước ngoài', desc: 'Song ngữ, kèm phần công ty duyệt', href: '/mau-dich/don-xin-nghi-phep-di-du-lich-nuoc-ngoai/' },
+  { title: 'Giấy xác nhận công tác', desc: 'Certificate of Employment, song ngữ', href: '/mau-dich/giay-xac-nhan-cong-tac/' },
+  { title: 'Giấy xác nhận thu nhập', desc: 'Song ngữ, có bảng lương 6 tháng', href: '/mau-dich/giay-xac-nhan-thu-nhap/' },
+];
+
 const schema = [
   {
     '@context': 'https://schema.org',
@@ -16,7 +28,7 @@ const schema = [
 
 <BaseLayout
   title="Thư viện Mẫu Dịch Giấy Tờ Sang Tiếng Anh | Dịch Thuật Visa 247"
-  description="Mẫu dịch giấy tờ visa sang tiếng Anh: giấy khai sinh, đăng ký kết hôn, sổ tiết kiệm, CT07... Có ảnh mẫu thật, bảng thuật ngữ, lỗi thường gặp."
+  description="Mẫu dịch giấy tờ visa sang tiếng Anh: giấy khai sinh, đăng ký kết hôn, sổ tiết kiệm, CT07... Có ảnh mẫu thật, bảng thuật ngữ, lỗi thường gặp. Kèm 9 mẫu giấy tờ song ngữ tải miễn phí."
   path="/mau-dich/"
   ogImage="/img/og/mau-dich.webp"
   schema={schema}
@@ -24,7 +36,27 @@ const schema = [
   <div class="container mau-dich-index">
     <Breadcrumb items={[{ label: 'Mẫu dịch', href: '/mau-dich/' }]} />
     <h1>Thư viện Mẫu Dịch Giấy Tờ Visa</h1>
-    <p class="text-muted">
+
+    <section class="free-templates">
+      <h2>Mẫu giấy tờ hồ sơ visa — tải miễn phí</h2>
+      <p class="text-muted">
+        9 mẫu giấy tờ song ngữ Việt–Anh thường đi kèm hồ sơ visa (thư đồng ý, thư giải trình, lịch trình, giấy xác
+        nhận công tác/thu nhập...) — tải file Word trực tiếp, điền và dùng ngay, không cần đăng ký.
+      </p>
+      <div class="free-templates__grid">
+        {
+          freeTemplates.map((t) => (
+            <a class="free-template-card fade-in" href={t.href}>
+              <span class="free-template-card__badge">Tải miễn phí</span>
+              <span class="free-template-card__title">{t.title}</span>
+              <span class="free-template-card__desc">{t.desc}</span>
+            </a>
+          ))
+        }
+      </div>
+    </section>
+
+    <p class="text-muted mau-dich-index__intro">
       {docs.length} loại giấy tờ thường gặp trong hồ sơ visa du lịch, dịch sang tiếng Anh theo đúng thể thức
       lãnh sự. Mỗi trang có ảnh mẫu thật, bảng thuật ngữ Việt–Anh và lỗi thường gặp.
     </p>
@@ -55,6 +87,74 @@ const schema = [
 
   .mau-dich-index h1 {
     margin-top: var(--space-4);
+  }
+
+  .free-templates {
+    margin-top: var(--space-6);
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: var(--space-5);
+  }
+
+  .free-templates__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+    margin-top: var(--space-4);
+  }
+
+  @media (min-width: 640px) {
+    .free-templates__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 960px) {
+    .free-templates__grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .free-template-card {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    padding: var(--space-4);
+    text-decoration: none;
+    color: var(--ink);
+  }
+
+  .free-template-card:hover {
+    border-color: var(--navy-700);
+  }
+
+  .free-template-card__badge {
+    align-self: flex-start;
+    background: var(--accent);
+    color: var(--white);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 999px;
+    margin-bottom: 4px;
+  }
+
+  .free-template-card__title {
+    font-weight: 700;
+    color: var(--navy-900);
+  }
+
+  .free-template-card__desc {
+    font-size: 0.875rem;
+    color: var(--navy-700);
+  }
+
+  .mau-dich-index__intro {
+    margin-top: var(--space-7);
   }
 
   .doc-grid {

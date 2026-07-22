@@ -1,0 +1,58 @@
+---
+import DownloadTemplateLayout from '../../../components/DownloadTemplateLayout.astro';
+
+const faqItems = [
+  {
+    question: 'Làm tự do/chủ hộ kinh doanh thì thay bằng gì?',
+    answer: 'Không có đơn nghỉ phép — thay bằng đăng ký kinh doanh (bản dịch), giấy tờ thuế, và giải thích tính chất công việc trong thư giải trình.',
+    link: '/mau-dich/thu-giai-trinh-xin-visa/',
+    linkLabel: 'Xem mẫu thư giải trình',
+  },
+  {
+    question: 'Công ty không muốn đóng dấu bản tiếng Anh?',
+    answer: 'Dùng bản tiếng Việt của công ty rồi dịch có xác nhận — giá trị tương đương.',
+  },
+  {
+    question: 'Ngày nghỉ xin dài hơn chuyến đi được không?',
+    answer: 'Được và nên dư 1–2 ngày đệm; nhưng đừng lệch kiểu nghỉ 7 ngày mà lịch trình đi 12 ngày.',
+  },
+];
+---
+
+<DownloadTemplateLayout
+  title="Mẫu Đơn Xin Nghỉ Phép Đi Du Lịch Nước Ngoài Song Ngữ (Kèm Phần Công Ty Duyệt)"
+  description="Tải miễn phí mẫu đơn xin nghỉ phép đi du lịch nước ngoài song ngữ Việt–Anh, tích hợp sẵn phần xác nhận và phê duyệt của công ty — nộp thẳng hồ sơ visa không cần dịch."
+  path="/mau-dich/don-xin-nghi-phep-di-du-lich-nuoc-ngoai/"
+  h1="Mẫu Đơn Xin Nghỉ Phép Đi Du Lịch Nước Ngoài Song Ngữ (Có Sẵn Phần Công Ty Phê Duyệt)"
+  breadcrumbLabel="Đơn xin nghỉ phép đi du lịch nước ngoài"
+  answerBlock="Đơn xin nghỉ phép kèm phê duyệt của công ty là giấy tờ chứng minh công việc quan trọng trong hồ sơ visa du lịch: nó cho thấy bạn có việc làm ổn định, được duyệt nghỉ đúng thời gian chuyến đi, và sẽ quay lại làm việc. Bản song ngữ có mộc công ty nộp thẳng lãnh sự, không cần dịch thêm."
+  fileHref="/downloads/mau-don-xin-nghi-phep-di-du-lich-song-ngu.docx"
+  fileDownloadName="don-xin-nghi-phep"
+  previewImage={{ src: '/img/mau-tai/don-xin-nghi-phep.webp', alt: 'Mẫu đơn xin nghỉ phép đi du lịch nước ngoài song ngữ có phần công ty phê duyệt' }}
+  faqItems={faqItems}
+  ctaText="Hợp đồng lao động, quyết định nghỉ phép bản tiếng Việt cần dịch có xác nhận? Zalo Mr Thuận 0394 180 613 / Ms Trâm 0866 049 694 — 20.000đ/trang, giao đúng hẹn."
+  disclaimer="Mẫu mang tính tham khảo; điều chỉnh theo biểu mẫu nội bộ công ty bạn nếu có."
+>
+  <h2>Vì sao mẫu này gộp đơn + phê duyệt vào một tờ?</h2>
+  <p>
+    Checklist các lãnh sự muốn thấy <strong>sự chấp thuận của công ty</strong>, không chỉ nguyện vọng của bạn. Đơn
+    xin nghỉ không có phần duyệt là giấy một chiều — giá trị chứng minh thấp. Mẫu gộp buộc đủ 2 chữ ký + mộc công
+    ty trên cùng văn bản: gọn cho bạn, đủ cho lãnh sự, và HR chỉ phải xử lý một tờ.
+  </p>
+
+  <h2>Cách dùng trong 3 bước</h2>
+  <ol>
+    <li>Điền phần trên (thông tin, thời gian nghỉ <strong>khớp đúng lịch trình chuyến đi</strong>, ngày quay lại làm việc).</li>
+    <li>Chuyển HR/giám đốc ký phần dưới, đóng dấu công ty. Ngày nghỉ trên phê duyệt phải bao trọn ngày bay đi–về.</li>
+    <li>
+      Nộp bản có mộc vào hồ sơ. Nếu công ty có mẫu quyết định nghỉ phép riêng bằng tiếng Việt — dùng mẫu công ty
+      rồi <a href="/bang-gia/">dịch có xác nhận</a> cũng được; bản song ngữ chỉ là đường tắt.
+    </li>
+  </ol>
+
+  <p>
+    Kết hợp bộ ba chứng minh công việc mạnh nhất: đơn nghỉ phép được duyệt +{' '}
+    <a href="/mau-dich/giay-xac-nhan-cong-tac/">giấy xác nhận công tác</a> + hợp đồng lao động (bản dịch). Ba giấy
+    này phải khớp nhau về chức vụ, ngày vào làm.
+  </p>
+</DownloadTemplateLayout>

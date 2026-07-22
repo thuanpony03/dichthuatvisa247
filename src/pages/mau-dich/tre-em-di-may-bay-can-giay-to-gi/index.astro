@@ -1,0 +1,75 @@
+---
+import DownloadTemplateLayout from '../../../components/DownloadTemplateLayout.astro';
+
+const faqItems = [
+  {
+    question: 'Trẻ 2 tháng tuổi bay được không?',
+    answer: 'Đa số hãng nhận trẻ sơ sinh từ 14 ngày tuổi kèm điều kiện riêng — kiểm tra điều lệ hãng và tham khảo bác sĩ.',
+  },
+  {
+    question: 'Đi quốc tế trẻ có cần visa riêng không?',
+    answer: 'Có — trẻ em là một đương đơn độc lập, hồ sơ visa riêng (thường kèm thư đồng ý cha mẹ và khai sinh có bản dịch).',
+    link: '/mau-dich/thu-dong-y-cha-me-cho-con-di-nuoc-ngoai/',
+    linkLabel: 'Xem mẫu thư đồng ý',
+  },
+];
+---
+
+<DownloadTemplateLayout
+  title="Trẻ Em Đi Máy Bay Cần Giấy Tờ Gì? (Đi Một Mình, Đi Với Người Thân) 2026"
+  description="Trẻ em đi máy bay nội địa và quốc tế cần giấy tờ gì khi đi một mình hoặc đi cùng ông bà, người thân — giấy khai sinh, hộ chiếu, giấy ủy quyền và mẫu tải miễn phí."
+  path="/mau-dich/tre-em-di-may-bay-can-giay-to-gi/"
+  h1="Trẻ Em Đi Máy Bay Cần Giấy Tờ Gì? Đi Một Mình Và Đi Cùng Người Thân"
+  breadcrumbLabel="Trẻ em đi máy bay cần giấy tờ gì"
+  answerBlock="Trẻ em đi máy bay nội địa cần giấy khai sinh (bản chính hoặc bản sao chứng thực) hoặc hộ chiếu; đi quốc tế bắt buộc có hộ chiếu riêng còn hạn. Trẻ đi cùng người không phải cha mẹ cần thêm giấy ủy quyền có chứng thực; trẻ đi một mình phải đăng ký dịch vụ trẻ em đi một mình của hãng."
+  faqItems={faqItems}
+  previewImage={{ src: '/img/mau-tai/thu-dong-y-cha-me.webp', alt: 'Minh hoạ giấy tờ cần thiết khi trẻ em đi máy bay quốc tế' }}
+  ctaText="Cần dịch khai sinh, hộ khẩu cho hồ sơ visa của bé? Zalo Mr Thuận 0394 180 613 / Ms Trâm 0866 049 694 — 20.000đ/trang."
+  disclaimer="Quy định các hãng và các nước thay đổi theo thời điểm — kiểm tra nguồn chính thức trước chuyến đi."
+>
+  <h2>Bảng giấy tờ theo tình huống</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Tình huống</th>
+        <th>Bay nội địa</th>
+        <th>Bay quốc tế</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Đi cùng cha mẹ</td>
+        <td>Khai sinh (hoặc hộ chiếu)</td>
+        <td>Hộ chiếu + visa nếu nước đến yêu cầu; mang kèm khai sinh để chứng minh quan hệ</td>
+      </tr>
+      <tr>
+        <td>Đi cùng ông bà/người thân</td>
+        <td>
+          Khai sinh + <a href="/mau-dich/giay-uy-quyen-dua-tre-em-di-nuoc-ngoai/">giấy ủy quyền có chứng thực</a>
+        </td>
+        <td>
+          Như nội địa + hộ chiếu, visa; nên kèm{' '}
+          <a href="/mau-dich/thu-dong-y-cha-me-cho-con-di-nuoc-ngoai/">thư đồng ý của cha mẹ</a> nếu nước đến hay hỏi
+        </td>
+      </tr>
+      <tr>
+        <td>Đi một mình (dịch vụ UM)</td>
+        <td>Đăng ký dịch vụ với hãng + giấy tờ theo yêu cầu hãng + giấy ủy quyền/cam kết của cha mẹ, người đón ở sân bay đến</td>
+        <td>Như nội địa, cộng hộ chiếu + visa; độ tuổi nhận dịch vụ khác nhau theo hãng</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>
+    Mỗi hãng (Vietnam Airlines, Vietjet, Bamboo...) có điều lệ vận chuyển riêng cho trẻ em — độ tuổi tính "trẻ em",
+    phí dịch vụ đi một mình, mẫu cam kết riêng của hãng. <strong>Luôn kiểm tra trang chính thức của hãng trước ngày
+    bay</strong>; mẫu ủy quyền song ngữ tải ở bài liên kết trên dùng được cho đa số trường hợp đi cùng người thân.
+  </p>
+
+  <h2>3 lỗi hay gặp ở sân bay</h2>
+  <ol>
+    <li>Khai sinh bản photo không chứng thực — nhiều quầy từ chối; mang bản chính hoặc bản sao chứng thực.</li>
+    <li>Giấy ủy quyền viết tay không chứng thực chữ ký — không có giá trị đối chiếu.</li>
+    <li>Tên trên vé đặt theo khai sinh nhưng bay quốc tế đối chiếu hộ chiếu — đặt vé quốc tế luôn theo hộ chiếu.</li>
+  </ol>
+</DownloadTemplateLayout>

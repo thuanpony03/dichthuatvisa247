@@ -1,0 +1,83 @@
+---
+import DownloadTemplateLayout from '../../../components/DownloadTemplateLayout.astro';
+
+const faqItems = [
+  {
+    question: 'Con mời bố mẹ sang, chi phí con trả hết — bố mẹ có cần sao kê không?',
+    answer: 'Vẫn nên nộp giấy tờ tài chính cơ bản của bố mẹ; cam kết chi trả của con phải kèm giấy tờ thu nhập của con. Hồ sơ hai lớp tài chính luôn vững hơn một lớp.',
+  },
+  {
+    question: 'Thư mời cần công chứng không?',
+    answer: 'Đa số Schengen: không bắt buộc với thư thăm thân thường. Canada: có thể được yêu cầu. Đọc checklist đúng nơi nộp.',
+  },
+  {
+    question: 'Giấy tờ quan hệ tiếng Việt (khai sinh, hộ khẩu cũ) xử lý thế nào?',
+    answer: 'Dịch sang tiếng Anh có xác nhận đơn vị dịch.',
+    link: '/mau-dich/',
+    linkLabel: 'Xem mẫu bản dịch',
+  },
+];
+---
+
+<DownloadTemplateLayout
+  title="Mẫu Thư Mời Xin Visa Tiếng Anh (Thân Nhân Mời) — Tải Miễn Phí 2026"
+  description="Tải miễn phí mẫu thư mời (Invitation Letter) tiếng Anh cho visa Schengen, Canada, Úc: người thân ở nước ngoài mời bố mẹ, anh em sang thăm — kèm danh sách giấy tờ người mời cần gửi về."
+  path="/mau-dich/thu-moi-xin-visa/"
+  h1="Mẫu Thư Mời Xin Visa (Invitation Letter) Tiếng Anh — Người Thân Mời Sang Thăm"
+  breadcrumbLabel="Thư mời xin visa"
+  answerBlock="Thư mời là thư do người đang cư trú hợp pháp ở nước ngoài viết, mời người thân/bạn từ Việt Nam sang thăm, nêu rõ quan hệ, thời gian, chỗ ở và ai chi trả chi phí. Thư mời giúp chứng minh mục đích chuyến đi; người mời phải kèm giấy tờ cư trú và (nếu bảo trợ chi phí) giấy tờ thu nhập."
+  fileHref="/downloads/mau-thu-moi-xin-visa-tieng-anh.docx"
+  fileDownloadName="thu-moi"
+  fileButtonLabel="Tải bản Word tiếng Anh miễn phí"
+  previewImage={{ src: '/img/mau-tai/thu-moi.webp', alt: 'Mẫu thư mời xin visa tiếng Anh cho người thân ở nước ngoài mời sang thăm' }}
+  faqItems={faqItems}
+  ctaText="Cần dịch giấy khai sinh, sổ hộ khẩu chứng minh quan hệ với người mời? Zalo Mr Thuận 0394 180 613 / Ms Trâm 0866 049 694 — 20.000đ/trang, có gói gấp 24h."
+  disclaimer="Yêu cầu thư mời khác nhau theo từng nước và thay đổi theo thời điểm — đối chiếu checklist chính thức trước khi nộp."
+>
+  <h2>Giấy tờ người mời cần gửi về kèm thư (checklist gửi thẳng cho người thân)</h2>
+  <ul>
+    <li>Bản sao hộ chiếu/ID và <strong>giấy tờ cư trú</strong> (thẻ thường trú, visa, citizenship);</li>
+    <li>Bằng chứng địa chỉ (hóa đơn điện nước, hợp đồng thuê/sở hữu nhà) — nếu khách ở nhà người mời;</li>
+    <li>Giấy tờ thu nhập (payslip, tax assessment) — <strong>chỉ khi</strong> người mời cam kết chi trả chi phí;</li>
+    <li>
+      Giấy tờ quan hệ với người được mời (khai sinh chứng minh cha mẹ–con, sổ hộ khẩu cũ...) — phía Việt Nam chuẩn
+      bị, thường cần <strong>bản dịch có xác nhận</strong>.
+    </li>
+  </ul>
+
+  <h2>Lưu ý theo nước (chỗ nhiều người vấp nhất)</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Nước</th>
+        <th>Điểm riêng</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Pháp</td>
+        <td>
+          Khách ở nhà người mời cần <strong>attestation d'accueil</strong> — giấy do toà thị chính cấp, KHÔNG phải
+          thư tự viết; thư mời tự viết chỉ đủ khi khách ở khách sạn
+        </td>
+      </tr>
+      <tr>
+        <td>Canada</td>
+        <td>Thư mời nên đủ chi tiết theo hướng dẫn IRCC; một số trường hợp được yêu cầu notarized</td>
+      </tr>
+      <tr>
+        <td>Schengen nói chung</td>
+        <td>Thư mời không thay được chứng minh tài chính của đương đơn trừ khi có cam kết bảo trợ đúng mẫu của nước đó</td>
+      </tr>
+      <tr>
+        <td>Úc</td>
+        <td>Thư mời + giấy tờ cư trú người mời; đương đơn vẫn tự chứng minh ràng buộc tại Việt Nam</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>
+    Nguyên tắc chung: <strong>thư mời bổ trợ, không thay thế</strong> hồ sơ của đương đơn — người ở Việt Nam vẫn
+    cần chứng minh công việc, tài chính, ràng buộc như hồ sơ du lịch thường.
+  </p>
+</DownloadTemplateLayout>

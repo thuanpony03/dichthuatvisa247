@@ -1,0 +1,95 @@
+---
+import DownloadTemplateLayout from '../../../components/DownloadTemplateLayout.astro';
+
+const faqItems = [
+  {
+    question: 'Thư viết tiếng Việt được không?',
+    answer: 'Không — thư nộp lãnh sự viết bằng tiếng Anh (hoặc ngôn ngữ nước sở tại). Nếu bạn viết tiếng Việt, cần bản dịch kèm theo; viết thẳng tiếng Anh gọn hơn.',
+  },
+  {
+    question: 'Nhờ dịch vụ viết thư có bị đánh giá xấu không?',
+    answer: 'Nội dung phải là sự thật của bạn; việc nhờ hỗ trợ ngôn ngữ/trình bày là bình thường. Điều tối kỵ là nội dung bịa.',
+  },
+  {
+    question: 'Thư cần ký không?',
+    answer: 'Có — ký tay, ghi rõ họ tên như hộ chiếu.',
+  },
+];
+---
+
+<DownloadTemplateLayout
+  title="Mẫu Thư Giải Trình Xin Visa (Cover Letter) Tiếng Anh — Tải Miễn Phí + 5 Tình Huống"
+  description="Tải miễn phí mẫu thư giải trình xin visa Schengen, Canada, Úc bằng tiếng Anh, kèm hướng dẫn viết cho 5 tình huống thật: từng rớt visa, mới đổi việc, sổ tiết kiệm mới mở, đi một mình."
+  path="/mau-dich/thu-giai-trinh-xin-visa/"
+  h1="Mẫu Thư Giải Trình Xin Visa (Cover Letter) — Tải Miễn Phí + Cách Viết Cho 5 Tình Huống Thật"
+  breadcrumbLabel="Thư giải trình xin visa"
+  answerBlock="Thư giải trình (cover letter / letter of explanation) là thư tiếng Anh đương đơn tự viết, nộp kèm hồ sơ visa để trình bày mục đích chuyến đi, nguồn tài chính, ràng buộc quay về và làm rõ các điểm có thể gây thắc mắc. Thư không bắt buộc ở đa số lãnh sự nhưng giúp hồ sơ dễ đọc và nhất quán hơn."
+  fileHref="/downloads/mau-thu-giai-trinh-xin-visa-tieng-anh.docx"
+  fileDownloadName="thu-giai-trinh"
+  fileButtonLabel="Tải bản Word tiếng Anh miễn phí"
+  previewImage={{ src: '/img/mau-tai/thu-giai-trinh.webp', alt: 'Mẫu thư giải trình xin visa tiếng Anh có chú thích từng đoạn' }}
+  faqItems={faqItems}
+  ctaText="Cần dịch giấy tờ chứng minh nộp kèm thư (hợp đồng lao động, sổ tiết kiệm, giấy tờ nhà)? Zalo Mr Thuận 0394 180 613 / Ms Trâm 0866 049 694 — 20.000đ/trang, trọn bộ 400K/30 trang."
+  disclaimer="Việc xét duyệt visa hoàn toàn thuộc thẩm quyền lãnh sự quán — thư giải trình giúp hồ sơ rõ ràng hơn, không bảo đảm kết quả."
+>
+  <h2>Cấu trúc 4 đoạn trong mẫu (và vì sao chỉ cần 4)</h2>
+  <ol>
+    <li>
+      <strong>Purpose & itinerary</strong> — mục đích + tóm tắt lịch trình 2–3 dòng (chi tiết đã có{' '}
+      <a href="/mau-dich/lich-trinh-du-lich-xin-visa/">bản itinerary nộp kèm</a>).
+    </li>
+    <li>
+      <strong>Funding</strong> — ai trả tiền, bằng nguồn nào, tổng chi phí ước tính; con số phải khớp sao kê và
+      xác nhận số dư nộp kèm.
+    </li>
+    <li>
+      <strong>Ties to Vietnam</strong> — công việc (từ năm nào, nghỉ phép được duyệt), gia đình, tài sản. Đây là
+      đoạn quan trọng nhất với hồ sơ du lịch.
+    </li>
+    <li>
+      <strong>Clarification</strong> — CHỈ dùng khi có điểm cần làm rõ. Không có gì cần giải thích thì bỏ hẳn đoạn
+      này; thư càng gọn càng tốt.
+    </li>
+  </ol>
+
+  <h2>5 tình huống nên viết đoạn Clarification (kèm hướng viết)</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Tình huống</th>
+        <th>Viết gì (1 đoạn, sự kiện + giấy tờ kèm)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Từng bị từ chối visa</td>
+        <td>
+          Nêu thẳng lần từ chối (nước, thời điểm), điều đã thay đổi từ đó (công việc ổn định hơn, tài chính rõ
+          hơn, lịch trình cụ thể hơn). Không đổ lỗi, không xin xỏ
+        </td>
+      </tr>
+      <tr>
+        <td>Sổ tiết kiệm mới mở</td>
+        <td>Nêu nguồn tiền (chuyển từ tài khoản thanh toán, bán tài sản, tất toán sổ cũ...) + kèm giấy tờ chứng minh dòng tiền</td>
+      </tr>
+      <tr>
+        <td>Mới đổi việc</td>
+        <td>Nêu ngày bắt đầu việc mới, nghề nghiệp liên tục trong cùng lĩnh vực, thư xác nhận của công ty mới</td>
+      </tr>
+      <tr>
+        <td>Đi một mình</td>
+        <td>Nêu lý do bình thường của nó (bạn bè bận, sở thích du lịch cá nhân, đã đi X nước một mình) — sự tự nhiên là đủ</td>
+      </tr>
+      <tr>
+        <td>Tài chính có khoản ra/vào lớn bất thường</td>
+        <td>Giải thích giao dịch (nhận tiền bán xe, tất toán khoản vay...) + chứng từ</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>4 điều KHÔNG viết trong thư giải trình</h2>
+  <p>
+    Không hứa hẹn ("tôi cam kết chắc chắn quay về" viết một lần là đủ, lặp lại gây phản cảm); không kể lể cảm
+    xúc/hoàn cảnh; không nêu thông tin không có giấy tờ chứng minh; không viết quá 1 trang.
+  </p>
+</DownloadTemplateLayout>

@@ -1,0 +1,57 @@
+---
+import DownloadTemplateLayout from '../../../components/DownloadTemplateLayout.astro';
+
+const faqItems = [
+  {
+    question: 'Công ty nước ngoài/công ty lớn có mẫu HR riêng bằng tiếng Anh?',
+    answer: 'Dùng luôn mẫu công ty — đối chiếu đủ 7 thông tin trên là được.',
+  },
+  {
+    question: 'Giấy tiếng Việt có mộc rồi, cần làm lại song ngữ không?',
+    answer: 'Không cần — dịch có xác nhận bản tiếng Việt là đủ chuẩn nộp (1–2 trang).',
+    link: '/bang-gia/',
+    linkLabel: 'Xem bảng giá',
+  },
+  {
+    question: 'Khác gì hợp đồng lao động?',
+    answer: 'Hợp đồng chứng minh quan hệ lao động từ gốc; giấy xác nhận chứng minh hiện trạng + phê duyệt nghỉ. Checklist thường yêu cầu cả hai.',
+  },
+];
+---
+
+<DownloadTemplateLayout
+  title="Mẫu Giấy Xác Nhận Công Tác Song Ngữ Xin Visa (Certificate of Employment) — Tải Free"
+  description="Tải miễn phí mẫu giấy xác nhận công tác song ngữ Việt–Anh chuẩn nộp lãnh sự: đủ chức vụ, thâm niên, thu nhập, thời gian nghỉ phép — công ty chỉ cần điền, ký, đóng dấu."
+  path="/mau-dich/giay-xac-nhan-cong-tac/"
+  h1="Mẫu Giấy Xác Nhận Công Tác Song Ngữ (Certificate Of Employment) Chuẩn Nộp Lãnh Sự"
+  breadcrumbLabel="Giấy xác nhận công tác"
+  answerBlock="Giấy xác nhận công tác là văn bản công ty xác nhận bạn đang làm việc tại đó — chức vụ, thâm niên, loại hợp đồng, thu nhập — và đã được duyệt nghỉ phép cho chuyến đi. Đây là giấy chứng minh công việc được yêu cầu trong hầu hết checklist visa du lịch Schengen, Canada, Úc, Anh."
+  fileHref="/downloads/mau-giay-xac-nhan-cong-tac-song-ngu.docx"
+  fileDownloadName="xac-nhan-cong-tac"
+  previewImage={{ src: '/img/mau-tai/xac-nhan-cong-tac.webp', alt: 'Mẫu giấy xác nhận công tác song ngữ Việt-Anh chuẩn nộp lãnh sự' }}
+  faqItems={faqItems}
+  ctaText="Cần dịch hợp đồng lao động, bảng lương kèm bộ chứng minh công việc? Zalo Mr Thuận 0394 180 613 / Ms Trâm 0866 049 694 — 20.000đ/trang, trọn bộ hồ sơ 400K/30 trang."
+  disclaimer="Mẫu mang tính tham khảo; điều chỉnh theo biểu mẫu nội bộ công ty bạn nếu có."
+>
+  <h2>Giấy xác nhận công tác đạt chuẩn lãnh sự cần đủ 7 thông tin</h2>
+  <ol>
+    <li>Thông tin công ty (tên, địa chỉ, MST, điện thoại — để lãnh sự xác minh được);</li>
+    <li>Họ tên nhân viên đúng hộ chiếu + số CCCD/hộ chiếu;</li>
+    <li>Chức vụ và bộ phận;</li>
+    <li>Ngày bắt đầu làm việc (thâm niên là tín hiệu ràng buộc mạnh);</li>
+    <li>Loại hợp đồng (không xác định thời hạn &gt; xác định thời hạn về độ ràng buộc);</li>
+    <li>Thu nhập hàng tháng — khớp với sao kê lương nộp kèm;</li>
+    <li>Câu xác nhận đã duyệt nghỉ phép đúng thời gian chuyến đi + quay lại làm việc sau chuyến đi.</li>
+  </ol>
+  <p>Mẫu tải về đã dựng đủ 7 mục theo đúng thứ tự — thiếu mục nào trong 7 mục này là giấy yếu đi tương ứng.</p>
+
+  <h2>3 lỗi khiến giấy xác nhận bị "soi"</h2>
+  <ol>
+    <li>
+      <strong>Thu nhập trên giấy vênh với sao kê</strong> — lỗi nặng nhất; ghi đúng số thực nhận qua ngân hàng,
+      đừng ghi "gross" trong khi sao kê thể hiện "net".
+    </li>
+    <li>Số điện thoại công ty không liên lạc được — lãnh sự có thể gọi xác minh.</li>
+    <li>Ngày cấp giấy quá cũ — xin giấy trong vòng 1 tháng trước ngày nộp.</li>
+  </ol>
+</DownloadTemplateLayout>

@@ -1,0 +1,58 @@
+---
+import DownloadTemplateLayout from '../../../components/DownloadTemplateLayout.astro';
+
+const faqItems = [
+  {
+    question: 'Giấy này thay được sao kê không?',
+    answer: 'Không — nó bổ sung, không thay thế. Checklist yêu cầu sao kê thì vẫn phải nộp sao kê.',
+  },
+  {
+    question: 'Làm 2 nơi thì sao?',
+    answer: 'Mỗi công ty một giấy, hoặc công ty chính cấp giấy + hợp đồng cộng tác nơi thứ hai (bản dịch).',
+  },
+  {
+    question: 'Thu nhập bao nhiêu thì "đủ" xin visa?',
+    answer: 'Không có ngưỡng công bố chính thức cho hồ sơ du lịch ở đa số nước — nguyên tắc là thu nhập + tiết kiệm tương xứng chi phí chuyến đi và hoàn cảnh của bạn. Cẩn trọng với các con số "chuẩn" lan truyền trên mạng.',
+  },
+];
+---
+
+<DownloadTemplateLayout
+  title="Mẫu Giấy Xác Nhận Thu Nhập Song Ngữ Xin Visa — Tải Miễn Phí (Có Bảng 6 Tháng)"
+  description="Tải miễn phí mẫu giấy xác nhận thu nhập song ngữ Việt–Anh có bảng lương 6 tháng cho hồ sơ visa — dùng khi nhận lương tiền mặt hoặc cần tổng hợp thu nhập rõ ràng cho lãnh sự."
+  path="/mau-dich/giay-xac-nhan-thu-nhap/"
+  h1="Mẫu Giấy Xác Nhận Thu Nhập Song Ngữ (Có Bảng 6 Tháng) Cho Hồ Sơ Visa"
+  breadcrumbLabel="Giấy xác nhận thu nhập (mẫu tải)"
+  answerBlock="Giấy xác nhận thu nhập là văn bản công ty xác nhận mức thu nhập của nhân viên, thường kèm bảng chi tiết 6 tháng gần nhất. Giấy này đặc biệt quan trọng khi bạn nhận lương tiền mặt (không thể hiện qua sao kê) hoặc thu nhập gồm nhiều khoản cần tổng hợp rõ cho lãnh sự."
+  fileHref="/downloads/mau-giay-xac-nhan-thu-nhap-song-ngu.docx"
+  fileDownloadName="xac-nhan-thu-nhap"
+  previewImage={{ src: '/img/mau-tai/xac-nhan-thu-nhap.webp', alt: 'Mẫu giấy xác nhận thu nhập song ngữ có bảng lương 6 tháng cho hồ sơ visa' }}
+  faqItems={faqItems}
+  ctaText="Tờ khai thuế, chứng từ lương tiếng Việt cần dịch có xác nhận? Zalo Mr Thuận 0394 180 613 / Ms Trâm 0866 049 694 — 20.000đ/trang."
+  disclaimer="Việc xét hồ sơ thuộc thẩm quyền lãnh sự — không mức thu nhập nào 'bảo đảm' kết quả."
+>
+  <h2>Khi nào cần giấy này (và khi nào không)?</h2>
+  <ul>
+    <li>
+      <strong>Cần:</strong> nhận lương tiền mặt một phần/toàn bộ; thu nhập gồm lương cứng + hoa hồng/thưởng dao
+      động; công ty gia đình trả lương không đều kỳ.
+    </li>
+    <li>
+      <strong>Không bắt buộc:</strong> lương chuyển khoản đều đặn thể hiện rõ trên sao kê — khi đó sao kê +{' '}
+      <a href="/mau-dich/giay-xac-nhan-cong-tac/">xác nhận công tác</a> ghi mức lương là đủ, thêm giấy này chỉ để
+      củng cố.
+    </li>
+  </ul>
+  <p>
+    Lương tiền mặt là điểm yếu tự nhiên của hồ sơ (không có dấu vết ngân hàng) — giấy xác nhận thu nhập + tờ khai
+    thuế TNCN (nếu có) là cách bù đắp thực tế nhất. Nếu từ nay đến ngày nộp còn vài tháng, cân nhắc chuyển nhận
+    lương qua ngân hàng ngay để sao kê kịp "dày".
+  </p>
+
+  <h2>Điền bảng 6 tháng cho đúng</h2>
+  <ul>
+    <li>Số từng tháng là <strong>thực nhận</strong>, khớp chứng từ chi lương của công ty;</li>
+    <li>Dòng bình quân ghi cả số và chữ;</li>
+    <li>Nếu có tháng thưởng đột biến (Tết, doanh số) — cứ ghi đúng; các khoản này giải thích được và bình thường.</li>
+  </ul>
+</DownloadTemplateLayout>

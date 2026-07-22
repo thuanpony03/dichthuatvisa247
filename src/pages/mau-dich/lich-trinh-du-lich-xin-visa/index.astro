@@ -1,0 +1,58 @@
+---
+import DownloadTemplateLayout from '../../../components/DownloadTemplateLayout.astro';
+
+const faqItems = [
+  {
+    question: 'Chưa mua vé thật, mới có booking giữ chỗ — ghi thế nào?',
+    answer: 'Ghi theo booking giữ chỗ đang có; đa số lãnh sự chấp nhận reservation chưa xuất vé cho bước xét hồ sơ. Đừng mua vé thật trước khi có visa trừ khi bạn chấp nhận rủi ro.',
+  },
+  {
+    question: 'Itinerary có cần đúng từng giờ không?',
+    answer: 'Không — theo ngày/buổi là đủ. Chi tiết đến từng giờ không tăng độ tin, chỉ tăng chỗ để mâu thuẫn.',
+  },
+  {
+    question: 'Đi tour thì có cần itinerary riêng không?',
+    answer: 'Dùng lịch trình của công ty tour kèm xác nhận đặt tour; không cần tự lập lại.',
+  },
+];
+---
+
+<DownloadTemplateLayout
+  title="Mẫu Lịch Trình Du Lịch Xin Visa (Itinerary) Tiếng Anh — Tải Word Miễn Phí"
+  description="Tải miễn phí mẫu lịch trình du lịch (travel itinerary) tiếng Anh dạng bảng cho hồ sơ visa Schengen, Úc, Canada — kèm quy tắc khớp booking và cách chia ngày hợp lý."
+  path="/mau-dich/lich-trinh-du-lich-xin-visa/"
+  h1="Mẫu Lịch Trình Du Lịch Xin Visa (Travel Itinerary) — Tải Word Miễn Phí"
+  breadcrumbLabel="Lịch trình du lịch xin visa"
+  answerBlock="Lịch trình du lịch (itinerary) là bảng kê ngày–thành phố–hoạt động–nơi ở–phương tiện cho toàn bộ chuyến đi, nộp kèm hồ sơ visa để chứng minh kế hoạch cụ thể và nhất quán với vé, phòng đã đặt. Gần như mọi checklist Schengen, Úc, Canada đều yêu cầu hoặc khuyến nghị nộp itinerary."
+  fileHref="/downloads/mau-lich-trinh-du-lich-xin-visa-tieng-anh.docx"
+  fileDownloadName="lich-trinh"
+  fileButtonLabel="Tải bản Word dạng bảng miễn phí"
+  previewImage={{ src: '/img/mau-tai/lich-trinh.webp', alt: 'Mẫu lịch trình du lịch xin visa dạng bảng 7 ngày, tiếng Anh' }}
+  faqItems={faqItems}
+  ctaText="Trọn bộ giấy tờ tiếng Việt trong hồ sơ (hợp đồng lao động, sổ tiết kiệm, hộ khẩu) cần bản dịch? Zalo Mr Thuận 0394 180 613 / Ms Trâm 0866 049 694 — trọn bộ 400K tới 30 trang, gấp 24h có ngay."
+  disclaimer="Yêu cầu hồ sơ từng lãnh sự có thể thay đổi — đối chiếu checklist hiện hành."
+>
+  <h2>4 quy tắc vàng khi lập itinerary</h2>
+  <ol>
+    <li>
+      <strong>Khớp 100% với booking.</strong> Ngày bay khớp vé; thành phố–khách sạn từng đêm khớp booking phòng.
+      Itinerary một đằng booking một nẻo là lỗi tự tạo mâu thuẫn phổ biến nhất.
+    </li>
+    <li>
+      <strong>Với Schengen: nước ở lâu nhất = nước nộp hồ sơ.</strong> Lịch trình phản ánh đúng nguyên tắc này; ở
+      đều nhau thì nộp nước nhập cảnh đầu tiên.
+    </li>
+    <li>
+      <strong>Thực tế, đừng tham.</strong> 3 thành phố/7 ngày là hợp lý; 6 thành phố 4 nước/7 ngày trông như lịch
+      trình chép mạng. Người xét đọc hàng nghìn itinerary — họ nhận ra lịch không ai đi nổi.
+    </li>
+    <li><strong>Hoạt động ghi ngắn, cụ thể.</strong> "Louvre, Montmartre walking tour" tốt hơn "khám phá vẻ đẹp Paris".</li>
+  </ol>
+
+  <h2>Cách chia cột trong mẫu</h2>
+  <p>
+    Bảng gồm: Day / Date / Plan–Activities / City & Accommodation / Transport. Dòng đầu và cuối luôn là chuyến bay
+    đến–về (kèm số hiệu nếu đã đặt chỗ). Di chuyển giữa các thành phố ghi rõ phương tiện (train/bus/flight) — với
+    Schengen nhiều nước, đây là phần thể hiện tính khả thi của lịch trình.
+  </p>
+</DownloadTemplateLayout>
