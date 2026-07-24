@@ -40,3 +40,5 @@ Có thể xin trực tiếp tại quầy giao dịch ngân hàng hoặc xuất t
 Ưu tiên tài khoản có dòng tiền ra vào đều đặn, khớp với mức lương trên giấy xác nhận thu nhập. Tài khoản chỉ có một, hai giao dịch nạp tiền đột biến ngay trước ngày nộp hồ sơ dễ khiến lãnh sự đặt câu hỏi về nguồn gốc dòng tiền.
 
 Với sao kê nhiều trang, nên dịch trọn vẹn cả giai đoạn được yêu cầu (thường 3–6 tháng gần nhất) thay vì cắt bớt để giảm số trang.
+
+Xem đầy đủ bảng thuật ngữ (opening/closing balance, debit/credit...) và 5 lỗi hay gặp tại bài viết [Dịch sao kê ngân hàng sang tiếng Anh cho hồ sơ visa](/blog/dich-sao-ke-ngan-hang-sang-tieng-anh/).

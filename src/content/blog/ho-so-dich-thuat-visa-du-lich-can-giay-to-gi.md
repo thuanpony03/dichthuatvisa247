@@ -25,7 +25,7 @@ Nhóm này xác minh danh tính và các mối quan hệ gia đình liên quan �
 - [Sổ đỏ/sổ hồng](/mau-dich/so-do-so-hong/), [đăng ký xe](/mau-dich/dang-ky-xe/) — nếu dùng để chứng minh tài sản
 - Cổ phần/góp vốn doanh nghiệp, hợp đồng cho thuê tài sản... nếu có và cần bổ sung năng lực tài chính
 
-Nhóm này lãnh sự soi kỹ nhất vì liên quan trực tiếp đến khả năng tài chính và ràng buộc quay về Việt Nam sau chuyến đi. Nên dịch đồng bộ các giấy tờ tài chính trong cùng một đợt để số liệu nhất quán khi đối chiếu.
+Nhóm này lãnh sự soi kỹ nhất vì liên quan trực tiếp đến khả năng tài chính và ràng buộc quay về Việt Nam sau chuyến đi. Nên dịch đồng bộ các giấy tờ tài chính trong cùng một đợt để số liệu nhất quán khi đối chiếu. Xem chi tiết: [Chứng minh tài chính xin visa du lịch — sổ tiết kiệm bao nhiêu là đủ?](/blog/chung-minh-tai-chinh-xin-visa-du-lich/)
 
 ## 3. Giấy tờ công việc
 
@@ -33,6 +33,8 @@ Nhóm này lãnh sự soi kỹ nhất vì liên quan trực tiếp đến khả 
 - [Giấy chứng nhận đăng ký doanh nghiệp/giấy phép kinh doanh](/mau-dich/giay-phep-kinh-doanh/) (nếu tự kinh doanh thay vì đi làm công ty)
 - [Quyết định bổ nhiệm](/mau-dich/quyet-dinh-bo-nhiem/), [giấy chứng nhận nghỉ hưu](/mau-dich/giay-chung-nhan-nghi-huu/) — tuỳ tình trạng công việc hiện tại
 - Quyết định khen thưởng, bằng cấp chuyên môn... nếu muốn củng cố thêm vị trí công việc
+
+Người đang đi làm hầu như luôn cần thêm đơn xin nghỉ phép có xác nhận công ty — xem [mẫu song ngữ Việt–Anh tải dùng ngay](/blog/mau-don-xin-nghi-phep-di-nuoc-ngoai-song-ngu/).
 
 ## 4. Giấy tờ theo trường hợp riêng
 

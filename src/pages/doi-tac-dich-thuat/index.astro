@@ -1,0 +1,310 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import Lightbox from '../../components/Lightbox.astro';
+import Faq from '../../components/Faq.astro';
+import ZaloButton from '../../components/ZaloButton.astro';
+import { utmContent, agencyPricing, contact } from '../../config/site';
+
+const opsEvidencePreview = [1, 5, 9].map((i) => ({
+  src: `/img/agency/zalo-${String(i).padStart(2, '0')}.webp`,
+  alt: `Ảnh minh hoạ quy trình làm việc thực tế qua Zalo với CTV/đại lý #${i}`,
+  width: 435,
+  height: 943,
+}));
+
+function formatTier(v: number | 'thoathuan') {
+  return v === 'thoathuan' ? 'Thoả thuận' : v.toLocaleString('vi-VN') + 'đ';
+}
+
+const faqItems = [
+  {
+    question: 'Công ty du lịch, đại lý visa cần đặt tối thiểu bao nhiêu hồ sơ/tháng để nhận giá sỉ?',
+    answer:
+      'Từ 15 hồ sơ/tháng trở lên. Dưới mức này áp dụng giá lẻ như khách hàng cá nhân — xem đầy đủ tại bảng giá.',
+  },
+  {
+    question: 'SLA (cam kết thời gian giao) có ghi bằng văn bản không?',
+    answer:
+      'Có — khi ký hợp tác chính thức, mốc giao theo từng gói tốc độ (thường/48h/24h/siêu gấp) và mức bồi thường nếu trễ hẹn được ghi rõ bằng văn bản, không chỉ hứa miệng qua Zalo.',
+  },
+  {
+    question: 'Công nợ được áp dụng thế nào cho đại lý mới hợp tác?',
+    answer:
+      '3 đơn đầu tiên thanh toán ngay khi nhận bản dịch để hai bên làm quen quy trình. Từ đơn thứ 4 áp dụng công nợ 15 ngày, và sau 3 tháng hợp tác ổn định nâng lên 30 ngày.',
+  },
+  {
+    question: 'Mùa cao điểm hồ sơ dồn dập, xưởng dịch có nhận kịp không?',
+    answer:
+      'Có — xưởng dịch từng xử lý 71 bộ hồ sơ trong một đợt cho một đại lý đối tác. Đại lý có thể đẩy phần tràn mùa cao điểm sang mà không cần đổi đơn vị đang hợp tác chính.',
+  },
+  {
+    question: 'Cộng tác viên (CTV) cá nhân có hợp tác giá sỉ được không, hay chỉ nhận công ty?',
+    answer:
+      'Nhận cả CTV cá nhân, miễn khối lượng đạt từ 15 hồ sơ/tháng. Cách làm việc và chính sách công nợ giống như với công ty/đại lý.',
+  },
+];
+
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqItems.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: { '@type': 'Answer', text: item.answer },
+    })),
+  },
+];
+---
+
+<BaseLayout
+  title="Dịch Thuật Cho Công Ty Du Lịch & Đại Lý Visa — Giá Sỉ Từ 17.000đ/Trang"
+  description="Đối tác dịch thuật cho công ty tour, đại lý visa, CTV: giá sỉ từ 17.000đ/trang từ 15 hồ sơ/tháng, SLA bằng văn bản, trễ hẹn hoàn 100% phí gấp."
+  path="/doi-tac-dich-thuat/"
+  ogImage="/img/og/agency.webp"
+  schema={schema}
+>
+  <div class="container partner-page">
+    <Breadcrumb items={[{ label: 'Đối tác đại lý', href: '/doi-tac-dich-thuat/' }]} />
+    <h1>Dịch Thuật Hồ Sơ Visa Cho Công Ty Du Lịch, Đại Lý & CTV</h1>
+
+    <p class="lead">
+      Công ty tour, đại lý visa, cộng tác viên gửi hồ sơ đều đặn hằng tháng được áp <strong>giá sỉ từ
+      17.000đ/trang</strong> (từ 15 hồ sơ/tháng), <strong>SLA bằng văn bản</strong> khi ký hợp tác chính thức, và{' '}
+      <strong>trễ hẹn hoàn 100% phí gấp</strong> — không phải chờ "sắp xong anh ơi" giữa mùa cao điểm.
+    </p>
+
+    <div class="partner-cta">
+      <ZaloButton utmContent={utmContent.doiTac} label="NHẮN ZALO — NHẬN BÁO GIÁ SỈ" variant="block" />
+      <p class="text-muted partner-cta__note">Nhận 1 hồ sơ dịch thử miễn phí trước khi hợp tác</p>
+    </div>
+
+    <section>
+      <h2>Vì sao công ty tour, đại lý visa chọn hợp tác dài hạn?</h2>
+      <p>
+        Xưởng dịch chuyên một sản phẩm duy nhất — hồ sơ visa du lịch — nên đơn giá thấp hơn giá lẻ thị trường mà vẫn
+        giữ nguyên chất lượng: mọi bản dịch đều có mộc công ty + xác nhận dịch, kiểm tra chéo trước khi giao. Với
+        đại lý gửi khối lượng ổn định, xưởng dịch còn nhận thêm phần tràn mùa cao điểm mà không yêu cầu đổi đơn vị
+        đang hợp tác chính — đẩy sang khi kẹt, giao đúng hẹn thì tính tiếp.
+      </p>
+      <p class="capacity-stat">
+        <strong>71 bộ hồ sơ</strong> xử lý trong một đợt cho một đại lý đối tác — số liệu lấy từ sổ theo dõi công nợ
+        thực tế, không phải ước đoán.
+      </p>
+    </section>
+
+    <section class="ops-evidence">
+      <h2>Vận hành thực tế, không phải lời hứa</h2>
+      <p class="text-muted">
+        Ảnh chụp màn hình thật từ các nhóm Zalo làm việc với CTV và đại lý — đã che tên nhóm và tên khách hàng trong
+        hồ sơ.
+      </p>
+      <Lightbox columns={3} images={opsEvidencePreview} />
+      <a href="/agency/#ops-evidence" class="see-all">Xem thêm ảnh thực tế →</a>
+    </section>
+
+    <section class="pricing">
+      <h2>Giá sỉ theo bậc khối lượng</h2>
+      <p class="table-caption">Bảng giá sỉ dịch thuật hồ sơ visa cho đại lý/công ty du lịch, áp dụng từ 15 hồ sơ/tháng:</p>
+      <div class="table-scroll">
+        <table class="responsive-table">
+          <thead>
+            <tr>
+              <th>Khối lượng/tháng</th>
+              <th>Giá trọn hồ sơ</th>
+              <th>Giá theo trang</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              agencyPricing.map((tier) => (
+                <tr>
+                  <td data-label="Khối lượng/tháng">{tier.volumeLabel}</td>
+                  <td data-label="Giá trọn hồ sơ">{formatTier(tier.bundlePrice)}</td>
+                  <td data-label="Giá theo trang">{formatTier(tier.perPagePrice)}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+      <p class="price-table__note">
+        Giá gốc xưởng dịch, thấp hơn giá lẻ 20.000đ/trang. Xem <a href="/bang-gia/">bảng giá đầy đủ</a>.
+      </p>
+    </section>
+
+    <section>
+      <h2>SLA &amp; công nợ khi hợp tác chính thức</h2>
+      <ul class="debt-policy">
+        <li><strong>Giao đúng hẹn theo gói đã chọn</strong> — trễ hẹn hoàn 100% phí gấp của hồ sơ trễ.</li>
+        <li><strong>3 đơn đầu tiên:</strong> thanh toán ngay khi nhận bản dịch.</li>
+        <li><strong>Từ đơn thứ 4:</strong> công nợ 15 ngày; sau 3 tháng hợp tác ổn định nâng lên 30 ngày.</li>
+      </ul>
+      <p>
+        Quy trình làm việc: liên hệ &amp; thử miễn phí → thiết lập hợp tác (giá theo bậc, folder Drive dùng chung,
+        quy ước đặt tên file) → gửi hồ sơ theo đợt → dịch + kiểm tra chéo → bàn giao đúng hẹn → thanh toán/công nợ.
+        Chi tiết đầy đủ tại <a href="/agency/">trang dành cho đại lý</a>.
+      </p>
+    </section>
+
+    <section class="partner-page__faq">
+      <h2>Câu hỏi thường gặp</h2>
+      <Faq items={faqItems} />
+    </section>
+
+    <div class="final-cta">
+      <p class="text-muted">
+        Nhắn Zalo để nhận báo giá sỉ theo đúng khối lượng công ty/đại lý — Zalo nhận hồ sơ từ {contact.hours}.
+      </p>
+      <ZaloButton utmContent={utmContent.doiTac} label="NHẮN ZALO — NHẬN BÁO GIÁ SỈ" variant="block" />
+      <a href={`tel:${contact.phoneTel}`} class="btn btn--call btn--block">Gọi {contact.phoneDisplay}</a>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .partner-page {
+    padding: var(--space-6) 0 var(--space-8);
+    max-width: 760px;
+  }
+
+  .partner-page > h1 {
+    margin-top: var(--space-4);
+  }
+
+  .lead {
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    background: var(--paper);
+    border-left: 4px solid var(--accent);
+    padding: var(--space-4) var(--space-5);
+    border-radius: var(--radius-sm);
+  }
+
+  .partner-cta {
+    max-width: 420px;
+    margin: var(--space-5) 0 var(--space-7);
+  }
+
+  .partner-cta__note {
+    text-align: center;
+    margin-top: var(--space-2);
+  }
+
+  .capacity-stat {
+    background: var(--white);
+    border: 2px dashed var(--accent);
+    border-radius: var(--radius);
+    padding: var(--space-4) var(--space-5);
+    margin-top: var(--space-4);
+  }
+
+  .ops-evidence {
+    margin-top: var(--space-7);
+  }
+
+  .see-all {
+    display: inline-block;
+    margin-top: var(--space-5);
+    font-weight: 700;
+    color: var(--navy-900);
+    text-decoration: none;
+  }
+
+  .see-all:hover {
+    text-decoration: underline;
+  }
+
+  .pricing {
+    margin-top: var(--space-7);
+  }
+
+  .table-caption {
+    font-size: 0.9375rem;
+    color: var(--navy-700);
+    margin-bottom: var(--space-3);
+  }
+
+  .responsive-table th,
+  .responsive-table td {
+    text-align: left;
+    padding: var(--space-3);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .responsive-table thead {
+    background: var(--navy-900);
+    color: var(--white);
+  }
+
+  @media (max-width: 640px) {
+    .responsive-table thead {
+      display: none;
+    }
+
+    .responsive-table,
+    .responsive-table tbody,
+    .responsive-table tr,
+    .responsive-table td {
+      display: block;
+      width: 100%;
+    }
+
+    .responsive-table tr {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      margin-bottom: var(--space-3);
+      background: var(--white);
+    }
+
+    .responsive-table td {
+      border-bottom: none;
+      display: flex;
+      justify-content: space-between;
+      gap: var(--space-3);
+      text-align: right;
+    }
+
+    .responsive-table td::before {
+      content: attr(data-label);
+      font-weight: 700;
+      color: var(--navy-700);
+      text-align: left;
+    }
+  }
+
+  .price-table__note {
+    font-size: 0.875rem;
+    color: var(--navy-700);
+    margin-top: var(--space-3);
+  }
+
+  .debt-policy {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .debt-policy li {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--accent);
+    border-radius: var(--radius-sm);
+    padding: var(--space-3) var(--space-4);
+  }
+
+  .partner-page__faq {
+    margin-top: var(--space-7);
+  }
+
+  .final-cta {
+    margin-top: var(--space-7);
+    max-width: 420px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+</style>

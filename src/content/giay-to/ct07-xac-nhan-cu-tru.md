@@ -55,3 +55,5 @@ Phần lớn lãnh sự Schengen, Canada, Úc, Anh, New Zealand yêu cầu giấ
 Có thể nộp yêu cầu qua Cổng dịch vụ công quốc gia hoặc trực tiếp tại công an cấp xã/phường nơi đăng ký cư trú. Thời gian xử lý thường vài ngày làm việc, nên chủ động xin sớm thay vì để sát ngày cần nộp hồ sơ visa.
 
 Giấy xác nhận thông tin về cư trú (CT07) do công an cấp theo yêu cầu, không có sẵn tại nhà như sổ hộ khẩu cũ — cần xin cấp mới trước khi dịch. Bản gốc thường chỉ có giá trị xác nhận tại một thời điểm, vì vậy nhiều đơn vị lữ hành khuyên xin CT07 trong vòng 3–6 tháng trước ngày nộp hồ sơ visa để thông tin còn cập nhật.
+
+Xem hướng dẫn đầy đủ xin CT07 tại công an phường hoặc VNeID, và bảng thuật ngữ dịch chuẩn tại bài viết [Sổ hộ khẩu đã bỏ — xin visa dùng giấy gì?](/blog/ct07-thay-so-ho-khau-xin-visa/).

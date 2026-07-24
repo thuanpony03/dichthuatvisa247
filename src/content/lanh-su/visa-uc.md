@@ -48,3 +48,4 @@ Visa du lịch Úc phổ biến nhất là Subclass 600 (Visitor visa), nộp tr
 - **Đơn vị tiền tệ**: giữ nguyên VNĐ trên bản dịch, không tự quy đổi sang AUD.
 - **Tính đầy đủ hơn tính nhanh**: vì không có phỏng vấn để giải thích thêm, nên dịch đầy đủ các giấy tờ chứng minh ràng buộc (công việc, tài sản, gia đình) thay vì chỉ dịch tối thiểu theo checklist chung.
 - **Tên riêng và địa danh**: phiên âm nhất quán với hộ chiếu trên mọi giấy tờ trong cùng hồ sơ.
+- Xem checklist đầy đủ theo từng nhóm giấy tờ tại bài viết [Visa Úc cần dịch những giấy tờ gì?](/blog/visa-uc-can-dich-nhung-giay-to-gi/).

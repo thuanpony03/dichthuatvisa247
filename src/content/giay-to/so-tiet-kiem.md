@@ -45,3 +45,5 @@ commonErrors:
 Sổ tiết kiệm thể hiện số dư cố định tại một thời điểm, phù hợp khi muốn chứng minh nhanh một khoản tiền cụ thể đã tích luỹ. [Sao kê ngân hàng](/mau-dich/sao-ke-ngan-hang/) thể hiện dòng tiền theo thời gian, phù hợp khi cần chứng minh thu nhập đều đặn. Nhiều hồ sơ dùng cả hai để bổ trợ lẫn nhau — sổ tiết kiệm cho thấy tài sản tích luỹ, sao kê cho thấy nguồn gốc dòng tiền hợp lý.
 
 Nên xin xác nhận số dư (bank confirmation letter) kèm sổ tiết kiệm nếu hồ sơ yêu cầu năng lực tài chính cao — hai giấy tờ dịch cùng bộ sẽ nhất quán số liệu hơn khi đối chiếu.
+
+Xem thêm: sổ bao nhiêu là đủ, mở sổ khi nào là an toàn, và các lỗi tài chính khiến hồ sơ bị nghi ngờ tại bài viết [Chứng minh tài chính xin visa du lịch](/blog/chung-minh-tai-chinh-xin-visa-du-lich/).

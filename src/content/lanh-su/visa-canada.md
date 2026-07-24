@@ -48,3 +48,4 @@ Visa du lịch Canada (Visitor visa/TRV) áp dụng cho hồ sơ tham quan, thă
 - **Đơn vị tiền tệ**: giữ nguyên VNĐ trên bản dịch, không tự quy đổi sang CAD — việc quy đổi (nếu cần) do đương đơn hoặc viên chức xét hồ sơ thực hiện riêng.
 - **Tính nhất quán giữa giấy tờ tài chính**: IRCC đối chiếu số dư, thu nhập giữa các giấy tờ khác nhau trong cùng hồ sơ — nên dịch đồng bộ sổ tiết kiệm, sao kê ngân hàng và xác nhận thu nhập trong cùng một đợt để số liệu khớp nhau, tránh chênh lệch do dịch ở các thời điểm khác nhau.
 - **Ngôn ngữ đích**: IRCC chấp nhận cả tiếng Anh và tiếng Pháp — chọn một ngôn ngữ và dùng nhất quán cho toàn bộ hồ sơ dịch thuật.
+- Xem checklist đầy đủ theo từng nhóm giấy tờ tại bài viết [Visa Canada cần dịch những giấy tờ gì?](/blog/visa-canada-can-dich-nhung-giay-to-gi/).
