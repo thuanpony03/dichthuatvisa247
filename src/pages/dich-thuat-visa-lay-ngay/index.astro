@@ -1,0 +1,324 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import Faq from '../../components/Faq.astro';
+import LastUpdated from '../../components/LastUpdated.astro';
+import ZaloButton from '../../components/ZaloButton.astro';
+import { utmContent, contact, site } from '../../config/site';
+
+const pageUpdated = new Date('2026-07-24');
+
+const speedRows = [
+  { label: 'Siêu gấp — trong ngày', price: '60.000đ', turnaround: 'Trước 17h cùng ngày' },
+  { label: 'Gấp 24 giờ', price: '42.000đ', turnaround: 'Trong 24 giờ' },
+  { label: 'Gấp 48 giờ', price: '35.000đ', turnaround: 'Trong 48 giờ' },
+  { label: 'Bình thường', price: '20.000đ', turnaround: '3–5 ngày làm việc' },
+];
+
+const urgentDocs = [
+  { label: 'Sổ tiết kiệm', slug: 'so-tiet-kiem' },
+  { label: 'Xác nhận cư trú CT07', slug: 'ct07-xac-nhan-cu-tru' },
+  { label: 'Xác nhận thu nhập', slug: 'xac-nhan-thu-nhap' },
+  { label: 'Hợp đồng lao động', slug: 'hop-dong-lao-dong' },
+  { label: 'Giấy khai sinh', slug: 'giay-khai-sinh' },
+  { label: 'Sao kê ngân hàng', slug: 'sao-ke-ngan-hang' },
+];
+
+const faqItems = [
+  {
+    question: 'Dịch thuật lấy ngay trong ngày có kịp thật không?',
+    answer:
+      'Kịp — với hồ sơ visa du lịch tiếng Anh gửi qua Zalo trong khung giờ nhận, bản dịch giao trong ngày trước 17h. Làm được vì mỗi loại giấy tờ visa đã có khuôn bố cục và thuật ngữ sẵn, chỉ tập trung dịch và kiểm tra chéo phần nội dung riêng. Trễ hẹn hoàn 100% phí gấp.',
+  },
+  {
+    question: 'Dịch gấp trong ngày giá bao nhiêu?',
+    answer:
+      '60.000đ/trang giao trong ngày (trước 17h), 42.000đ/trang gấp 24 giờ, 35.000đ/trang gấp 48 giờ — đều đã gồm mộc công ty + xác nhận dịch, là giá cuối không phụ thu thêm.',
+  },
+  {
+    question: 'Tối muộn mới có giấy tờ thì gửi kịp không?',
+    answer: `Zalo nhận hồ sơ tới 21h30 hằng ngày, phản hồi báo giá trong 5 phút. Gửi buổi tối thì nhận mốc giao 24h; cần trong ngày thì gửi trước giờ nhận buổi sáng.`,
+  },
+  {
+    question: 'Dịch nhanh vậy có bị ẩu, sai sót không?',
+    answer:
+      'Tốc độ đến từ khuôn mẫu sẵn theo loại giấy tờ, không phải bỏ bước kiểm tra chéo trước khi đóng mộc. Nếu có sai sót do dịch: dịch lại miễn phí.',
+  },
+];
+
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqItems.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: { '@type': 'Answer', text: item.answer },
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    serviceType: 'Dịch thuật hồ sơ visa gấp',
+    provider: { '@type': 'Organization', name: site.name },
+    areaServed: 'VN',
+    offers: {
+      '@type': 'AggregateOffer',
+      priceCurrency: 'VND',
+      lowPrice: 35000,
+      highPrice: 60000,
+      offerCount: 3,
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: 'Dịch Thuật Hồ Sơ Visa Lấy Ngay Trong Ngày',
+    dateModified: pageUpdated.toISOString(),
+    publisher: { '@type': 'Organization', name: site.name },
+  },
+];
+---
+
+<BaseLayout
+  title="Dịch Thuật Visa Lấy Ngay Trong Ngày — Nhận Tới 21h30"
+  description="Dịch thuật hồ sơ visa lấy ngay trong ngày tại TP.HCM: gửi Zalo trước 17h nhận trong ngày, 60.000đ/trang có mộc công ty. Gấp 24h chỉ 42.000đ/trang. Trễ hẹn hoàn 100% phí gấp."
+  path="/dich-thuat-visa-lay-ngay/"
+  schema={schema}
+  ogImage="/img/og/lay-ngay.webp"
+>
+  <div class="container lp-page">
+    <Breadcrumb items={[{ label: 'Dịch thuật visa lấy ngay', href: '/dich-thuat-visa-lay-ngay/' }]} />
+    <h1>Dịch Thuật Hồ Sơ Visa Lấy Ngay Trong Ngày — Kịp Lịch Hẹn Lãnh Sự</h1>
+    <LastUpdated date={pageUpdated} />
+
+    <p class="lead">
+      <strong>Trả lời thẳng cho người đang gấp:</strong> gửi ảnh giấy tờ qua Zalo, báo giá + giờ giao cụ thể trong{' '}
+      <strong>5 phút</strong>; bản dịch có mộc công ty giao <strong>trong ngày trước 17h</strong> (60.000đ/trang),
+      hoặc <strong>24h</strong> (42.000đ/trang). Nhận hồ sơ qua Zalo tới <strong>21h30 hằng ngày</strong>. Trễ hẹn:{' '}
+      <strong>hoàn 100% phí gấp</strong>.
+    </p>
+
+    <div class="lp-cta">
+      <ZaloButton utmContent={utmContent.lpLayNgay} label="NHẮN ZALO — BÁO GIÁ TRONG 5 PHÚT" variant="block" />
+      <a href={`tel:${contact.phoneTel}`} class="btn btn--call btn--block">Gọi {contact.phoneDisplay}</a>
+    </div>
+
+    <section>
+      <h2>Mai nộp hồ sơ, hôm nay mới phát hiện thiếu bản dịch?</h2>
+      <p>
+        Tình huống quen thuộc: lịch hẹn VFS/TLScontact đã đặt, soát lại checklist mới thấy sổ tiết kiệm, xác nhận cư
+        trú, đơn nghỉ phép... chưa dịch. Đi tìm chỗ dịch thì nơi báo 2–3 ngày, nơi nhận gấp nhưng báo giá gấp đôi gấp
+        ba kèm phí "lấy nhanh" mơ hồ.
+      </p>
+      <p>Ở đây quy trình gấp được thiết kế sẵn, không phải ngoại lệ phải năn nỉ:</p>
+      <ol class="reason-list">
+        <li><strong>Chụp ảnh giấy tờ, gửi Zalo</strong> — không cần đến văn phòng, không cần hẹn trước.</li>
+        <li><strong>5 phút sau có báo giá + giờ giao chính xác</strong> (ví dụ: "giao 16h chiều nay").</li>
+        <li><strong>Dịch theo khuôn mẫu chuẩn từng loại giấy tờ, kiểm tra chéo, đóng mộc.</strong></li>
+        <li>
+          <strong>Nhận bản dịch đúng giờ cam kết</strong> — file scan gửi trước qua Zalo để anh/chị nộp online kịp,
+          bản cứng ship sau nếu cần.
+        </li>
+      </ol>
+    </section>
+
+    <section class="speed-table">
+      <h2>Bảng giá 4 mức tốc độ — giá cuối, không phụ thu</h2>
+      <p class="table-caption">
+        Bảng giá dịch thuật hồ sơ visa theo trang, đã gồm mộc công ty, cập nhật tháng 7/2026:
+      </p>
+      <div class="table-scroll">
+        <table class="responsive-table">
+          <thead>
+            <tr>
+              <th>Mức</th>
+              <th>Giá/trang</th>
+              <th>Giao</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              speedRows.map((row, i) => (
+                <tr class={i === 0 ? 'highlight-row' : ''}>
+                  <td data-label="Mức"><strong>{row.label}</strong></td>
+                  <td data-label="Giá/trang">{row.price}</td>
+                  <td data-label="Giao">{row.turnaround}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+      <p class="price-table__note">
+        Trọn bộ tới 30 trang gấp 24h: <strong>750.000đ</strong>. Tất cả đã gồm mộc công ty + xác nhận dịch. So mặt
+        bằng: giá gấp trong ngày ở đây (60.000đ) vẫn ngang hoặc thấp hơn giá dịch <em>không gấp</em> niêm yết công
+        khai của nhiều đơn vị (49.000–80.000đ/trang, khảo sát 7/2026 —{' '}
+        <a href="/dich-thuat-visa-gia-re/">xem so sánh giá</a>).
+      </p>
+    </section>
+
+    <section>
+      <h2>Vì sao dám cam kết giờ giao — và dám hoàn tiền?</h2>
+      <p>
+        Dịch nhanh mà vẫn đúng thể thức được vì phạm vi hẹp: chỉ hồ sơ visa du lịch, 17 loại giấy tờ quen thuộc, mỗi
+        loại có sẵn khuôn bố cục + bảng thuật ngữ chuẩn lãnh sự. Việc của người dịch là phần không thể tự động: tên
+        riêng khớp hộ chiếu, con số khớp bản gốc, kiểm tra chéo trước khi đóng mộc. Chi tiết:{' '}
+        <a href="/blog/dich-thuat-trong-ngay-24h-co-that-khong/">dịch trong ngày/24h có thật sự kịp không?</a>
+      </p>
+      <p>
+        Cam kết bằng tiền thật: <strong>trễ hẹn hoàn 100% phí gấp</strong> — anh/chị chỉ trả phần chênh lệch gấp khi
+        nhận đúng giờ.
+      </p>
+    </section>
+
+    <section>
+      <h2>Giấy tờ hay cần dịch gấp nhất</h2>
+      <p class="urgent-docs">
+        {
+          urgentDocs.map((d, i) => (
+            <>
+              <a href={`/mau-dich/${d.slug}/`}>{d.label}</a>
+              {i < urgentDocs.length - 1 && ' · '}
+            </>
+          ))
+        }
+        {' '}— xem <a href="/mau-dich/">thư viện 17+ mẫu dịch thật</a>.
+      </p>
+    </section>
+
+    <section class="price-page__faq">
+      <h2>Câu hỏi thường gặp</h2>
+      <Faq items={faqItems} />
+    </section>
+
+    <div class="final-cta">
+      <p class="text-muted">Zalo nhận hồ sơ tới {contact.hours}. Gửi ảnh → nhận báo giá + giờ giao → xác nhận → nhận bản dịch đúng hẹn.</p>
+      <ZaloButton utmContent={utmContent.lpLayNgay} label="NHẮN ZALO — BÁO GIÁ NGAY" variant="block" />
+      <a href={`tel:${contact.phoneTel}`} class="btn btn--call btn--block">Gọi {contact.phoneDisplay}</a>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .lp-page {
+    padding: var(--space-6) 0 var(--space-8);
+    max-width: 760px;
+  }
+
+  .lp-page > h1 {
+    margin-top: var(--space-4);
+  }
+
+  .lead {
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    background: var(--paper);
+    border-left: 4px solid var(--seal);
+    padding: var(--space-4) var(--space-5);
+    border-radius: var(--radius-sm);
+  }
+
+  .lp-cta {
+    max-width: 420px;
+    margin: var(--space-5) 0 var(--space-7);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .table-caption {
+    font-size: 0.9375rem;
+    color: var(--navy-700);
+    margin-bottom: var(--space-3);
+  }
+
+  .speed-table {
+    margin-top: var(--space-7);
+  }
+
+  .responsive-table th,
+  .responsive-table td {
+    text-align: left;
+    padding: var(--space-3);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .responsive-table thead {
+    background: var(--navy-900);
+    color: var(--white);
+  }
+
+  .highlight-row td {
+    background: #fdecea;
+  }
+
+  @media (max-width: 640px) {
+    .responsive-table thead {
+      display: none;
+    }
+
+    .responsive-table,
+    .responsive-table tbody,
+    .responsive-table tr,
+    .responsive-table td {
+      display: block;
+      width: 100%;
+    }
+
+    .responsive-table tr {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      margin-bottom: var(--space-3);
+      background: var(--white);
+    }
+
+    .highlight-row td {
+      background: #fdecea;
+    }
+
+    .responsive-table td {
+      border-bottom: none;
+      display: flex;
+      justify-content: space-between;
+      gap: var(--space-3);
+      text-align: right;
+    }
+
+    .responsive-table td::before {
+      content: attr(data-label);
+      font-weight: 700;
+      color: var(--navy-700);
+      text-align: left;
+    }
+  }
+
+  .price-table__note {
+    font-size: 0.875rem;
+    color: var(--navy-700);
+    margin-top: var(--space-3);
+  }
+
+  .reason-list {
+    padding-left: 1.25em;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .urgent-docs {
+    line-height: 2;
+  }
+
+  .price-page__faq {
+    margin-top: var(--space-7);
+  }
+
+  .final-cta {
+    margin-top: var(--space-7);
+    max-width: 420px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+</style>

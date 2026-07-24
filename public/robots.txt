@@ -1,3 +1,5 @@
+# Chủ đích cho phép mọi crawler kể cả AI (GPTBot, ClaudeBot, Google-Extended, PerplexityBot...)
+# — site cần được AI Overview/ChatGPT/Claude/Gemini trích dẫn, không chặn bot AI nào ở đây.
 User-agent: *
 Allow: /
 

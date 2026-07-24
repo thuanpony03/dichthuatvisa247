@@ -17,7 +17,7 @@ Mỗi loại giấy tờ (khai sinh, kết hôn, sổ tiết kiệm, hợp đồ
 
 ## Dịch thuật hồ sơ visa có những mốc thời gian nào?
 
-Có 4 mốc: bình thường 3–5 ngày làm việc, gấp 48 giờ, gấp 24 giờ, và siêu gấp giao trong ngày nếu gửi trước 17h. Xem đầy đủ tại [bảng giá](/bang-gia/), tóm tắt:
+Có 4 mốc: bình thường 3–5 ngày làm việc, gấp 48 giờ, gấp 24 giờ, và siêu gấp giao trong ngày nếu gửi trước 17h. Xem đầy đủ tại [bảng giá](/bang-gia/) hoặc [trang riêng cho dịch lấy ngay trong ngày](/dich-thuat-visa-lay-ngay/), tóm tắt:
 
 - **Bình thường**: 3–5 ngày làm việc
 - **Gấp 48 giờ**: trong 48 giờ

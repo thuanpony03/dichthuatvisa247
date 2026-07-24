@@ -14,9 +14,43 @@ function formatTier(v: number | 'thoathuan') {
 const startingPrice = perPagePricing[0].pricePerPage;
 const otherLangStarting = otherLanguagePricing[0].pricePerPage;
 // Cập nhật thủ công khi giá thay đổi — dùng cho tín hiệu freshness (LastUpdated + WebPage schema)
-const pageUpdated = new Date('2026-07-21');
+const pageUpdated = new Date('2026-07-24');
+
+const sourceRows = [
+  {
+    unit: 'Đơn vị A',
+    href: 'https://dichthuatsaigon247.com/bao-gia/',
+    price: '69.000–80.000đ/trang (thường); 100.000–120.000đ/trang (công chứng)',
+    note: 'Chưa gồm VAT 10%',
+  },
+  {
+    unit: 'Đơn vị B',
+    href: 'https://dichthuatcongchung.com/bang-gia-dich-thuat-cong-chung-tieng-anh/',
+    price: '49.000–65.000đ/trang',
+    note: 'Phí công chứng 40.000–100.000đ/bộ tính riêng',
+  },
+  {
+    unit: 'Đơn vị C',
+    href: 'https://tinholdings.com/dich-vu-dich-thuat-tieng-anh/',
+    price: 'Từ 70.000đ/trang',
+    note: '—',
+  },
+  {
+    unit: 'Đơn vị D',
+    href: 'https://dichthuatsaigon.vn/ho-so-visa/',
+    price: 'Gói visa du lịch 350.000–650.000đ/bộ',
+    note: 'Chưa gồm phí in ấn + lệ phí công chứng',
+  },
+];
 
 const faqItems = [
+  {
+    question: 'Dịch thuật hồ sơ visa ở đâu rẻ nhất TP.HCM?',
+    answer:
+      'Theo khảo sát bảng giá công khai tháng 7/2026, giá dịch tiếng Anh phổ biến 49.000–150.000đ/trang (nhiều nơi chưa gồm VAT, phí công chứng). Dịch Thuật Visa 247 niêm yết 20.000đ/trang đã gồm mộc công ty + xác nhận dịch — mức thấp nhất trong các bảng giá công khai được khảo sát tại thời điểm đó.',
+    link: '/dich-thuat-visa-gia-re/',
+    linkLabel: 'Xem bảng so sánh đầy đủ',
+  },
   {
     question: 'Giá rẻ vậy thì bản dịch có kém chất lượng không?',
     answer: 'Không. Phần rẻ hơn đến từ việc rút ngắn thời gian thao tác nhờ tự động hoá — bố cục, thuật ngữ có sẵn khuôn cho từng loại giấy tờ — chứ không phải bỏ bớt bước kiểm tra chéo trước khi đóng mộc.',
@@ -88,12 +122,58 @@ const schema = [
     <p class="text-muted">
       Hai cách tính: chọn <strong>gói trọn hồ sơ</strong> nếu dịch cả bộ (biết tổng tiền ngay từ đầu), hoặc tính{' '}
       <strong>theo trang</strong> nếu chỉ cần một vài giấy tờ lẻ. Giá thấp hơn mặt bằng chung nhờ tự động hoá phần
-      thao tác lặp lại — mọi bản dịch vẫn có mộc công ty + xác nhận dịch như nhau.
+      thao tác lặp lại — mọi bản dịch vẫn có mộc công ty + xác nhận dịch như nhau. Đang gấp? Xem{' '}
+      <a href="/dich-thuat-visa-lay-ngay/">giá dịch lấy ngay trong ngày</a>.
     </p>
+
+    <section class="compare-source">
+      <h2>So sánh giá công khai — số liệu thật, có nguồn</h2>
+      <p class="table-caption">
+        Bảng giá dịch thuật tiếng Anh cho hồ sơ visa, lấy từ bảng giá công khai đang niêm yết của các đơn vị dịch
+        thuật tại TP.HCM, truy cập tháng 7/2026 (bấm vào nguồn để tự kiểm chứng):
+      </p>
+      <div class="table-scroll">
+        <table class="responsive-table">
+          <thead>
+            <tr>
+              <th>Đơn vị</th>
+              <th>Giá dịch tiếng Anh niêm yết</th>
+              <th>Đã gồm xác nhận/mộc?</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              sourceRows.map((row) => (
+                <tr>
+                  <td data-label="Đơn vị">
+                    {row.unit} —{' '}
+                    <a href={row.href} rel="nofollow noopener" target="_blank">
+                      nguồn
+                    </a>
+                  </td>
+                  <td data-label="Giá dịch tiếng Anh niêm yết">{row.price}</td>
+                  <td data-label="Đã gồm xác nhận/mộc?">{row.note}</td>
+                </tr>
+              ))
+            }
+            <tr class="highlight-row">
+              <td data-label="Đơn vị"><strong>Dịch Thuật Visa 247</strong></td>
+              <td data-label="Giá dịch tiếng Anh niêm yết"><strong>{startingPrice.toLocaleString('vi-VN')}đ/trang · 400.000đ/bộ tới 30 trang</strong></td>
+              <td data-label="Đã gồm xác nhận/mộc?"><strong>Đã gồm mộc công ty + xác nhận dịch — giá cuối</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="price-table__note">
+        Khảo sát lần cuối: {pageUpdated.toLocaleDateString('vi-VN', { year: 'numeric', month: '2-digit', day: '2-digit' })}. Xem{' '}
+        <a href="/blog/gia-dich-thuat-ho-so-visa-tren-thi-truong-2026/">cách khảo sát</a> · Xem{' '}
+        <a href="/dich-thuat-visa-gia-re/">phân tích so sánh đầy đủ</a>.
+      </p>
+    </section>
 
     <section class="cost-example">
       <h2>Dịch hồ sơ visa 25 trang giá bao nhiêu?</h2>
-      <p>
+      <p class="table-caption">
         Hồ sơ 25 trang tính theo trang ở đây tốn {(startingPrice * 25).toLocaleString('vi-VN')}đ (
         {startingPrice.toLocaleString('vi-VN')}đ/trang), hoặc 400.000đ nếu chọn gói trọn hồ sơ — so với mặt bằng
         thị trường 1.225.000đ–3.750.000đ cho cùng số trang (49.000–150.000đ/trang, khảo sát công khai TP.HCM
@@ -144,6 +224,9 @@ const schema = [
       loading="eager"
     />
 
+    <p class="table-caption">
+      Bảng giá dịch thuật hồ sơ visa theo gói trọn bộ và theo trang, đã gồm mộc công ty, cập nhật tháng 7/2026:
+    </p>
     <PriceTable />
 
     <section class="agency-pricing">
@@ -210,6 +293,68 @@ const schema = [
     border-radius: var(--radius);
     padding: var(--space-6);
     margin: var(--space-5) 0 var(--space-6);
+  }
+
+  .compare-source {
+    margin-top: var(--space-7);
+  }
+
+  .table-caption {
+    font-size: 0.9375rem;
+    color: var(--navy-700);
+    margin-bottom: var(--space-3);
+  }
+
+  .compare-source .responsive-table th,
+  .compare-source .responsive-table td {
+    text-align: left;
+    padding: var(--space-3);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .compare-source .responsive-table thead {
+    background: var(--navy-900);
+    color: var(--white);
+  }
+
+  .highlight-row td {
+    background: #eef7ef;
+  }
+
+  @media (max-width: 640px) {
+    .compare-source .responsive-table thead {
+      display: none;
+    }
+
+    .compare-source .responsive-table,
+    .compare-source .responsive-table tbody,
+    .compare-source .responsive-table tr,
+    .compare-source .responsive-table td {
+      display: block;
+      width: 100%;
+    }
+
+    .compare-source .responsive-table tr {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      margin-bottom: var(--space-3);
+      background: var(--white);
+    }
+
+    .compare-source .responsive-table td {
+      border-bottom: none;
+      display: flex;
+      justify-content: space-between;
+      gap: var(--space-3);
+      text-align: right;
+    }
+
+    .compare-source .responsive-table td::before {
+      content: attr(data-label);
+      font-weight: 700;
+      color: var(--navy-700);
+      text-align: left;
+    }
   }
 
   .price-hero__label {

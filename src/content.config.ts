@@ -48,6 +48,8 @@ const blog = defineCollection({
     slug: z.string(),
     description: z.string(),
     updated: z.date(),
+    // Tuỳ chọn — thêm FAQPage schema cho bài viết khi câu hỏi trong nội dung cần AI Overview trích riêng.
+    faq: z.array(z.object({ question: z.string(), answer: z.string() })).optional(),
   }),
 });
 

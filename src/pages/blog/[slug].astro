@@ -29,6 +29,19 @@ const schema = [
     author: { '@type': 'Person', name: authorPerson.name, description: authorPerson.description },
     publisher: { '@type': 'Organization', name: site.name },
   },
+  ...(data.faq
+    ? [
+        {
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: data.faq.map((item) => ({
+            '@type': 'Question',
+            name: item.question,
+            acceptedAnswer: { '@type': 'Answer', text: item.answer },
+          })),
+        },
+      ]
+    : []),
 ];
 ---
 

@@ -58,6 +58,7 @@ const schema = [
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
     name: site.business.legalName,
+    description: 'Dịch thuật hồ sơ visa du lịch sang tiếng Anh, từ 20.000đ/trang, có mộc công ty + xác nhận dịch, giao trong 24h.',
     telephone: contact.phoneTel,
     address: {
       '@type': 'PostalAddress',
@@ -85,7 +86,7 @@ const schema = [
 ---
 
 <BaseLayout
-  title="Dịch Thuật Hồ Sơ Visa — Mộc Công Ty, Giao Trong 24h | Dịch Thuật Visa 247"
+  title="Dịch Thuật Hồ Sơ Visa 20.000đ/Trang — Mộc Công Ty, Giao 24h"
   description="Dịch hồ sơ visa du lịch sang tiếng Anh: Mỹ, Schengen, Canada, Úc, Anh, New Zealand. Từ 20.000đ/trang, có mộc công ty + xác nhận dịch, giao trong 24h."
   path="/"
   schema={schema}
@@ -213,7 +214,11 @@ const schema = [
   <section class="section">
     <div class="container">
       <h2>Bảng giá</h2>
+      <p class="text-muted">
+        Bảng giá dịch thuật hồ sơ visa theo gói trọn bộ và theo trang, đã gồm mộc công ty, cập nhật tháng 7/2026:
+      </p>
       <PriceTable />
+      <a href="/dich-thuat-visa-gia-re/" class="see-all">So sánh với giá thị trường →</a>
     </div>
   </section>
 

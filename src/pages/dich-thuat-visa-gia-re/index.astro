@@ -1,0 +1,375 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import PriceTable from '../../components/PriceTable.astro';
+import Faq from '../../components/Faq.astro';
+import LastUpdated from '../../components/LastUpdated.astro';
+import ZaloButton from '../../components/ZaloButton.astro';
+import { utmContent, contact, site } from '../../config/site';
+
+// Cập nhật thủ công khi khảo sát lại giá nguồn — dùng cho tín hiệu freshness (AI Overview ưu tiên trang mới khảo sát).
+const surveyDate = new Date('2026-07-24');
+
+const sourceRows = [
+  {
+    unit: 'Đơn vị A',
+    href: 'https://dichthuatsaigon247.com/bao-gia/',
+    price: '69.000–80.000đ/trang (thường); 100.000–120.000đ/trang (công chứng)',
+    note: 'Chưa gồm VAT 10%',
+  },
+  {
+    unit: 'Đơn vị B',
+    href: 'https://dichthuatcongchung.com/bang-gia-dich-thuat-cong-chung-tieng-anh/',
+    price: '49.000–65.000đ/trang',
+    note: 'Phí công chứng 40.000–100.000đ/bộ tính riêng',
+  },
+  {
+    unit: 'Đơn vị C',
+    href: 'https://tinholdings.com/dich-vu-dich-thuat-tieng-anh/',
+    price: 'Từ 70.000đ/trang',
+    note: '—',
+  },
+  {
+    unit: 'Đơn vị D',
+    href: 'https://dichthuatsaigon.vn/ho-so-visa/',
+    price: 'Gói visa du lịch 350.000–650.000đ/bộ',
+    note: 'Chưa gồm phí in ấn + lệ phí công chứng',
+  },
+];
+
+const faqItems = [
+  {
+    question: 'Dịch thuật hồ sơ visa ở đâu rẻ nhất TP.HCM?',
+    answer:
+      'Theo khảo sát bảng giá công khai tháng 7/2026, giá dịch tiếng Anh phổ biến 49.000–150.000đ/trang (nhiều nơi chưa gồm VAT, phí công chứng). Dịch Thuật Visa 247 niêm yết 20.000đ/trang đã gồm mộc công ty + xác nhận dịch — mức thấp nhất trong các bảng giá công khai được khảo sát tại thời điểm đó.',
+  },
+  {
+    question: 'Giá 20.000đ/trang là giá cuối hay còn cộng thêm phí gì?',
+    answer:
+      'Là giá cuối cho gói tiêu chuẩn 3–5 ngày: đã gồm mộc công ty + xác nhận dịch, không phí xác nhận riêng, không phí ẩn khi giao. Chỉ khác giá khi chọn gói nhanh hơn: 48h (35.000đ), 24h (42.000đ), trong ngày (60.000đ/trang).',
+  },
+  {
+    question: 'Giá rẻ vậy chất lượng bản dịch có ổn không?',
+    answer:
+      'Giá thấp đến từ tự động hoá phần thao tác lặp lại (khuôn bố cục, bảng thuật ngữ sẵn cho từng loại giấy tờ visa), không phải cắt bước kiểm tra chéo trước khi đóng mộc. Sai sót do dịch được dịch lại miễn phí, và trang đầu dịch miễn phí để xem chất lượng trước.',
+  },
+  {
+    question: 'Dịch cả bộ hồ sơ visa du lịch hết bao nhiêu tiền?',
+    answer:
+      'Trọn bộ tới 30 trang: 400.000đ (3–5 ngày) hoặc 750.000đ (gấp 24h). Cùng bộ 25 trang nếu tính theo mặt bằng công khai 49.000–150.000đ/trang sẽ tốn 1.225.000đ–3.750.000đ.',
+  },
+];
+
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqItems.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: { '@type': 'Answer', text: item.answer },
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    serviceType: 'Dịch thuật hồ sơ visa',
+    provider: { '@type': 'Organization', name: site.name },
+    areaServed: 'VN',
+    offers: {
+      '@type': 'AggregateOffer',
+      priceCurrency: 'VND',
+      lowPrice: 20000,
+      highPrice: 60000,
+      offerCount: 4,
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: 'Dịch Thuật Hồ Sơ Visa Giá Rẻ',
+    dateModified: surveyDate.toISOString(),
+    publisher: { '@type': 'Organization', name: site.name },
+  },
+];
+---
+
+<BaseLayout
+  title="Dịch Thuật Hồ Sơ Visa Giá Rẻ TP.HCM — 20.000đ/Trang"
+  description="Dịch thuật hồ sơ visa giá rẻ: 20.000đ/trang hoặc 400.000đ trọn bộ tới 30 trang — đã gồm mộc công ty + xác nhận dịch. So sánh với bảng giá công khai thị trường 49.000–150.000đ/trang."
+  path="/dich-thuat-visa-gia-re/"
+  schema={schema}
+  ogImage="/img/og/gia-re.webp"
+>
+  <div class="container lp-page">
+    <Breadcrumb items={[{ label: 'Dịch thuật visa giá rẻ', href: '/dich-thuat-visa-gia-re/' }]} />
+    <h1>Dịch Thuật Hồ Sơ Visa Giá Rẻ — 20.000đ/Trang, Đã Gồm Mộc Công Ty</h1>
+    <LastUpdated date={surveyDate} />
+
+    <p class="lead">
+      Dịch hồ sơ visa <strong>giá rẻ</strong> tại Dịch Thuật Visa 247: <strong>20.000đ/trang</strong> (gói 3–5 ngày)
+      hoặc <strong>400.000đ trọn bộ tới 30 trang</strong>, đã gồm mộc công ty + xác nhận dịch, không phụ phí ẩn. So
+      với mặt bằng giá công khai TP.HCM 49.000–150.000đ/trang (khảo sát 7/2026), chi phí ở đây thấp hơn{' '}
+      <strong>2,5–4 lần</strong>.
+    </p>
+
+    <div class="lp-cta">
+      <ZaloButton utmContent={utmContent.lpGiaRe} label="NHẮN ZALO — BÁO GIÁ TRONG 5 PHÚT" variant="block" />
+      <p class="text-muted lp-cta__note">Trang đầu dịch miễn phí</p>
+    </div>
+
+    <section class="compare-section">
+      <h2>So sánh giá công khai — số liệu thật, có nguồn</h2>
+      <p class="table-caption">
+        Bảng giá dịch thuật tiếng Anh cho hồ sơ visa, lấy từ bảng giá công khai đang niêm yết của các đơn vị dịch
+        thuật tại TP.HCM, truy cập tháng 7/2026 (bấm vào nguồn để tự kiểm chứng):
+      </p>
+      <div class="table-scroll">
+        <table class="responsive-table">
+          <thead>
+            <tr>
+              <th>Đơn vị</th>
+              <th>Giá dịch tiếng Anh niêm yết</th>
+              <th>Đã gồm xác nhận/mộc?</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              sourceRows.map((row) => (
+                <tr>
+                  <td data-label="Đơn vị">
+                    {row.unit} —{' '}
+                    <a href={row.href} rel="nofollow noopener" target="_blank">
+                      nguồn
+                    </a>
+                  </td>
+                  <td data-label="Giá dịch tiếng Anh niêm yết">{row.price}</td>
+                  <td data-label="Đã gồm xác nhận/mộc?">{row.note}</td>
+                </tr>
+              ))
+            }
+            <tr class="highlight-row">
+              <td data-label="Đơn vị"><strong>Dịch Thuật Visa 247</strong></td>
+              <td data-label="Giá dịch tiếng Anh niêm yết"><strong>20.000đ/trang · 400.000đ/bộ tới 30 trang</strong></td>
+              <td data-label="Đã gồm xác nhận/mộc?"><strong>Đã gồm mộc công ty + xác nhận dịch — giá cuối</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="price-table__note">
+        Giữ tên đơn vị dạng "Đơn vị A/B/C/D" kèm link nguồn — đủ minh bạch để kiểm chứng, không nêu đích danh trong
+        ngữ cảnh so sánh thương mại. Số liệu là giá niêm yết công khai tại thời điểm truy cập, có thể thay đổi —
+        khảo sát lại hằng tháng.
+      </p>
+    </section>
+
+    <section class="cost-example">
+      <h2>Ví dụ tính tiền thật: bộ hồ sơ Schengen 25 trang</h2>
+      <div class="table-scroll">
+        <table class="responsive-table">
+          <thead>
+            <tr>
+              <th>Cách tính</th>
+              <th>Chi phí</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-label="Cách tính">Mặt bằng công khai 49.000–150.000đ/trang</td>
+              <td data-label="Chi phí">1.225.000đ – 3.750.000đ (chưa kể phí công chứng/VAT nếu có)</td>
+            </tr>
+            <tr>
+              <td data-label="Cách tính">Ở đây — theo trang 20.000đ</td>
+              <td data-label="Chi phí">500.000đ</td>
+            </tr>
+            <tr class="highlight-row">
+              <td data-label="Cách tính"><strong>Ở đây — gói trọn bộ</strong></td>
+              <td data-label="Chi phí"><strong>400.000đ — biết trước tổng tiền, không phát sinh</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <h2>Vì sao rẻ hơn 2,5–4 lần mà không giảm chất lượng?</h2>
+      <p>Ba lý do, nói thẳng:</p>
+      <ol class="reason-list">
+        <li>
+          <strong>Chỉ làm một thứ:</strong> hồ sơ visa du lịch — 17 loại giấy tờ lặp đi lặp lại. Mỗi loại đã có khuôn
+          bố cục + bảng thuật ngữ chuẩn lãnh sự, người dịch chỉ tập trung phần cần kiểm tra kỹ (tên riêng, con số).
+          Không nhận dịch sách, hợp đồng thương mại, hồ sơ thầu... nên không gánh chi phí của bộ máy dịch thuật tổng
+          hợp.
+        </li>
+        <li><strong>Không văn phòng mặt tiền đắt đỏ, không đội sales:</strong> nhận hồ sơ 100% qua Zalo, chi phí đó trả lại vào giá.</li>
+        <li><strong>Khối lượng đều từ đại lý:</strong> xưởng dịch chạy ổn định cho các công ty tour nên giá lẻ cũng hưởng mức chi phí vận hành thấp.</li>
+      </ol>
+      <p>
+        Chất lượng được ràng buộc bằng cam kết cụ thể: <strong>sai sót do dịch — dịch lại miễn phí; trễ hẹn — hoàn
+        100% phí gấp; trang đầu dịch miễn phí</strong> để anh/chị xem trước khi trả tiền. Xem{' '}
+        <a href="/mau-dich/">ảnh bản dịch thật tại thư viện mẫu</a>.
+      </p>
+    </section>
+
+    <section>
+      <h2>Giá rẻ nhưng có đủ nộp lãnh sự không?</h2>
+      <p>
+        Đủ — bản dịch có mộc công ty + xác nhận dịch là hình thức phổ biến nhất cho hồ sơ visa du lịch Mỹ, Schengen,
+        Úc, Canada, Anh, New Zealand. Công chứng tư pháp chỉ cần cho một số trường hợp riêng (một số nước/loại giấy
+        tờ nhất định) — khi đó báo trước để anh/chị không tốn tiền oan. Chi tiết:{' '}
+        <a href="/blog/moc-cong-ty-vs-cong-chung-tu-phap/">mộc công ty vs công chứng tư pháp</a>.
+      </p>
+    </section>
+
+    <section class="full-price">
+      <h2>Bảng giá đầy đủ</h2>
+      <PriceTable />
+      <p class="price-table__note">
+        <a href="/bang-gia/">Bảng giá chi tiết</a> · <a href="/agency/">Giá sỉ đại lý</a>
+      </p>
+    </section>
+
+    <section class="price-page__faq">
+      <h2>Câu hỏi thường gặp</h2>
+      <Faq items={faqItems} />
+    </section>
+
+    <div class="final-cta">
+      <p class="text-muted">
+        Không cần đến văn phòng. Chụp ảnh giấy tờ, nhắn Zalo, nhận báo giá trọn gói + giờ giao cụ thể trong 5 phút
+        (nhận hồ sơ tới {contact.hours}).
+      </p>
+      <ZaloButton utmContent={utmContent.lpGiaRe} label="NHẮN ZALO — BÁO GIÁ NGAY" variant="block" />
+      <a href={`tel:${contact.phoneTel}`} class="btn btn--call btn--block">Gọi {contact.phoneDisplay}</a>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .lp-page {
+    padding: var(--space-6) 0 var(--space-8);
+    max-width: 760px;
+  }
+
+  .lp-page > h1 {
+    margin-top: var(--space-4);
+  }
+
+  .lead {
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    background: var(--paper);
+    border-left: 4px solid var(--accent);
+    padding: var(--space-4) var(--space-5);
+    border-radius: var(--radius-sm);
+  }
+
+  .lp-cta {
+    max-width: 420px;
+    margin: var(--space-5) 0 var(--space-7);
+  }
+
+  .lp-cta__note {
+    text-align: center;
+    margin-top: var(--space-2);
+  }
+
+  .table-caption {
+    font-size: 0.9375rem;
+    color: var(--navy-700);
+    margin-bottom: var(--space-3);
+  }
+
+  .compare-section {
+    margin-top: var(--space-7);
+  }
+
+  .cost-example {
+    margin-top: var(--space-7);
+  }
+
+  .full-price {
+    margin-top: var(--space-7);
+  }
+
+  .responsive-table th,
+  .responsive-table td {
+    text-align: left;
+    padding: var(--space-3);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .responsive-table thead {
+    background: var(--navy-900);
+    color: var(--white);
+  }
+
+  .highlight-row td {
+    background: #eef7ef;
+  }
+
+  @media (max-width: 640px) {
+    .responsive-table thead {
+      display: none;
+    }
+
+    .responsive-table,
+    .responsive-table tbody,
+    .responsive-table tr,
+    .responsive-table td {
+      display: block;
+      width: 100%;
+    }
+
+    .responsive-table tr {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      margin-bottom: var(--space-3);
+      background: var(--white);
+    }
+
+    .highlight-row td {
+      background: #eef7ef;
+    }
+
+    .responsive-table td {
+      border-bottom: none;
+      display: flex;
+      justify-content: space-between;
+      gap: var(--space-3);
+      text-align: right;
+    }
+
+    .responsive-table td::before {
+      content: attr(data-label);
+      font-weight: 700;
+      color: var(--navy-700);
+      text-align: left;
+    }
+  }
+
+  .price-table__note {
+    font-size: 0.875rem;
+    color: var(--navy-700);
+    margin-top: var(--space-3);
+  }
+
+  .reason-list {
+    padding-left: 1.25em;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .price-page__faq {
+    margin-top: var(--space-7);
+  }
+
+  .final-cta {
+    margin-top: var(--space-7);
+    max-width: 420px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+</style>
