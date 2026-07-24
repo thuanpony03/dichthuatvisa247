@@ -17,6 +17,7 @@ export const site = {
     postalCode: '', // Chưa có — không bắt buộc cho schema LocalBusiness
   },
   hanoiOffice: 'Số 1 Đào Duy Anh, Đống Đa, Hà Nội',
+  gbpUrl: 'https://maps.app.goo.gl/75S9TCvoen1B1oTf8',
 } as const;
 
 export const contact = {
